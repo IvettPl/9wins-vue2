@@ -1,0 +1,226 @@
+.submenu-list {
+    display: inline-flex;
+    align-items: center;
+
+    @media(max-width: 1024px) {
+        padding: 2px 0 35px;
+        width: 100%;
+        height: 83px;
+        align-items: flex-end;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background-color: $black;
+        box-sizing: border-box;
+    }
+
+    .btn-deposite {
+        @media(min-width: 1025px) {
+            display: none;  
+        }
+            
+    }
+
+    &__item {
+        margin-left: 24px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+            
+
+        @media(max-width: 1200px) {
+            margin-left: 14px;
+        }
+            
+
+        @media(max-width: 1024px) {
+            margin: 0;
+        }
+            
+
+        &:hover {
+            circle,
+            path,
+            g {
+                fill: $white;
+                opacity: 1;
+                transition: fill 250ms, opacity 250ms;
+            }
+
+
+            .submenu-list__title {
+                color: $white;
+            }
+                
+
+            .icn-sports {
+                circle,
+                path {
+                    fill: $white;
+                }
+            }
+
+                    
+
+            .icn-games {
+                path {
+                    &:first-child {
+                        fill: none;
+                        stroke: $white;
+                        transition: stroke 250ms, opacity 250ms;
+                    }
+                        
+
+                    &:last-child {
+                        fill: $white;
+                    }
+                        
+                }
+
+            }
+
+
+            .icn-casino {
+                path {
+                    fill: $white;
+                }
+                                    
+            }
+
+
+            .icn-slots {
+                circle,
+                path {
+                    fill: none;
+                    stroke: $white;
+                    transition: stroke 250ms, opacity 250ms;
+                }
+                    
+            }
+
+        }
+
+
+        &--deposite {
+            @media(min-width: 1025px) {
+                display: none;
+            }
+            .btn-deposite {
+                margin-bottom: 4px;
+                box-shadow: 0 0 0 4px $black;
+            }           
+
+            .submenu-list__icn {
+                margin-bottom: 4px;
+                width: 48px;
+                height: 48px;
+                display: block;
+                flex-shrink: 0;
+                position: relative;
+                background-color: $red;
+                border-radius: 50%;
+                box-shadow: 0 0 0 4px $black;
+                transition: opacity 250ms;
+                cursor: pointer;
+
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: $white;
+                    border-radius: 2px;
+                }
+
+
+                &:before {
+                    width: 22px;
+                    height: 4px;
+                }
+
+
+                &:after {
+                    width: 4px;
+                    height: 22px;    
+                }
+
+            }
+        
+        }
+
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+
+        @media(max-width: 1024px) {
+            flex-direction: column;
+        }
+            
+
+        @media(max-width: 1024px) {
+            width: 70px;
+        }
+        &:hover {
+            .submenu-list__title {
+                color: $white;
+            }
+                
+        }
+
+           
+    }
+
+    &__icn {
+        margin-right: 4px;
+        width: 24px;
+        height: 24px;
+        display: block;
+        flex-shrink: 0;
+
+        @media(max-width: 1024px) {
+            margin-right: 0;
+            margin-bottom: 2px;
+        }
+
+
+        svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+
+            circle,
+            path {
+                transition: fill 250ms, stroke 250ms;
+            }
+                
+        }
+
+    }
+
+    &__title {
+        line-height: 16px;
+        font-size: 14px;
+        color: $gray-superlight;
+        transition: color 250ms;
+
+        @media(max-width: 1200px) {
+            text-align: center;
+            line-height: 13px;
+            font-size: 11px;
+        }
+        
+
+    }
+}
+
+
+
+
+
+

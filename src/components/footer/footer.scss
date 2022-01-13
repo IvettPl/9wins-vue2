@@ -1,0 +1,22 @@
+.footer {
+    width: 100%;
+    background-color: $black;
+
+    @media(max-width: 1024px) {
+        padding-bottom: 100px;
+    }
+    &__top {
+        width: 100%;
+        background-color: $gray;  
+    }
+    .center {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    } 
+}
+
+
+
+
+
+

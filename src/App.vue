@@ -1,30 +1,60 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+<div class="wrapper">
+  <Header />
+  <main>
+    <Slider />
+    <CatSlider 
+      :title='catSlider.sport.title' 
+      :linkName="catSlider.sport.linkName" 
+      :icnUrl="catSlider.sport.icnUrl"
+      :linkUrl="catSlider.sport.linkUrl"
+      :altImg="catSlider.sport.altImg"
+      :className="catSlider.sport.className"   /> 
+     <CatSlider 
+      :title='catSlider.games.title' 
+      :linkName="catSlider.games.linkName" 
+      :icnUrl="catSlider.games.icnUrl"
+      :linkUrl="catSlider.games.linkUrl"
+      :altImg="catSlider.games.altImg"
+      :className="catSlider.games.className"  />     
+  </main>
+  <Footer />
+</div> 
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Header from '@/components/header/Header'
+import Footer from '@/components/footer/Footer' 
+import Slider from '@/components/slider/Slider'
+import CatSlider from '@/components/cat-slider/CatSlider'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  components: {
+    Header, Footer, Slider,CatSlider
+  },
+  data(){
+    return {
+      catSlider: {
+        sport: {
+          title: 'Sport',
+          linkName: 'See all',
+          icnUrl: require('@/assets/img/svg/icn-sport.svg'), 
+          linkUrl: '##',   
+          className: 'slider-mod slider-mod--home', 
+        },
+        games: { 
+          title: 'Virtual games',
+          linkName: 'See all',
+          icnUrl: require('@/assets/img/svg/icn-sport.svg'), 
+          linkUrl: '##',   
+          className: 'slider-mod slider-mod--home'      
+        }
+      }
     }
   }
 }
-</style>
+</script>
+
+<style lang="scss">
+  @import './assets/style/color-vars';
+</style> 
