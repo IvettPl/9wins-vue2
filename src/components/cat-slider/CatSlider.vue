@@ -1,52 +1,76 @@
 <template>
-<div :class="className">
-    <div class="center"> 
-        <a :href="linkUrl" class="cat-all__link"> {{linkName}}</a>
-        <div  class="slider-mod__title">
-            <div class="slider-mod__title-box">
-                <img :src="icnUrl" :alt="title">
-                <h2>
-                    {{title}}
-                </h2>
+    <div
+        class="slider-mod"
+        v-for="item in slides"
+        :key="item.id"
+    >
+        <div class="center">
+            <div class="slider-mod__wrap">
+
+                <div
+                    class="slider-mod__title"
+                    :class="item.icn"
+                >
+                    <h2>{{ item.title }}</h2>
+                </div>
+
+                <a
+                    :href="item.linkUrl"
+                    class="slider-mod__link"
+                >{{ item.link }}</a>
+
             </div>
+            <SwiperMod />
         </div>
-        <SwiperMod />
-    </div>    
-</div>    
+    </div>
 </template>
 
-<script> 
+<script>
 
 import SwiperMod from './SwiperMod'
 
 
-export default { 
-    components: { 
+export default {
+    components: {
       SwiperMod
     },
-    props: {
-        title: {
-            type: String,
-            defaoult: null
-        },
-        icnUrl: {
-            type: String,
-            defaoult: null
-        },
-        linkName: {
-            type: String,
-            defaoult: null 
-        },
-        linkUrl: {
-            type: String,
-            defaoult: null 
-        }, 
-        className: {
-            type: String,
-            defaoult: ''
+    data(){
+        return {
+            slides: [
+                {
+                    id: '1',
+                    title: 'Sport',
+                    icn: 'icon-sports_filled',
+                    link: 'See all',
+                    linkUrl: '##',
+                },
+                {
+                    id: '2',
+                    title: 'Virtual games',
+                    icn: 'icon-virtual_games',
+                    link: 'See all',
+                    linkUrl: '##',
+                },
+                {
+                    id: '3',
+                    title: 'Live casino',
+                    icn: 'icon-live_casino',
+                    link: 'See all',
+                    linkUrl: '##',
+                },
+                {
+                    id: '4',
+                    title: 'Slots',
+                    icn: 'icon-slots',
+                    link: 'See all',
+                    linkUrl: '##',
+                }
+
+            ]
         }
-    },
+    }
 }
+
 </script>
 
 <style lang="scss">

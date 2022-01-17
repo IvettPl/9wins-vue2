@@ -17,9 +17,9 @@
 
     .btn-deposite {
         @media(min-width: 1025px) {
-            display: none;  
+            display: none;
         }
-            
+
     }
 
     &__item {
@@ -28,80 +28,24 @@
         &:first-child {
             margin-left: 0;
         }
-            
+
 
         @media(max-width: 1200px) {
             margin-left: 14px;
         }
-            
+
 
         @media(max-width: 1024px) {
             margin: 0;
         }
-            
+
 
         &:hover {
-            circle,
-            path,
-            g {
-                fill: $white;
-                opacity: 1;
-                transition: fill 250ms, opacity 250ms;
-            }
-
-
+            .submenu-list__link:before,
             .submenu-list__title {
                 color: $white;
             }
-                
-
-            .icn-sports {
-                circle,
-                path {
-                    fill: $white;
-                }
-            }
-
-                    
-
-            .icn-games {
-                path {
-                    &:first-child {
-                        fill: none;
-                        stroke: $white;
-                        transition: stroke 250ms, opacity 250ms;
-                    }
-                        
-
-                    &:last-child {
-                        fill: $white;
-                    }
-                        
-                }
-
-            }
-
-
-            .icn-casino {
-                path {
-                    fill: $white;
-                }
-                                    
-            }
-
-
-            .icn-slots {
-                circle,
-                path {
-                    fill: none;
-                    stroke: $white;
-                    transition: stroke 250ms, opacity 250ms;
-                }
-                    
-            }
-
         }
-
 
         &--deposite {
             @media(min-width: 1025px) {
@@ -110,7 +54,7 @@
             .btn-deposite {
                 margin-bottom: 4px;
                 box-shadow: 0 0 0 4px $black;
-            }           
+            }
 
             .submenu-list__icn {
                 margin-bottom: 4px;
@@ -145,11 +89,11 @@
 
                 &:after {
                     width: 4px;
-                    height: 22px;    
+                    height: 22px;
                 }
 
             }
-        
+
         }
 
     }
@@ -157,70 +101,34 @@
     &__link {
         display: flex;
         align-items: center;
+        font-size: 24px;
 
-        @media(max-width: 1024px) {
-            flex-direction: column;
+        @media(max-width: 1200px) {
+            font-size: 20px;
         }
-            
 
         @media(max-width: 1024px) {
             width: 70px;
+            flex-direction: column;
+            font-size: 24px;
         }
-        &:hover {
-            .submenu-list__title {
-                color: $white;
-            }
-                
-        }
-
-           
-    }
-
-    &__icn {
-        margin-right: 4px;
-        width: 24px;
-        height: 24px;
-        display: block;
-        flex-shrink: 0;
-
-        @media(max-width: 1024px) {
-            margin-right: 0;
-            margin-bottom: 2px;
-        }
-
-
-        svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-
-            circle,
-            path {
-                transition: fill 250ms, stroke 250ms;
-            }
-                
-        }
-
     }
 
     &__title {
+        margin-left: 4px;
+        font-family: 'Roboto';
         line-height: 16px;
         font-size: 14px;
         color: $gray-superlight;
         transition: color 250ms;
 
-        @media(max-width: 1200px) {
+        @media(max-width: 1024px) {
+            margin-left: 0;
             text-align: center;
             line-height: 13px;
             font-size: 11px;
         }
-        
+
 
     }
 }
-
-
-
-
-
-

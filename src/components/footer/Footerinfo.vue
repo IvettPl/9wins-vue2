@@ -3,10 +3,10 @@
     <div class="center">
         <div class="footer__info">
             <div class="footer__info-title">
-                {{ info.copy.title }}
+                {{ info.title }}
             </div>
             <p>
-                {{ info.copy.text }}
+                {{ info.text }}
             </p>
         </div>
         <div class="footer__logo">
@@ -18,18 +18,12 @@
             </p>
         </div>
     </div>
-</div> 
+</div>
 </template>
 
 <script>
-    import {info} from '@/components/footer/footerHelper'
-
     export default {
-        data() {
-            return {
-                info: info
-            }
-        }
+        props: ['info']
     }
 </script>
 

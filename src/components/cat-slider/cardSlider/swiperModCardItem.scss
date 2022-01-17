@@ -1,0 +1,242 @@
+.charitem {
+    &__front {
+        width: 100%;
+    }
+
+    &__bg {
+        width: 100%;
+    }
+
+    &__info {
+        padding: 33px 16px 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+    }
+
+    &__btn-cancel {
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 33px;
+        right: 0;
+        background: url(./../../../assets/img/svg/btn-cancel.svg) no-repeat center;
+        border: 0;
+        cursor: pointer;
+        transition: opacity 250ms;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    &__promotion {
+        margin-top: 38px;
+        width: 100%;
+        line-height: 34px;
+        font-size: 29px;
+        color: $white;
+        font-weight: 700;
+        font-style: italic;
+        text-transform: uppercase;
+        text-shadow: 1px 2px 0 $black;
+
+        &-desc {
+            span {
+                display: block;
+            }
+        }
+
+        &-title {
+            margin: -13px 0 0 -10px;
+            line-height: 101px;
+            font-size: 86px;
+            color: $yellow;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 32px rgba($dark, 75%);
+        }
+    }
+
+    &__progresbox {
+        width: calc(100% - 34px);
+        height: 8px;
+        position: absolute;
+        bottom: 252px;
+        left: 17px;
+        z-index: 1;
+        overflow: hidden;
+
+        progress {
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: -100%;
+        }
+    }
+
+    &__progres {
+        &-bg {
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            background-color: $dark;
+            border-radius: 4px;
+        }
+
+        &-bar {
+            width: 30%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 4px;
+            background: linear-gradient(
+                180deg,
+                $grad-yellow-first 0%,
+                $grad-yellow-last 76.56%
+            );
+        }
+
+    }
+
+    &__detalis {
+        padding: 44px 16px 24px;
+        width: 100%;
+        height: 256px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+        border-radius: 0 0 16px 16px;
+        box-sizing: border-box;
+
+        &:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba($black, .75);
+            backdrop-filter: blur(12px);
+        }
+
+        &-toplist,
+        &-bottomlist {
+            position: relative;
+        }
+
+        &-toplist {
+            margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        &-bottomlist {
+            margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            position: relative;
+        }
+
+        &-topitem,
+        &-bottomitem {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &-topitem {
+            color: $white;
+        }
+
+        &-bottomitem {
+            width: 50%;
+            color: $blue;
+
+            &:last-child {
+                color: $green;
+
+                .charitem__detalis-title {
+                    &:before {
+                        color: $green;
+                    }
+                }
+            }
+        }
+
+        &-title {
+            display: inline-flex;
+            align-items: center;
+            font-size: 24px;
+
+            span {
+                font-family: 'Roboto', sans-serif;
+                line-height: 28px;
+                font-size: 22px;
+                font-weight: 700;
+                letter-spacing: 0.35px;
+            }
+        }
+
+        &-label {
+            letter-spacing: -0.408px;
+        }
+
+        .btn {
+            width: 160px;
+            height: 48px;
+            line-height: 21px;
+            font-size: 18px;
+        }
+    }
+
+}
+
+.btn {
+    &__wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+}
+
+
+//sticer UI component
+.stiker {
+    padding: 0 18px;
+    height: 34px;
+    position: absolute;
+    top: 33px;
+    left: 0;
+    line-height: 34px;
+    font-size: 15px;
+    color: $white;
+    white-space: nowrap;
+    background-color: $red;
+    border-radius: 16px 0;
+
+    &--orange {
+        background-color: $orange;
+    }
+
+    &--green {
+        background-color: $green-darker;
+    }
+
+    &--blue {
+        background-color: $blue;
+    }
+
+    &--brown {
+        background-color: $brown;
+    }
+}

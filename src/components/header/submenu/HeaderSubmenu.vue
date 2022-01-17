@@ -1,11 +1,10 @@
 <template>
 <div class="submenu-list">
-    <div class="submenu-list__item"  
-    v-for="item in submenulist"
-    :key="item.id"
-    :class="item.subClass ? item.subClass : ''">
-        <a href='##' class="submenu-list__link">
-            <span class="submenu-list__icn" v-html="item.icn"></span>
+    <div class="submenu-list__item"
+    v-for="item in subMenuList"
+    :key="item.title"
+    :class="item.subClass">
+        <a :href="item.link" class="submenu-list__link" :class="item.icn">
             <span class="submenu-list__title">
                 {{item.title}}
             </span>
@@ -15,13 +14,8 @@
 </template>
 
 <script>
-import {headerMenuList} from '@/components/header/submenu/headerHelpers'
 export default {
-    data() {
-        return {
-            submenulist: headerMenuList
-        };
-    },
+    props: ['subMenuList']
 }
 </script>
 
@@ -29,4 +23,3 @@ export default {
     @import './../../../assets/style/color-vars';
     @import './headerSubmenu.scss';
 </style>
-

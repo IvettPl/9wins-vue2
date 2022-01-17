@@ -16,4 +16,18 @@
     background-color: $red;
     transition: all 300ms ease;
     cursor: pointer;
+
+    &--orange {
+        background-color: $orange;
+
+        &:hover,
+        &:focus {
+            background-color: $orange-lighter;
+        }
+
+        &:disabled {
+            background-color: $orange-superlight;
+        }
+    }
+
 }

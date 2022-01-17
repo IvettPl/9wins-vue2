@@ -1,0 +1,13 @@
+.slide-cart {
+    &__list {
+        margin-top: -32px;
+
+        @media (min-width: 1025px) {
+            margin-top: -72px;
+        }
+    }
+
+    &__item {
+        width: 352px;
+    }
+}
