@@ -11,22 +11,22 @@
                 class="slider-mod__link"
             >{{ cardParams.linkTitle }}</a>
         </div>
-        <SwiperModCard :sliderParams="cardParams.slides" />
+        <SwiperSlideBonus :sliderParams="cardParams.slides" />
+
     </div>
 </div>
 </template>
 
 <script>
-import SwiperModCard from  './SwiperModCard'
+import SwiperSlideBonus from  './SwiperSlideBonus'
 
 
 export default {
+    name: 'SliderBonusMod',
     components: {
-      SwiperModCard
+      SwiperSlideBonus
     },
     props: ['cardParams']
 
 }
 </script>
-
- 

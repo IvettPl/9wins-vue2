@@ -26,8 +26,4 @@
         props: ['info']
     }
 </script>
-
-<style lang="scss">
-    @import './../../assets/style/color-vars';
-    @import './footerinfo';
-</style>
+ 

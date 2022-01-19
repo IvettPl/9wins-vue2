@@ -13,25 +13,23 @@
             v-for="(item, index) in sliderParams"
             :key="index"
         >
-            <SwiperModCardItem :itemCard="item" />
+            <BonusItem :itemCard="item" />
         </swiper-slide>
     </swiper>
 </template>
 
 <script>
-import SwiperModCardItem from './SwiperModCardItem'
+import BonusItem from './BonusItem'
 import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js';
 import 'swiper/swiper.scss';
 
 export default {
+    name: 'SwiperSlideBonus',
     components: {
       Swiper,
       SwiperSlide,
-      SwiperModCardItem
+      BonusItem
     },
     props: ['sliderParams'],
 }
 </script>
-
-
- 

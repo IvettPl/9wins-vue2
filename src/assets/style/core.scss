@@ -1,13 +1,13 @@
 html {
     font-size: 62.5%;
 }
-    
+
 
 html,
 body {
     height: 100%;
 }
-    
+
 
 body {
     min-width: 375px;
@@ -26,23 +26,23 @@ section,
 footer {
     display: block;
 }
-    
+
 
 /*placeholder styles*/
 ::-webkit-input-placeholder{
     color: $gray-lighter;
 }
-    
+
 
 ::-moz-placeholder {
     color: $gray-lighter;
 }
-    
+
 
 :-moz-placeholder {
     color: $gray-lighter;
 }
-    
+
 
 :-ms-input-placeholder{
     color: $gray-lighter;
@@ -51,33 +51,33 @@ footer {
 :focus::-webkit-input-placeholder {
     color: transparent;
 }
-    
+
 
 :focus::-moz-placeholder {
     color: transparent;
 }
-    
+
 
 :focus:-moz-placeholder {
     color: transparent;
 }
-    
+
 
 :focus:-ms-input-placeholder {
     color: transparent;
 }
-   
+
 
 a {
     text-decoration: none;
 }
-    
+
 
 img {
     max-width: 100%;
     display: block;
 }
-    
+
 
 input {
     font-family: 'Roboto', sans-serif;
@@ -94,7 +94,7 @@ button {
     padding: 0;
     border: 0;
     background: none;
-}  
+}
 
 input:-webkit-autofill {
     -webkit-box-shadow: inset 0 0 0 50px $dark !important;
@@ -105,22 +105,58 @@ input:-webkit-autofill {
 
 
 .wrapper {
-  padding-top: 56px;
-  width: 100%;
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  overflow: hidden;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;  
+    padding-top: 56px;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    &--reg {
+        .header {
+            padding: 14px 0 15px;
+        }
+
+        .slider-mod {
+            &--epics,
+            &--tournaments {
+                display: block;
+            }
+
+            &__wrap {
+                margin-bottom: 5px;
+            }
+
+            &__title {
+                h2 {
+                    margin-left: 4px;
+                    line-height: 24px;
+                    font-size: 20px;
+                    font-weight: 400;
+                    color: $orange-light;
+                }
+            }
+
+        }
+
+        .cat-slider {
+            margin-top: 0;
+        }
+
+        .slide-cart__list {
+            margin-top: -32px;
+        }
+    }
 }
 
 
@@ -131,12 +167,12 @@ input:-webkit-autofill {
     width: 100%;
     position: relative;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box;   
+    box-sizing: border-box;
     @media(max-width: 767px) {
         padding: 0 14px;
     }
-} 
-        
+}
+
 
 .center {
   max-width: 1160px;

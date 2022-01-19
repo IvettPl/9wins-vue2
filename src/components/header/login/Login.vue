@@ -2,20 +2,35 @@
 <div class="right-column">
     <div class="login">
         <div class="login__box-default">
-            <button type="button" class="login__btn js-btn--login">
+            <button class="login__btn js-btn--login" type='button'>
                 Login
-            </button>
-           <button type="button" class="btn js-btn--reg">
+            </button> 
+            
+           <CustomButton :attrBtn="AttrBtnReg">
                 Let's go 
-            </button>
+            </CustomButton>
         </div>
     </div>
 </div> 
 </template>
 
+<script>
+import CustomButton from './../../UI/CustomButton'
+
+export default {
+    componemts: {
+        CustomButton
+    },
+    data(){
+        return { 
+            AttrBtnReg: { 
+                type: 'button',
+                className: 'btn js-btn--reg',
+            }
+        }
+    }
+}
+</script>
 
 
-<style lang="scss"> 
-    @import './../../../assets/style/color-vars';
-    @import './login';
-</style>
+ 

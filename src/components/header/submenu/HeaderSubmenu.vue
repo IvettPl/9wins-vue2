@@ -19,7 +19,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-    @import './../../../assets/style/color-vars';
-    @import './headerSubmenu.scss';
-</style>
+ 

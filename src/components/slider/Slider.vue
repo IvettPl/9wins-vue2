@@ -41,8 +41,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js';
 import {homeSlider} from './homeSlider';
 
 import 'swiper/swiper.scss'; 
-import 'swiper/modules/pagination/pagination.scss';
-import './homeSlider.scss';
+import 'swiper/modules/pagination/pagination.scss'; 
 
 import SwiperCore,{Autoplay, Pagination, EffectCreative} from 'swiper';
 
@@ -62,5 +61,4 @@ export default {
 </script>
 
 
-<style lang="scss"> 
-</style>
+ 

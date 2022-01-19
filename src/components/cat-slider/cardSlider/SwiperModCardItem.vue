@@ -72,8 +72,4 @@ export default {
 }
 </script>
 
-
-<style lang="scss">
-    @import './../../../assets/style/color-vars';
-    @import './swiperModCardItem.scss'
-</style>
+ 

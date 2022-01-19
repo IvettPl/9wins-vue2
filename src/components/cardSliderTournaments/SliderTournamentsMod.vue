@@ -1,5 +1,5 @@
 <template>
-<div class="slider-mod">
+<div class="slider-mod slider-mod--tournaments">
     <div class="center">
         <div class="slider-mod__wrap">
             <div class="slider-mod__title">
@@ -11,22 +11,22 @@
                 class="slider-mod__link"
             >{{ cardParams.linkTitle }}</a>
         </div>
-        <SwiperModCard :sliderParams="cardParams.slides" />
+        <SwiperSliderTournaments :sliderParams="cardParams.slides" />
+
     </div>
 </div>
 </template>
 
 <script>
-import SwiperModCard from  './SwiperModCard'
+import SwiperSliderTournaments from  './SwiperSliderTournaments'
 
 
 export default {
+    name: 'SliderTournamentsMod',
     components: {
-      SwiperModCard
+      SwiperSliderTournaments
     },
     props: ['cardParams']
 
 }
 </script>
-
- 

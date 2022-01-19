@@ -1,79 +1,38 @@
 <template>
-    <div
-        class="slider-mod"
-        v-for="item in slides"
-        :key="item.id"
-    >
+    <div class="slider-mod">
         <div class="center">
             <div class="slider-mod__wrap">
 
                 <div
                     class="slider-mod__title"
-                    :class="item.icn"
+                    :class="catSliders.icn"
                 >
-                    <h2>{{ item.title }}</h2>
+                    <h2>{{ catSliders.title }}</h2>
                 </div>
 
                 <a
-                    :href="item.linkUrl"
+                    :href="catSliders.linkUrl"
                     class="slider-mod__link"
-                >{{ item.link }}</a>
+                >{{ catSliders.link }}</a>
 
             </div>
-            <SwiperMod />
+            <CatSliderItem :catSlidersItems="catSliders.slides"  />
         </div>
     </div>
 </template>
 
 <script>
 
-import SwiperMod from './SwiperMod'
+import CatSliderItem from './CatSliderItem'
 
 
 export default {
     components: {
-      SwiperMod
-    },
-    data(){
-        return {
-            slides: [
-                {
-                    id: '1',
-                    title: 'Sport',
-                    icn: 'icon-sports_filled',
-                    link: 'See all',
-                    linkUrl: '##',
-                },
-                {
-                    id: '2',
-                    title: 'Virtual games',
-                    icn: 'icon-virtual_games',
-                    link: 'See all',
-                    linkUrl: '##',
-                },
-                {
-                    id: '3',
-                    title: 'Live casino',
-                    icn: 'icon-live_casino',
-                    link: 'See all',
-                    linkUrl: '##',
-                },
-                {
-                    id: '4',
-                    title: 'Slots',
-                    icn: 'icon-slots',
-                    link: 'See all',
-                    linkUrl: '##',
-                }
-
-            ]
-        }
-    }
+      CatSliderItem
+    }, 
+    props: ['catSliders']
 }
 
 </script>
 
-<style lang="scss">
-    @import './../../assets/style/color-vars';
-    @import './catSlider.scss'
-</style>
+ 
