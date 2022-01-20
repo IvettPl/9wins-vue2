@@ -1,5 +1,5 @@
 <template>
-<div class="slider-mod">
+<div class="slider-mod" :class="cardParams.modSubClass">
     <div class="center">
         <div class="slider-mod__wrap">
             <div class="slider-mod__title">
@@ -7,6 +7,7 @@
             </div>
 
             <a
+                v-if="cardParams.link"
                 :href="cardParams.link"
                 class="slider-mod__link"
             >{{ cardParams.linkTitle }}</a>
@@ -18,7 +19,7 @@
 </template>
 
 <script>
-import SwiperSlideBonus from  './SwiperSlideBonus'
+import SwiperSlideBonus from  '@/components/sliders/cardSliderBonus/SwiperSlideBonus'
 
 
 export default {

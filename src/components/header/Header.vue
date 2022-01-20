@@ -11,8 +11,8 @@
             </div>
         </div>
         <div class="logo">
-            <a href="##">
-                <img src="@/assets/img/svg/logo.svg" alt="9winz"></a>
+            <router-link to="/">
+                <img src="@/assets/img/svg/logo.svg" alt="9winz"></router-link>
         </div>
         <Login />
     </div>
@@ -53,7 +53,7 @@ export default {
                 },
                 {
                     icn: 'icon-slots',
-                    link: '##',
+                    link: 'slots',
                     title: 'Slots'
                 }
             ]

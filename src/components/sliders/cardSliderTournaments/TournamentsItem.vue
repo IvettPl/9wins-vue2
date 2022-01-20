@@ -1,5 +1,5 @@
 <template>
-<div class="charitem" :class="itemCard.itemSubClass">
+<div class="charitem" :class="[{'charitem--rotate':isRotate}, itemCard.desabled]">
     <div class="charitem__front">
         <div class="charitem__bg">
             <img  :src="itemCard.imgUrl" :alt="itemCard.imgAlt">
@@ -44,6 +44,7 @@
 
             <div class="btn__wrap">
                 <CustomButton
+                    @click="isRotate = !isRotate"
                     :attrBtn="itemCard.frontBtn"
                 >
                     {{ itemCard.frontBtnTitle }}
@@ -55,6 +56,7 @@
         <p>Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.</p>
 
         <CustomButton
+            @click="isRotate = !isRotate"
             :attrBtn="itemCard.backBtn"
         >
             {{ itemCard.backBtnTitle }}
@@ -65,10 +67,15 @@
 
 
 <script>
-import Stiker from '../UI/Stiker.vue'
+import Stiker from '@/components/UI/Stiker.vue'
 export default {
   components: { Stiker },
     name: 'TournamentsItem',
-    props: ['itemCard']
+    props: ['itemCard'],
+    data(){
+        return {
+            isRotate: false,
+        }
+    }
 }
 </script>

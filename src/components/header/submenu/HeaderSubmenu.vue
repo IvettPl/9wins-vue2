@@ -4,11 +4,11 @@
     v-for="item in subMenuList"
     :key="item.title"
     :class="item.subClass">
-        <a :href="item.link" class="submenu-list__link" :class="item.icn">
+        <router-link :to="item.link" class="submenu-list__link" :class="item.icn">
             <span class="submenu-list__title">
                 {{item.title}}
             </span>
-        </a>
+        </router-link>
     </div>
 </div>
 </template>

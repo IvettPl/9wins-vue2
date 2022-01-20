@@ -23,7 +23,7 @@
 
 <script>
     export default {
+        name: 'Footerinfo',
         props: ['info']
     }
 </script>
- 

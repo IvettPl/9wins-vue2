@@ -23,6 +23,7 @@ export const headerMenuList = [
     {
         id: 'hml-5',
         icn: 'icon-slots',
-        title: 'Slots'
+        title: 'Slots',
+        link: 'slots',
     }
 ]

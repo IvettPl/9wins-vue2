@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import BonusItem from './BonusItem'
+import BonusItem from '@/components/sliders/cardSliderBonus/BonusItem'
 import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js';
 import 'swiper/swiper.scss';
 

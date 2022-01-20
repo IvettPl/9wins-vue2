@@ -38,7 +38,7 @@
 
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js';
-import {homeSlider} from './homeSlider';
+import {configBannerSlider} from './configBannerSlider.js';
 
 import 'swiper/swiper.scss'; 
 import 'swiper/modules/pagination/pagination.scss'; 
@@ -54,7 +54,7 @@ export default {
     },  
     data() {
         return {
-            slides: homeSlider
+            slides: configBannerSlider
         }
     } 
 };

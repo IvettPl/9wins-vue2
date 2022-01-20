@@ -31,7 +31,7 @@
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js';
 import 'swiper/swiper.scss';
-import CustomButton from './../UI/CustomButton'
+import CustomButton from '@/components/UI/CustomButton'
 
 
 export default {

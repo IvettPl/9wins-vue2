@@ -156,6 +156,54 @@ input:-webkit-autofill {
         .slide-cart__list {
             margin-top: -32px;
         }
+
+        .page-wrapper {
+            &--bonuses {
+                .slider-mod {
+                    margin-bottom: 55px;
+
+                    &__title {
+                        margin-bottom: 0;
+
+                        h2 {
+                            line-height: 41px;
+                            font-size: 34px;
+                            font-weight: 700;
+                            color: $green-dark;
+                        }
+                    }
+                }
+
+                .slide-cart__list {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
+.page-wrapper {
+    padding-top: 80px;
+
+    &--bonuses {
+        .slider-mod {
+            margin-bottom: 55px;
+
+            &__title {
+                margin-bottom: 0;
+
+                h2 {
+                    line-height: 41px;
+                    font-size: 34px;
+                    font-weight: 700;
+                    color: $green-dark;
+                }
+            }
+        }
+
+        .slide-cart__list {
+            margin-top: 0;
+        }
     }
 }
 

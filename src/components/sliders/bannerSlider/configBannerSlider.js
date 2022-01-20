@@ -1,4 +1,4 @@
-export const homeSlider = [
+export const configBannerSlider = [
     {
         link: '##',
         imgUrl: require('@/assets/img/slider/home-slider-1.jpg'),

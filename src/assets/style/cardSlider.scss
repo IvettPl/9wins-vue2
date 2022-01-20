@@ -282,6 +282,16 @@
             &__wrap {
                 justify-content: center;
             }
+
+            &--grey {
+                width: 94px;
+            }
+
+            &--last {
+                margin-left: 18px;
+                width: 100%;
+                max-width: 206px;
+            }
         }
     }
 
@@ -363,5 +373,15 @@
             transform: translateX(-50%)
         }
     }
+}
 
+
+.page-wrapper {
+    &--bonuses {
+        .slider-mod {
+            &__title {
+                font-size: 34px;
+            }
+        }
+    }
 }
