@@ -128,10 +128,10 @@ input:-webkit-autofill {
         }
 
         .slider-mod {
-            &--epics,
-            &--tournaments {
-                display: block;
-            }
+            // &--epics,
+            // &--tournaments {
+            //     display: block;
+            // }
 
             &__wrap {
                 margin-bottom: 5px;
@@ -183,9 +183,9 @@ input:-webkit-autofill {
 }
 
 .page-wrapper {
-    padding-top: 80px;
-
     &--bonuses {
+        padding-top: 80px;
+
         .slider-mod {
             margin-bottom: 55px;
 

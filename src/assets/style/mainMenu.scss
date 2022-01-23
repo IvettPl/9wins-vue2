@@ -5,12 +5,16 @@
     height: 100%;
     position: fixed;
     top: 0;
-    left: 0;
+    right: 100%;
     z-index: 4;
     background-color: $black;
     box-sizing: border-box;
-    transform: translateX(-100%);
+    transform: translateX(0);
     transition: transform 250ms;
+
+    &.show {
+        transform: translateX(100%);
+    }
 
     &__close {
         width: 18px;
@@ -52,6 +56,10 @@
     &__list {
         width: 50%;
         flex-shrink: 0;
+
+        // &:last-child {
+        //     display: none;
+        // }
 
         &-item {
             margin-bottom: 12px;
@@ -102,7 +110,7 @@
         &__header {
             width: calc(100% - 32px);
             height: 44px;
-            display: flex;
+            // display: none;
             position: absolute;
             left: 16px;
             bottom: 22px;
@@ -124,3 +132,12 @@
         width: calc(100% / 2 - 1px);
     }
 }
+
+
+// .wrapper--reg {
+//     .main-menu {
+//         &__list {
+//             display: block;
+//         }
+//     }
+// }

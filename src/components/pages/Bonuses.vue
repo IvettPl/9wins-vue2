@@ -81,7 +81,7 @@ export default {
                         link: '##',
                         imgAlt: 'Bonuses',
                         stiker: 'Wager',
-                        stikerSubClass: 'stiker--orange',
+                        stikerSubClass: 'stiker--green',
 
                         detalisTopList: [
                             {
@@ -143,7 +143,7 @@ export default {
                         link: '##',
                         imgAlt: 'Bonuses',
                         stiker: 'Wager',
-                        stikerSubClass: 'stiker--orange',
+                        stikerSubClass: 'stiker--blue',
 
                         detalisTopList: [
                             {
@@ -205,7 +205,7 @@ export default {
                         link: '##',
                         imgAlt: 'Bonuses',
                         stiker: 'Wager',
-                        stikerSubClass: 'stiker--orange',
+                        stikerSubClass: 'stiker--red',
 
                         detalisTopList: [
                             {

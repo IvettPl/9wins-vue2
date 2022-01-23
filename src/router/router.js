@@ -23,7 +23,7 @@ const routes = [
     path: '/bonuses',
     name: 'bonuses',
     component: Bonuses
-  }
+  }, 
 ]
 
 const router = createRouter({

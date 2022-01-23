@@ -1,10 +1,17 @@
 <template>
-    <div class="tabs">
-        <div class="tabs__header">
+    <div class="tabs"
+    :class="(toggleTab) ? 'tab-1'  : 'tab-2' "        
+    >
+        <div 
+            v-if="isAuth"
+            class="tabs__header">
             <div 
                 v-for="(item, index) in tabsToggleItem"
                 :key="index"
-                class="tabs__header-item">
+                class="tabs__header-item"
+                @click="selectedTab  = item; toggleTab = !toggleTab"
+                :class="{ 'active': selectedTab === item }"
+                > 
                 {{item}}
             </div>
         </div>
@@ -20,6 +27,13 @@
 <script>
 export default {
     name: 'Tabs',
-    props: ['tabsToggleItem']
+    props: ['tabsToggleItem', 'isAuth'],
+    data(){
+        return{
+            selectedTab: 'Casino',
+            toggleTab: true
+        }
+    }
+     
 }
 </script>

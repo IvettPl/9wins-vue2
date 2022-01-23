@@ -10,7 +10,9 @@
         </router-link>
     </li>
 </ul>
-<ul class="main-menu__list">
+<ul 
+    v-if="isAuth"
+    class="main-menu__list">
     <li
         v-for="item in menuListsItem.sport"
         :key="item.title"
@@ -26,6 +28,6 @@
 <script>
 export default {
     name: 'MainMenu',
-    props: ['menuListsItem']
+    props: ['menuListsItem', 'isAuth'],
 }
 </script>

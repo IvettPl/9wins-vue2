@@ -1,16 +1,22 @@
 <template>
-<div class="wrapper wrapper--reg">
-    <div class="main-menu">
-        <button class="main-menu__close"></button>
-        <Tabs :tabsToggleItem="tabsToggle">
-            <MainMenu :menuListsItem="menuLists" />
+<div class="wrapper  ">
+    <div
+        class="main-menu"
+        :class="{'show': isMenuShow}"
+        >
+        <button class="main-menu__close"
+            @click="isMenuShow = !isMenuShow"
+        ></button>
+        <Tabs :isAuth="isAuth" :tabsToggleItem="tabsToggle">
+            <MainMenu :isAuth="isAuth" :menuListsItem="menuLists" />
         </Tabs>
     </div>
-  <Header />
+  <Header @showMenuPanel="isMenuShow = !isMenuShow" :openMenu="isMenuShow" />
   <main>
-      <router-view></router-view>
+      <router-view :isAuth='isAuth'></router-view>
   </main>
   <Footer />
+  <Overlay :isMenuShow="isMenuShow" />
 </div>
 </template>
 
@@ -28,8 +34,10 @@ export default {
   },
     data(){
         return {
+            isAuth: false,
+            isMenuShow: false,
             tabsToggle: [
-                'Casino', 'Sport'
+                'Casino', 'Sport',
             ],
             menuLists: {
                 casino: [

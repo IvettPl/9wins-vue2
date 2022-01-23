@@ -3,7 +3,7 @@
     width: 100%;
 
     &--epics {
-        display: none;
+        // display: none;
 
         .cat-slider {
             margin-top: 0;
@@ -11,7 +11,7 @@
     }
 
     &--tournaments {
-        display: none;
+        // display: none;
 
         .charitem {
             &__detalis {
@@ -44,7 +44,6 @@
         align-items: center;
         justify-content: space-between;
         position: relative;
-        z-index: 2;
 
         @media(max-width: 1024px) {
             margin-bottom: 5px;
