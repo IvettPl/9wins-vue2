@@ -1,17 +1,13 @@
 <template>
-<div class="right-column">
-    <div class="login">
-        <div class="login__box-default">
-            <button class="login__btn js-btn--login" type='button'>
-                Login
-            </button> 
-            
-           <CustomButton :attrBtn="AttrBtnReg">
-                Let's go 
-            </CustomButton>
-        </div>
+<div class="login">
+    <div class="login__box-default">
+        <button class="login__btn js-btn--login" type='button'>
+            Login
+        </button>
+
+        <CustomButton :attrBtn="AttrBtnReg">Let's go</CustomButton>
     </div>
-</div> 
+</div>
 </template>
 
 <script>
@@ -22,8 +18,8 @@ export default {
         CustomButton
     },
     data(){
-        return { 
-            AttrBtnReg: { 
+        return {
+            AttrBtnReg: {
                 type: 'button',
                 className: 'btn js-btn--reg',
             }
@@ -31,6 +27,3 @@ export default {
     }
 }
 </script>
-
-
- 

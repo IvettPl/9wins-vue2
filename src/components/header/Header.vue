@@ -2,12 +2,12 @@
 <header class="header">
     <div class="center__header">
         <div class="header__tools">
-            <button type="button"  
+            <button type="button"
                 @click="showMenu"
                 class="header__menu-btn icon-menu">
             </button>
             <HeaderSubmenu :subMenuList="headerSubMenu" />
-            <button type="button" class="search__btn icon-search"></button>
+            <button type="button" class="btn__search icon-search"></button>
             <div class="header__search">
 
             </div>
@@ -16,21 +16,27 @@
             <router-link to="/">
                 <img src="@/assets/img/svg/logo.svg" alt="9winz"></router-link>
         </div>
-        <Login />
+        <div class="right-column">
+            <Login v-if="!isAuth" />
+            <Auth v-if="isAuth" :auth="auth" />
+        </div>
+
     </div>
 </header>
 </template>
 
 <script>
+import Auth from './auth/Auth';
 import Login from './login/Login';
 import HeaderSubmenu from './submenu/HeaderSubmenu';
 
 export default {
     components: {
-        Login, HeaderSubmenu
+        Auth, Login, HeaderSubmenu
     },
     props: {
-        openMenu: Boolean
+        openMenu: Boolean,
+        isAuth: Boolean
     },
     data() {
         return {
@@ -61,7 +67,17 @@ export default {
                     link: 'slots',
                     title: 'Slots'
                 }
-            ]
+            ],
+            auth: {
+                avatar: require('@/assets/img/avatars/avatar.png'),
+                alt: 'Avatar',
+                link: '##',
+                linkTitle: 'Deposit',
+                bonuses: [
+                    {sum: '32,000', title: 'Balance'},
+                    {sum: '190,000', title: 'Bonus'},
+                ]
+            }
         }
     },
     methods: {
@@ -72,6 +88,3 @@ export default {
     }
 }
 </script>
-
-
- 

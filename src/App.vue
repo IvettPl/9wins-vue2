@@ -3,17 +3,17 @@
     <div
         class="main-menu"
         :class="{'show': isMenuShow}"
-        >
-        <button class="main-menu__close"
+    >
+        <button class="btn__close"
             @click="isMenuShow = !isMenuShow"
         ></button>
-        <Tabs :isAuth="isAuth" :tabsToggleItem="tabsToggle">
+        <Tabs :isAuth="isAuth"  :tabsToggleItem="tabsToggle">
             <MainMenu :isAuth="isAuth" :menuListsItem="menuLists" />
         </Tabs>
     </div>
-  <Header @showMenuPanel="isMenuShow = !isMenuShow" :openMenu="isMenuShow" />
+  <Header @showMenuPanel="isMenuShow = !isMenuShow" :openMenu="isMenuShow"  :isAuth="isAuth" />
   <main>
-      <router-view :isAuth='isAuth'></router-view>
+      <router-view></router-view>
   </main>
   <Footer />
   <Overlay :isMenuShow="isMenuShow" />
@@ -34,7 +34,7 @@ export default {
   },
     data(){
         return {
-            isAuth: false,
+            isAuth: true,
             isMenuShow: false,
             tabsToggle: [
                 'Casino', 'Sport',
@@ -130,6 +130,11 @@ export default {
                     }
                 ]
             }
+        }
+    },
+    provide() {
+        return {
+            isAuth: this.isAuth
         }
     }
 }

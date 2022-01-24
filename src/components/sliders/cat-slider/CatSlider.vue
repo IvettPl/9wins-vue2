@@ -16,19 +16,20 @@
                 >{{ catSliders.link }}</a>
 
             </div>
-            <CatSliderItem :catSlidersItems="catSliders.slides"  />
+            <CatSliderItems :catSlidersItems="catSliders.slides"  />
         </div>
     </div>
 </template>
 
 <script>
 
-import CatSliderItem from './CatSliderItem'
+import CatSliderItems from './CatSliderItems'
+
 
 
 export default {
     components: {
-      CatSliderItem
+      CatSliderItems
     }, 
     props: ['catSliders']
 }

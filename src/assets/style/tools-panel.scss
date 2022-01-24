@@ -1,0 +1,25 @@
+.tools-panel {
+    margin: 16px 0 32px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background-color: $dark;
+    border-radius: 20px;
+
+    &.show {
+        .search {
+            width: calc(100% - 40px);
+            right: 40px;
+
+            &:before {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        .btn__filter {
+            width: 40px;
+        }
+    }
+}

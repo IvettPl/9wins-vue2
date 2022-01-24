@@ -1,0 +1,103 @@
+.apply-filter {
+    margin-left: -400px;
+    padding: 18px 32px 36px;
+    width: 100%;
+    max-width: 800px;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    z-index: 3;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #1b212c;
+    border-radius: 24px;
+    box-sizing: border-box;
+    transition: opacity 400ms, -webkit-transform 400ms;
+    transition: transform 400ms, opacity 400ms;
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__box {
+        margin-bottom: 32px;
+        width: 100%;
+    }
+
+    &__title {
+        margin-bottom: 18px;
+        line-height: 28px;
+        font-size: 22px;
+        color: #fc9;
+        letter-spacing: 0.35px;
+    }
+
+    &__list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        &-item {
+            width: 160px;
+            height: 47px;
+            display: inline-flex;
+            position: relative;
+            background-color: #3d4656;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0, 0.5);
+            cursor: pointer;
+
+            label {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 47px;
+                color: #9ea3ab;
+                text-align: center;
+                letter-spacing: -0.408px;
+                cursor: pointer;
+                transition: background 250ms, color 250ms;
+
+                &:hover {
+                    color: $white;
+                    background-color: $blue-darker;
+                }
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                appearance: none;
+
+                &:checked + label {
+                    color: $white;
+                    background-color: $blue-darker;
+                }
+            }
+        }
+    }
+
+    .btn {
+        width: 160px;
+        height: 44px;
+        line-height: 21px;
+        font-size: 18px;
+
+        &__wrap {
+            justify-content: center;
+        }
+    }
+}

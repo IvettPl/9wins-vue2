@@ -1,18 +1,35 @@
 <template>
     <div class="page-wrapper page-wrapper--bonuses">
-        <SliderBonusMod :cardParams="active"></SliderBonusMod>
-        <SliderBonusMod :cardParams="available"></SliderBonusMod>
+        <SliderBonusMod v-if="!active.isEmpty" :cardParams="active"></SliderBonusMod>
+        <SliderBonusMod v-if="!available.isEmpty" :cardParams="available"></SliderBonusMod>
+        <BonusEmpty v-if="active.isEmpty && available.isEmpty" :bonusEmpty="bonusesEmpty" />
     </div>
 </template>
 
 <script>
+import SliderBonusMod from '@/components/sliders/cardSliderBonus/SliderBonusMod'
+import BonusEmpty from '@/components/bonusEmpty/BonusEmpty'
 
 export default {
     name: 'Bonuses',
+    components: {
+        SliderBonusMod, BonusEmpty
+    },
     data() {
         return {
+            bonusesEmpty: {
+                imgUrl: require('@/assets/img/slider/character-4.png'),
+                imgAlt: 'Empty bonuses',
+                text: 'You have no bonuses',
+                btn: {
+                    type: 'button',
+                    className: 'btn--orange'
+                },
+                btnTitle: 'Tournaments'
+            },
             active: {
                 title: 'Active',
+                isEmpty: true,
                 slides:[
                     {
                         imgUrl: require('@/assets/img/slider/character-1.png'),
@@ -267,6 +284,7 @@ export default {
             },
             available: {
                 title: 'Available',
+                isEmpty: true,
                 slides:[
                     {
 

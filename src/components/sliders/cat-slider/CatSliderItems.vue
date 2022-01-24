@@ -7,31 +7,34 @@
             spaceBetween: 32
         }
     }'
-    class="slide-cart__list">
+    class="cat-slider">
         <swiper-slide
-            class="slide-cart__item"
-            v-for="(item, index) in sliderParams"
-            :key="index"
+            class="cat-slider__item"
+            v-for="(item, index) in catSlidersItems"
+            :key="index" 
         >
-            <SwiperModCardItem :itemCard="item" />
+            <CatSliderItem :CatSliderItem='item' />
         </swiper-slide>
     </swiper>
+
 </template>
 
 <script>
-import SwiperModCardItem from './SwiperModCardItem'
 import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js';
 import 'swiper/swiper.scss';
+import CustomButton from '@/components/UI/CustomButton'
+import CatSliderItem from './CatSliderItem'
+
 
 export default {
     components: {
       Swiper,
       SwiperSlide,
-      SwiperModCardItem
-    },
-    props: ['sliderParams'],
+      CustomButton,
+      CatSliderItem
+    }, 
+    props: ['catSlidersItems']
 }
 </script>
-
 
  

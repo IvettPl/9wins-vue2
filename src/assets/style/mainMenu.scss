@@ -16,43 +16,6 @@
         transform: translateX(100%);
     }
 
-    &__close {
-        width: 18px;
-        height: 18px;
-        position: absolute;
-        top: 9px;
-        right: 16px;
-        border: 0;
-        // background: url("../img/svg/btn-close.svg") no-repeat center;
-        background-size: cover;
-        cursor: pointer;
-        transition: opacity 250ms;
-
-        &:before,
-        &:after {
-            content: '';
-            margin-top: -1px;
-            width: 100%;
-            height: 2px;
-            position: absolute;
-            top: 50%;
-            left: 0;
-            background-color: $white;
-        }
-
-        &:before {
-            transform: rotate(45deg);
-        }
-
-        &:after {
-            transform: rotate(-45deg);
-        }
-
-        &:hover {
-            opacity: 0.5;
-        }
-    }
-
     &__list {
         width: 50%;
         flex-shrink: 0;

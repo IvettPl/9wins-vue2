@@ -26,7 +26,7 @@ export default {
   components: {
     BannerSlider, CatSlider, SliderBonusMod, SliderTournamentsMod, EpicsSlider
   },
-  props: ['isAuth'],
+  inject: ['isAuth'],
   data(){
       return {
           bonuses: {
