@@ -18,7 +18,7 @@
         </div>
         <div class="right-column">
             <Login v-if="!isAuth" />
-            <Auth v-if="isAuth" :auth="auth" />
+            <Auth v-if="isAuth" :authInfo="authInfo" />
         </div>
 
     </div>
@@ -36,11 +36,13 @@ export default {
     },
     props: {
         openMenu: Boolean,
-        isAuth: Boolean
+        showOverlay: Boolean
     },
+    inject: ['isAuth'],
     data() {
         return {
             isOpenMenu: this.openMenu,
+            changeStateOverlay: this.showOverlay,
             headerSubMenu: [
                 {
                     icn: 'icon-sports_filled',
@@ -68,7 +70,7 @@ export default {
                     title: 'Slots'
                 }
             ],
-            auth: {
+            authInfo: {
                 avatar: require('@/assets/img/avatars/avatar.png'),
                 alt: 'Avatar',
                 link: '##',
@@ -83,6 +85,7 @@ export default {
     methods: {
         showMenu(){
             this.isOpenMenu = !this.isOpenMenu;
+            this.changeStateOverlay = !this.changeStateOverlay;
             this.$emit('showMenuPanel');
         }
     }

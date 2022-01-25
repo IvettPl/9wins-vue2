@@ -1,7 +1,9 @@
 <template>
     <div
-        v-if="isMenuShow"
-        class="overlay">
+        v-if="isOverlay"
+        class="overlay"
+        @click="overlayChangeState"
+    >
 
     </div>
 </template>
@@ -9,8 +11,18 @@
 <script>
 export default {
     name: 'Overlay',
-    props: ['isMenuShow']
-    
+    props: ['isOverlay'],
+    data() {
+        return {
+            overlayState: this.isOverlay
+        }
+    },
+    methods: {
+        overlayChangeState() {
+            this.overlayState = !this.overlayState
+            this.$emit('overlayState')
+        }
+    }
 }
 </script>
 
@@ -22,8 +34,8 @@ export default {
     top: 0;
     left: 0;
     z-index: 3;
-    opacity: 1; 
-    background-color: rgba(0,0,0,0.8); 
+    opacity: 1;
+    background-color: rgba(0,0,0,0.8);
     transition: opacity 250ms, visibility 250ms;
     cursor: pointer;
 }

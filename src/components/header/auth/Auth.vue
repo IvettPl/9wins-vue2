@@ -3,7 +3,7 @@
         <div class="auth__bonuses">
             <div
                 class="auth__bonuses-item"
-                v-for="(item, index) in auth.bonuses"
+                v-for="(item, index) in authInfo.bonuses"
                 :key="index"
             >
                 <div class="auth__bonuses-sum icon-uniE934">
@@ -14,9 +14,9 @@
         </div>
         <div class="auth__person">
             <div class="auth__avatar">
-                <img :src="auth.avatar" :alt="auth.alt">
+                <img :src="authInfo.avatar" :alt="authInfo.alt">
             </div>
-            <a :href="auth.link" class="btn">{{ auth.linkTitle }}</a>
+            <a :href="authInfo.link" class="btn">{{ authInfo.linkTitle }}</a>
         </div>
     </div>
 </template>
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-    props: ['auth']
+    props: ['authInfo']
 }
 
 </script>

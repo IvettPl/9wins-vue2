@@ -11,12 +11,16 @@
             <MainMenu :isAuth="isAuth" :menuListsItem="menuLists" />
         </Tabs>
     </div>
-  <Header @showMenuPanel="isMenuShow = !isMenuShow" :openMenu="isMenuShow"  :isAuth="isAuth" />
+  <Header
+    @showMenuPanel="isMenuShow = !isMenuShow; isOverlay = !isOverlay"
+    :openMenu="isMenuShow"
+    :showOverlay="isOverlay"
+    :isAuth="isAuth" />
   <main>
       <router-view></router-view>
   </main>
   <Footer />
-  <Overlay :isMenuShow="isMenuShow" />
+  <Overlay @overlayState="isOverlay = !isOverlay" :isOverlay="isOverlay" />
 </div>
 </template>
 
@@ -36,6 +40,7 @@ export default {
         return {
             isAuth: true,
             isMenuShow: false,
+            isOverlay:false,
             tabsToggle: [
                 'Casino', 'Sport',
             ],
@@ -134,7 +139,7 @@ export default {
     },
     provide() {
         return {
-            isAuth: this.isAuth
+            isAuth: this.isAuth,
         }
     }
 }
