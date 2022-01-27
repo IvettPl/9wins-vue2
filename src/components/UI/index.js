@@ -1,9 +1,13 @@
 import CustomButton from '@/components/UI/CustomButton';
-import Stiker from '@/components/UI/Stiker'; 
-import Overlay from '@/components/UI/Overlay';
+import Stiker from '@/components/UI/Stiker';
+import CustomInput from '@/components/UI/fields/CustomInput';
+import CustomSelect from '@/components/UI/fields/CustomSelect';
+import CustomCheckbox from '@/components/UI/fields/CustomCheckbox';
 
 export default [
     CustomButton,
-    Stiker, 
-    Overlay
+    Stiker,
+    CustomInput,
+    CustomSelect,
+    CustomCheckbox
 ]

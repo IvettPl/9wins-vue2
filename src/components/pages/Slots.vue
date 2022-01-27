@@ -10,19 +10,24 @@
                 <button
                     type="button"
                     class="btn__filter icon-filter"
-                    @click="filterShow = !filterShow"
+                    @click="popupFilter = !popupFilter"
                 ></button>
             </div>
-            <ApplyFilter
-                @hidePanel="filterShow = !filterShow"
-                :openFilterPanel="filterShow"
-                :filterBox="filter"
-                :attrBtn="applyBtn"
-            />
+
             <div class="sorting__content">
                 <CatSliderItem :CatSliderItem="item" v-for="(item, index) in slides" :key="index" />
             </div>
         </div>
+        <Popup
+            :popupShow="popupFilter"
+            @hidePopup="popupFilter = !popupFilter"
+            class="popup--filter"
+        >
+            <ApplyFilter
+                :filterBox="filter"
+                :attrBtn="applyBtn"
+            />
+        </Popup>
     </div>
 </template>
 
@@ -31,16 +36,17 @@ import CatSliderItem from '@/components/sliders/cat-slider/CatSliderItem'
 import SortingList from '@/components/sorting/SortingList'
 import Search from '@/components/search/Search'
 import ApplyFilter from '@/components/applyFilter/ApplyFilter'
+import Popup from '@/components/popup/Popup'
 
 export default {
     name: 'Slots',
     components: {
-      CatSliderItem, SortingList, Search, ApplyFilter
+      CatSliderItem, SortingList, Search, ApplyFilter, Popup
     },
     data() {
         return {
             seachShow: false,
-            filterShow:false,
+            popupFilter:false,
 
             slides: [
                 {

@@ -8,6 +8,7 @@
 
 @import './btns';
 @import './favorite-label';
+@import './aside';
 @import './tabs';
 @import './stiker';
 @import './header';
@@ -19,8 +20,28 @@
 @import './cardSlider';
 @import './bonus-empty';
 @import './epicsSlider';
+
 @import './tools-panel';
+
 @import './search';
 @import './sorting';
 @import './apply-filter';
+
+@import './profile';
+@import './profile-avatar';
+@import './user-info';
+@import './profile-menu';
+
 @import './footer';
+
+@import './popups/popup';
+@import './popups/popup-content';
+@import './popups/reg-form';
+@import './popups/login-form';
+@import './popups/social-box';
+@import './popups/popup-footer';
+@import './popups/popup-slider';
+
+@import './form-fields/input-text';
+@import './form-fields/custom-select';
+@import './form-fields/custom-checkbox';

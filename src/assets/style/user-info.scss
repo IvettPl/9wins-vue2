@@ -1,0 +1,108 @@
+.user-info {
+    width: 100%;
+    text-align: center;
+
+    &__id {
+        margin-bottom: 4px;
+        line-height: 20px;
+        font-size: 15px;
+        color: $gray-lighter;
+        letter-spacing: -0.24px;
+    }
+
+    &__status {
+        line-height: 28px;
+        font-size: 24px;
+        color: $green;
+    }
+
+    &__bonuses {
+        margin-top: 26px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        &-item {
+            padding: 20px 0;
+            width: calc(50% - 12px);
+            background-color: $gray;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba($dark, 0.5);
+
+            &:first-child {
+                margin-right: 24px;
+
+                .user-info__bonuses-title {
+                    color: $yellow;
+
+                    &:before {
+                        color: $yellow;
+                    }
+                }
+            }
+        }
+
+        &-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 34px;
+            font-size: 28px;
+            color: $red;
+            font-weight: 700;
+
+            &:before {
+                width: 24px;
+                height: 32px;
+                color: $red;
+            }
+
+            span {
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+
+        &-label {
+            line-height: 20px;
+            font-size: 15px;
+        }
+
+        &-link {
+            width: 48px;
+            height: 48px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: $red;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: background-color 250ms;
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #fff;
+                border-radius: 2px;
+            }
+
+            &:before {
+                width: 22px;
+                height: 4px;
+            }
+
+            &:after {
+                width: 4px;
+                height: 22px;
+            }
+
+            &:hover {
+                background-color: $red-lighter;
+            }
+        }
+    }
+}

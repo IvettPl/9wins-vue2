@@ -1,0 +1,13 @@
+.login {
+    &-fields {
+        padding-top: 32px;
+        width: 100%;
+        display: flex;
+    }
+
+    &-field {
+        padding: 0 40px;
+        width: 50%;
+        box-sizing: border-box;
+    }
+}

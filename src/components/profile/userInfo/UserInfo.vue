@@ -1,0 +1,21 @@
+<template>
+    <div class="user-info">
+        <div class="user-info__id">{{userInfoParams.id}}</div>
+        <div class="user-info__status">{{userInfoParams.status}}</div>
+        <div class="user-info__bonuses">
+            <div class="user-info__bonuses-item" v-for="(item, index) in userInfoParams.userBalance" :key="index">
+                <div class="user-info__bonuses-title icon-uniE934">
+                    <span>{{item.balance}}</span>
+                </div>
+                <div class="user-info__bonuses-label">{{item.balanceTitle}}</div>
+            </div> 
+            <a class="user-info__bonuses-link" :href="userInfoParams.link"></a>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    props: ['userInfoParams']
+}
+</script>

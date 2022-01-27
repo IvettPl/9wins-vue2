@@ -1,5 +1,10 @@
 <template>
-<button class="btn" :type="attrBtn.type" :class="attrBtn.className">
+<button
+    class="btn"
+    :type="attrBtn.type"
+    :class="attrBtn.className"
+    :disabled="attrBtn.disabled == 1 ? true : false"
+>
     <slot></slot>
 </button>
 </template>

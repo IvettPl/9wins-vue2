@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="auth__person">
-            <div class="auth__avatar">
+            <div @click="toggleProfile" class="auth__avatar">
                 <img :src="authInfo.avatar" :alt="authInfo.alt">
             </div>
             <a :href="authInfo.link" class="btn">{{ authInfo.linkTitle }}</a>
@@ -25,9 +25,19 @@
 
 <script>
 export default {
-    props: ['authInfo']
+    props: ['authInfo', 'profile'],
+    data(){
+        return {
+            stateProfile: this.profile
+        }
+    },
+    methods: {
+        toggleProfile() {
+            this.stateProfile = !this.stateProfile
+            this.$emit('changeStateProfile')
+        }
+    }
 }
-
 </script>
 
 

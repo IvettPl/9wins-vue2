@@ -1,0 +1,66 @@
+.input-box {
+    width: 100%;
+
+    &__label {
+        margin-bottom: 4px;
+        display: block;
+        line-height: 20px;
+        font-size: 15px;
+        color: $gray-lighter;
+    }
+
+    &__area {
+        width: 100%;
+        position: relative;
+
+    }
+
+    &__field {
+        padding: 14px 44px 14px 10px;
+        width: 100%;
+        font-family: 'Roboto', sans-serif;
+        line-height: 20px;
+        font-size: 15px;
+        color: $white;
+        letter-spacing: -0.24px;
+        background-color: $dark;
+        border: 0;
+        border-radius: 16px;
+        box-sizing: border-box;
+    }
+
+    &__error {
+        margin-top: 4px;
+        display: none;
+        line-height: 18px;
+        font-size: 13px;
+        color: $red;
+        letter-spacing: -0.078px;
+    }
+
+    .btn__input {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%)
+    }
+}
+
+
+
+
+.is-error {
+    .input-box {
+        &__label {
+            color: $red;
+        }
+
+        &__field {
+            box-shadow: 0 0 0 1px $red;
+        }
+
+        &__error {
+            display: block;
+        }
+    }
+}

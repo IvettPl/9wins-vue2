@@ -3,7 +3,7 @@
     <div class="center__header">
         <div class="header__tools">
             <button type="button"
-                @click="showMenu"
+                @click="showAside"
                 class="header__menu-btn icon-menu">
             </button>
             <HeaderSubmenu :subMenuList="headerSubMenu" />
@@ -17,8 +17,20 @@
                 <img src="@/assets/img/svg/logo.svg" alt="9winz"></router-link>
         </div>
         <div class="right-column">
-            <Login v-if="!isAuth" />
-            <Auth v-if="isAuth" :authInfo="authInfo" />
+            <Login
+                @stateLogPopup="openLogPanel"
+                :openLogPopup="logShowPanel"
+                
+                @stateRegPopup="openRegPanel"
+                :openRegPopup="regShowPanel"
+                v-if="!isAuth"
+            />
+            <Auth
+                @changeStateProfile="toggleProfile"
+                :profile="stateAsideRight"
+                v-if="isAuth"
+                :authInfo="authInfo"
+            />
         </div>
 
     </div>
@@ -35,14 +47,18 @@ export default {
         Auth, Login, HeaderSubmenu
     },
     props: {
-        openMenu: Boolean,
-        showOverlay: Boolean
+        stateAside: Boolean,
+        stateAsideRight: Boolean,
+        regShowPanel: Boolean,
+        logShowPanel: Boolean
     },
     inject: ['isAuth'],
     data() {
         return {
-            isOpenMenu: this.openMenu,
-            changeStateOverlay: this.showOverlay,
+            stateLogin: this.login,
+            stateRegPanel: this.regShowPanel,
+            toggleAside: this.stateAside,
+            toggleRightAside: this.stateAsideRight,
             headerSubMenu: [
                 {
                     icn: 'icon-sports_filled',
@@ -83,10 +99,21 @@ export default {
         }
     },
     methods: {
-        showMenu(){
-            this.isOpenMenu = !this.isOpenMenu;
-            this.changeStateOverlay = !this.changeStateOverlay;
-            this.$emit('showMenuPanel');
+        showAside(){
+            this.toggleAside = !this.toggleAside;
+            this.$emit('showPanelLeft');
+        },
+        toggleProfile(){
+            this.toggleRightAside = !this.toggleRightAside;
+            this.$emit('showPanelRight');
+        },
+        openRegPanel(){
+            this.stateRegPanel =!this.stateRegPanel
+            this.$emit('showRegPopup')
+        },
+        openLogPanel(){ 
+            this.stateLogin =!this.stateLogin
+            this.$emit('showLogPopup')
         }
     }
 }

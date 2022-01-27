@@ -1,0 +1,39 @@
+.popup-content {
+    &__footer {
+        padding-top: 10px;
+        width: 100%;
+        // border-radius: 0 0 0 24px;
+    }
+
+    &__restore {
+        padding: 15px 0;
+        line-height: 18px;
+        font-size: 15px;
+        color: $white;
+        text-align: center;
+        background-color: $gray;
+
+        a {
+            margin-left: 6px;
+            color: $blue;
+            position: relative;
+
+            &:before {
+                content: "";
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                background-color: $blue;
+                transition: width 250ms;
+            }
+
+            &:hover{
+                &:before {
+                    width: 0;
+                }
+            }
+        }
+    }
+}

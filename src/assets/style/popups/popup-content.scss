@@ -1,0 +1,68 @@
+.popup-content {
+    width: 100%;
+    display: flex;
+
+    &__column {
+        width: 44%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+
+        @media (max-width: 767px) {
+            width: 100%;
+            background-color: $black;
+        }
+
+        &:last-child {
+            width: 56%;
+            overflow: hidden;
+            background-color: $black;
+            border-radius: 24px 0 0 24px;
+
+            @media (max-width: 767px) {
+                width: 100%;
+                border-radius: 0;
+            }
+        }
+
+        form {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__top {
+        .btn {
+            width: 235px;
+            height: 44px;
+            line-height: 21px;
+            font-size: 18px;
+
+            &__wrap {
+                justify-content: center;
+            }
+        }
+    }
+
+    &__fogotpass {
+        line-height: 13px;
+        font-size: 11px;
+        color: $gray-light;
+
+        a {
+            margin-left: 4px;
+            color: $blue;
+            position: relative;
+        }
+    }
+}

@@ -1,12 +1,7 @@
 <template>
     <div
         class="apply-filter"
-        :class="{'show': openFilterPanel}"
     >
-        <button
-            class="btn__close"
-            @click="closeFilterPanel"
-        ></button>
         <div
             class="apply-filter__box"
             v-for="(itemBox, index) in filterBox"
@@ -31,17 +26,6 @@ export default {
     components: {
         ApplyFilterList
     },
-    props: ['filterBox', 'attrBtn', 'openFilterPanel'],
-    data() {
-        return {
-            showPanel: this.openFilterPanel
-        }
-    },
-    methods: {
-        closeFilterPanel() {
-            this.showPanel = !this.showPanel
-            this.$emit('hidePanel')
-        }
-    }
+    props: ['filterBox', 'attrBtn']
 }
 </script>
