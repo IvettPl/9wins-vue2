@@ -1,0 +1,78 @@
+.form-fields {
+    &__box {
+        width: 100%;
+    }
+
+    &__line {
+        margin-bottom: 16px;
+        width: 100%;
+        display: flex;
+        position: relative;
+
+        &--verify {
+            align-items: flex-end;
+            justify-content: space-between;
+
+            .input-box,
+            .btn__wrap {
+                width: calc(50% - 8px);
+            }
+
+            .btn {
+                margin-bottom: 2px;
+            }
+        }
+
+        &--phone {
+            align-items: flex-start;
+            justify-content: space-between;
+
+            .input-box {
+                width: calc(100% - 90px);
+            }
+
+            .select__wrap {
+                width: 74px;
+                flex-shrink: 0;
+            }
+        }
+
+        &--privacy {
+            align-items: flex-start;
+            justify-content: space-between;
+
+            .checkbox__area,
+            .btn__wrap {
+                width: calc(50% - 8px);
+            }
+        }
+
+        &--column {
+            flex-direction: column;
+        }
+
+        .btn {
+            height: 44px;
+        }
+    }
+
+    &__fogotpass {
+        line-height: 13px;
+        font-size: 11px;
+        color: $gray-light;
+
+        a {
+            margin-left: 4px;
+            color: $blue;
+            position: relative;
+        }
+    }
+
+    &__warning-label {
+        margin-top: 8px;
+        display: block;
+        font-size: 13px;
+        color: $gray-superlight;
+        letter-spacing: -0.08px;
+    }
+}

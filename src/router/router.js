@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/components/pages/Home'
 import Slots from '@/components/pages/Slots'
 import Bonuses from '@/components/pages/Bonuses'
+import Cashier from '@/components/pages/Cashier'
 
 const routes = [
   {
@@ -23,7 +24,13 @@ const routes = [
     path: '/bonuses',
     name: 'bonuses',
     component: Bonuses
-  }, 
+  },
+
+  {
+    path: '/cashier',
+    name: 'cashier',
+    component: Cashier
+  }
 ]
 
 const router = createRouter({

@@ -1,23 +1,29 @@
 <template>
     <div class="tabs"
-        :class="(toggleTab) ? 'tab-1'  : 'tab-2' "
+        :class="`tab-${tabsParams.toggleActiveTab}`"
     >
         <div
-            v-if="isAuth || isPopupTab"
+            v-if="isShowTab"
             class="tabs__header">
             <div
-                v-for="(item, index) in tabsToggleItem"
+                v-for="(item, index) in tabsParams.itemsTabsHeader"
                 :key="index"
                 class="tabs__header-item"
-                @click="selectedTab  = item; toggleTab = !toggleTab"
-                :class="{ 'active': selectedTab === item }"
+                @click="tabsParams.selectedTab  = item; tabsParams.toggleActiveTab = index + 1"
+                :class="{ 'active': tabsParams.selectedTab === item }"
                 >
                 {{item}}
             </div>
         </div>
         <div class="tabs__content">
             <div class="tabs__content-viewport">
-                <slot></slot>
+                <div 
+                    class="tabs__content-item" 
+                    v-for="(item, index) in tabsParams.itemsTabsHeader"
+                    :key="index"    
+                    >
+                    <slot :name="`tab-content-${index + 1}`"></slot>
+                </div>
             </div>
         </div>
     </div>
@@ -27,13 +33,24 @@
 <script>
 export default {
     name: 'Tabs',
-    props: ['tabsToggleItem', 'isAuth', 'isPopupTab'],
+    props: ['tabsParams',  'isShowTab'],
     data(){
         return{
-            selectedTab: 'Casino',
-            toggleTab: true
+            itemsTabWidth: `${100/this.tabsParams.itemsTabsHeader.length}%`,
+            tabViewportWidth: `${100*this.tabsParams.itemsTabsHeader.length}%`,
         }
     }
 
 }
 </script>
+
+<style lang="scss" scoped>
+    .tabs__header-item,
+    .tabs__header:before,
+    .tabs__content-item {
+        width: v-bind(itemsTabWidth);
+    }
+    .tabs__content-viewport {
+        width: v-bind(tabViewportWidth);
+    }
+</style>

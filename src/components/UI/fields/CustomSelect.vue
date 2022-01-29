@@ -17,7 +17,7 @@
             </div>
             <ul class="select__options" v-if="optionsVisible">
                 <li
-                    @click="seleckOption(option)"
+                    @click="selectOption(option)"
                     class="select__option"
                     v-for="option in params.options"
                     :key="option.value"
@@ -38,7 +38,7 @@ export default {
     },
     props: ['params'],
     methods: {
-        seleckOption(option) {
+        selectOption(option) {
             this.$emit('select', option)
             this.optionsVisible = false
         },

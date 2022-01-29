@@ -5,9 +5,15 @@
         @click="stateAsideLeft = !stateAsideLeft"
         :statePanel="stateAsideLeft"
         :class="{'show ': stateAsideLeft}"
-        >
-        <Tabs :isAuth="isAuth"  :tabsToggleItem="tabsToggle">
-            <MainMenu :isAuth="isAuth" :menuListsItem="menuLists" />
+    >
+        <Tabs :isShowTab="isAuth" :tabsParams="mainMenuTabs">
+            <template #tab-content-1>
+                <MenuList :isAuth="isAuth" :menuListsItem="casinoMainMenu" />
+            </template>
+
+            <template #tab-content-2 v-if="isAuth">
+                <MenuList :isAuth="isAuth" :menuListsItem="sportMainMenu" />
+            </template>
         </Tabs>
     </Aside>
 
@@ -35,7 +41,8 @@
         @showPanelLeft="stateAsideLeft = !stateAsideLeft"
         :stateAsideLeft="stateAsideLeft"
         :stateAsideRight="stateAsideRight"
-        :isAuth="isAuth" />
+        :isAuth="isAuth"
+    />
     <main>
         <router-view></router-view>
     </main>
@@ -74,11 +81,16 @@
             <template v-slot:right>
                 <LoginForm :formParams="loginFormParams">
                     <template v-slot:default>
-                        <Tabs
-                            :isPopupTab="isPopupTab"
-                            :tabsToggleItem="loginPopupTabs"
-                        >
-                            <LoginFormFields :formFields="loginFields"></LoginFormFields>
+                        <Tabs :isShowTab="true" :tabsParams="loginPopupTabParams">
+                            <template #tab-content-1>
+                                <LoginMailFields :formFields="loginPopupMailFields" />
+                            </template>
+                            <template #tab-content-2>
+                                <LoginPhoneFields
+                                    :formFields="loginPopupPhoneFields"
+                                    @loginChangeCodePhone="changeLoginSelectName"
+                                />
+                            </template>
                         </Tabs>
                     </template>
 
@@ -98,7 +110,7 @@
 import Header from '@/components/header/Header'
 import Footer from '@/components/footer/Footer'
 import Tabs from '@/components/tabs/Tabs'
-import MainMenu from '@/components/mainMenu/MainMenu'
+import MenuList from '@/components/menuList/MenuList'
 import Aside from '@/components/aside/Aside'
 
 import ProfileArea from '@/components/profile/ProfileArea'
@@ -110,7 +122,9 @@ import Popup from '@/components/popup/Popup'
 import PopupContent from '@/components/popup/popupContent/PopupContent'
 import RegForm from '@/components/popup/regForm/RegForm'
 import LoginForm from '@/components/popup/loginForm/LoginForm'
-import LoginFormFields from '@/components/popup/loginForm/LoginFormFields'
+// import LoginFormFields from '@/components/popup/loginForm/LoginFormFields'
+import LoginMailFields from '@/components/popup/loginForm/LoginMailFields'
+import LoginPhoneFields from '@/components/popup/loginForm/LoginPhoneFields'
 import SocialBox from '@/components/popup/socialBox/SocialBox'
 import PopupFooter from '@/components/popup/popupFooter/PopupFooter'
 import PopupSlider from '@/components/popup/popupSlider/PopupSlider'
@@ -120,12 +134,11 @@ import PopupSlider from '@/components/popup/popupSlider/PopupSlider'
 
 export default {
   components: {
-    Header, Footer, Tabs, MainMenu, Aside, ProfileArea, ProfileAvatar, UserInfo, ProfileMenu, Popup, PopupContent, RegForm, LoginForm, LoginFormFields, SocialBox, PopupFooter, PopupSlider
+    Header, Footer, Tabs, MenuList, Aside, ProfileArea, ProfileAvatar, UserInfo, ProfileMenu, Popup, PopupContent, RegForm, LoginForm, LoginMailFields, LoginPhoneFields, SocialBox, PopupFooter, PopupSlider
   },
     data(){
         return {
             isAuth: false,
-            isPopupTab: true,
             stateAsideLeft: false,
             stateAsideRight: false,
             regShowPanel: false,
@@ -237,7 +250,7 @@ export default {
                 },
             },
 
-            loginFields: {
+            loginPopupMailFields: {
                 labelFogot: 'Fogot your password?',
                 titleFogot: 'Get recovery link.',
                 linkFogot: '##',
@@ -245,7 +258,7 @@ export default {
                     isValid: true,
                     icnClass: 'icon-clear',
                     type: 'text',
-                    id: 'email',
+                    id: 'LoginEmail',
                     label: 'Email',
                     name: 'email',
                     placeholder: 'user@mail.com',
@@ -255,17 +268,20 @@ export default {
                     isValid: true,
                     icnClass: 'icon-eye',
                     type: 'password',
-                    id: 'password',
+                    id: 'LoginPassword',
                     label: 'Password',
                     name: 'password',
                     placeholder: 'password',
                     errorMsg: 'Invalid password format'
                 },
+            },
+
+            loginPopupPhoneFields: {
                 inputVerify: {
                     isValid: true,
                     icnClass: 'icon-clear',
                     type: 'password',
-                    id: 'verify',
+                    id: 'LoginVerify',
                     label: 'Verify code',
                     name: 'verify',
                     errorMsg: 'Invalid code'
@@ -288,16 +304,20 @@ export default {
                     isValid: true,
                     icnClass: 'icon-clear',
                     type: 'text',
-                    id: 'phone',
+                    id: 'LoginPhone',
                     label: 'Phone number',
                     name: 'phone',
                     errorMsg: 'Invalid phone number'
                 }
             },
 
-            loginPopupTabs: [
-                'Use email', 'Use phone number',
-            ],
+            loginPopupTabParams: {
+                selectedTab: 'Use email',
+                toggleActiveTab: 1,
+                itemsTabsHeader: [
+                    'Use email', 'Use phone number'
+                ],
+            },
 
             loginPopupFooter: {
                 text: 'Don’t have an account?',
@@ -380,101 +400,104 @@ export default {
                 imgAlt: 'Avatar'
             },
 
-            tabsToggle: [
-                'Casino', 'Sport',
+            mainMenuTabs: {
+                selectedTab: 'Casino',
+                toggleActiveTab: 1,
+                itemsTabsHeader: [
+                    'Casino', 'Sport'
+                ],
+            },
+
+            casinoMainMenu: [
+                {
+                    icnClass: 'icon-bonus',
+                    link: '/bonuses',
+                    title: 'Bonuses'
+                },
+                {
+                    icnClass: 'icon-tournaments',
+                    link: '##',
+                    title: 'Tournaments'
+                },
+                {
+                    icnClass: 'icon-new',
+                    link: '##',
+                    title: 'News'
+                },
+                {
+                    icnClass: 'icon-personal-info',
+                    link: '##',
+                    title: 'Loyalty Programm'
+                },
+                {
+                    icnClass: 'icon-slots',
+                    link: '##',
+                    title: 'Slot Casino'
+                },
+                {
+                    icnClass: 'icon-live_casino',
+                    link: '##',
+                    title: 'Live Casino'
+                },
+                {
+                    icnClass: 'icon-table',
+                    link: '##',
+                    title: 'Skill Games'
+                }
             ],
 
-            menuLists: {
-                casino: [
-                    {
-                        icnClass: 'icon-bonus',
-                        link: '/bonuses',
-                        title: 'Bonuses'
-                    },
-                    {
-                        icnClass: 'icon-tournaments',
-                        link: '##',
-                        title: 'Tournaments'
-                    },
-                    {
-                        icnClass: 'icon-new',
-                        link: '##',
-                        title: 'News'
-                    },
-                    {
-                        icnClass: 'icon-personal-info',
-                        link: '##',
-                        title: 'Loyalty Programm'
-                    },
-                    {
-                        icnClass: 'icon-slots',
-                        link: '##',
-                        title: 'Slot Casino'
-                    },
-                    {
-                        icnClass: 'icon-live_casino',
-                        link: '##',
-                        title: 'Live Casino'
-                    },
-                    {
-                        icnClass: 'icon-table',
-                        link: '##',
-                        title: 'Skill Games'
-                    }
-                ],
-                sport: [
-                    {
-                        icnClass: 'icon-sports_filled',
-                        link: '##',
-                        title: 'Крикет'
-                    },
-                    {
-                        icnClass: 'icon-virtual_games',
-                        link: '##',
-                        title: 'Киберспорт'
-                    },
-                    {
-                        icnClass: 'icon-live_casino',
-                        link: '##',
-                        title: 'Футбол'
-                    },
-                    {
-                        icnClass: '',
-                        link: '##',
-                        title: 'Теннис'
-                    },
-                    {
-                        icnClass: '',
-                        link: '##',
-                        title: 'Баскетбол'
-                    },
-                    {
-                        icnClass: '',
-                        link: '##',
-                        title: 'Настольный теннис'
-                    },
-                    {
-                        icnClass: '',
-                        link: '##',
-                        title: 'Волейбол'
-                    },
-                    {
-                        icnClass: '',
-                        link: '##',
-                        title: 'Хоккей'
-                    },
-                    {
-                        icnClass: '',
-                        link: '##',
-                        title: 'UFC'
-                    },
-                    {
-                        icnClass: '',
-                        link: '##',
-                        title: 'Бокс'
-                    }
-                ]
-            }
+            sportMainMenu: [
+                {
+                    icnClass: 'icon-sports_filled',
+                    link: '##',
+                    title: 'Крикет'
+                },
+                {
+                    icnClass: 'icon-virtual_games',
+                    link: '##',
+                    title: 'Киберспорт'
+                },
+                {
+                    icnClass: 'icon-live_casino',
+                    link: '##',
+                    title: 'Футбол'
+                },
+                {
+                    icnClass: '',
+                    link: '##',
+                    title: 'Теннис'
+                },
+                {
+                    icnClass: '',
+                    link: '##',
+                    title: 'Баскетбол'
+                },
+                {
+                    icnClass: '',
+                    link: '##',
+                    title: 'Настольный теннис'
+                },
+                {
+                    icnClass: '',
+                    link: '##',
+                    title: 'Волейбол'
+                },
+                {
+                    icnClass: '',
+                    link: '##',
+                    title: 'Хоккей'
+                },
+                {
+                    icnClass: '',
+                    link: '##',
+                    title: 'UFC'
+                },
+                {
+                    icnClass: '',
+                    link: '##',
+                    title: 'Бокс'
+                }
+            ],
         }
     },
     provide() {
@@ -485,6 +508,10 @@ export default {
     methods: {
         optionName(option) {
             this.regFormParams.selectPhoneCode.selected = option.name
+        },
+
+        changeLoginSelectName(option) {
+            this.loginPopupPhoneFields.selectPhoneCode.selected = option.name
         }
     }
 }

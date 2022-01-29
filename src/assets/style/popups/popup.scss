@@ -101,6 +101,31 @@
                 margin: 0 40px;
                 width: calc(100% - 80px)
             }
+
+            &__content {
+                padding-top: 32px;
+
+                &-item {
+                    padding: 0 40px;
+                    box-sizing: border-box;
+                }
+            }
+        }
+
+        .tab-2 {
+            .tabs {
+                &__header {
+                    &:before {
+                        transform: translateX(calc(100% - 1px))
+                    }
+                }
+
+                &__content {
+                    &-viewport {
+                        transform: translateX(calc(-100% / 2))
+                    }
+                }
+            }
         }
     }
 }

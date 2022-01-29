@@ -37,11 +37,15 @@
 @import './popups/popup';
 @import './popups/popup-content';
 @import './popups/reg-form';
-@import './popups/login-form';
 @import './popups/social-box';
 @import './popups/popup-footer';
 @import './popups/popup-slider';
 
+@import './form-fields/form-fields';
 @import './form-fields/input-text';
 @import './form-fields/custom-select';
 @import './form-fields/custom-checkbox';
+
+@import './cashier/cashier';
+@import './cashier/paycard-list';
+@import './cashier/fixed-payment';

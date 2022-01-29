@@ -11,7 +11,6 @@
 
         &:before {
             content: "";
-            width: calc(100% / 2 - 1px);
             height: calc(100% - 2px);
             position: absolute;
             top: 1px;
@@ -25,7 +24,6 @@
         &-item {
             margin: 1px;
             padding: 12px 0;
-            width: calc(100% / 2 - 1px);
             line-height: 18px;
             font-size: 13px;
             color: $white;
@@ -50,27 +48,9 @@
         overflow: hidden;
 
         &-viewport {
-            width: 200%;
             display: flex;
             transform: translateX(0);
             transition: transform 250ms;
-        }
-    }
-}
-
-
-.tab-2 {
-    .tabs {
-        &__header {
-            &:before {
-                transform: translateX(calc(100% - 1px))
-            }
-        }
-
-        &__content {
-            &-viewport {
-                transform: translateX(-50%)
-            }
         }
     }
 }
