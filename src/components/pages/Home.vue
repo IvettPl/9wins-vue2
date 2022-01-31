@@ -2,10 +2,10 @@
     <div class="page-wrapper page-wrapper--home">
         <BannerSlider />
         <CatSlider  :catSliders="sport" />
-        <SliderTournamentsMod v-if="isAuth" :cardParams="tournaments" />
+        <SliderTournamentsMod v-if="$store.state.isAuth" :cardParams="tournaments" />
         <CatSlider  :catSliders="games" />
 
-        <EpicsSlider v-if="isAuth"  :epicItemParams="epicsItems"  />
+        <EpicsSlider v-if="$store.state.isAuth"  :epicItemParams="epicsItems"  />
 
         <CatSlider  :catSliders="casino" />
         <CatSlider  :catSliders="slots" />
@@ -25,8 +25,7 @@ export default {
   name: 'Home',
   components: {
     BannerSlider, CatSlider, SliderBonusMod, SliderTournamentsMod, EpicsSlider
-  },
-  inject: ['isAuth'],
+  }, 
   data(){
       return {
           bonuses: {

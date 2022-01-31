@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="auth__person">
-            <div @click="toggleProfile" class="auth__avatar">
+            <div @click="$store.commit('showPanelRight')" class="auth__avatar">
                 <img :src="authInfo.avatar" :alt="authInfo.alt">
             </div>
             <a :href="authInfo.link" class="btn">{{ authInfo.linkTitle }}</a>

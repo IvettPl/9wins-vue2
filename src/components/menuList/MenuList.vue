@@ -4,6 +4,7 @@
         v-for="item in menuListsItem"
         :key="item.title"
         class="menu__list-item"
+        @click="$store.commit('showPanelLeft')"
     >
         <router-link :to="item.link" class="menu__list-link" :class="item.icnClass">
             <span>{{item.title}}</span>
@@ -15,6 +16,6 @@
 <script>
 export default {
     name: 'MenuList',
-    props: ['menuListsItem', 'isAuth'],
+    props: ['menuListsItem'],
 }
 </script>

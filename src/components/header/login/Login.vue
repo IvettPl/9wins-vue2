@@ -2,7 +2,7 @@
 <div class="login">
     <div class="login__box-default">
         <button
-            @click="changeStateLogin"
+            @click="$store.commit('showLogPanel')"
             class="login__btn js-btn--login"
             type='button'
         >
@@ -10,7 +10,7 @@
         </button>
 
         <CustomButton
-            @click="changeRegPopup"
+            @click="$store.commit('showRegPanel')"
             :attrBtn="AttrBtnReg"
         >
             Let's go
@@ -25,27 +25,16 @@ import CustomButton from './../../UI/CustomButton'
 export default {
     componemts: {
         CustomButton
-    },
-    props: ['openRegPopup','openLogPopup'],
+    }, 
     data(){
-        return {
-            openLogin: this.openLogPopup,
-            openReg: this.openRegPopup, 
+        return { 
             AttrBtnReg: {
                 type: 'button',
                 className: 'btn js-btn--reg',
             }
         }
     },
-    methods: {
-        changeRegPopup(){
-            this.openReg =!this.openReg
-            this.$emit('stateRegPopup')
-        },
-        changeStateLogin(){
-            this.openLogin =!this.openLogin
-            this.$emit('stateLogPopup') 
-        }
+    methods: { 
         
     }
 }

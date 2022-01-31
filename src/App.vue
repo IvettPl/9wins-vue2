@@ -1,27 +1,23 @@
 <template>
 <div class="wrapper  ">
     <Aside
-        @closePanel="stateAsideLeft = !stateAsideLeft"
-        @click="stateAsideLeft = !stateAsideLeft"
-        :statePanel="stateAsideLeft"
-        :class="{'show ': stateAsideLeft}"
+        @click="$store.commit('showPanelLeft')" 
+        :class="{'show ': $store.state.stateAsideLeft}"
     >
-        <Tabs :isShowTab="isAuth" :tabsParams="mainMenuTabs">
+        <Tabs :isShowTab="$store.state.isAuth"  :tabsParams="mainMenuTabs">
             <template #tab-content-1>
-                <MenuList :isAuth="isAuth" :menuListsItem="casinoMainMenu" />
+                <MenuList  :menuListsItem="casinoMainMenu" />
             </template>
 
-            <template #tab-content-2 v-if="isAuth">
-                <MenuList :isAuth="isAuth" :menuListsItem="sportMainMenu" />
+            <template #tab-content-2 v-if="$store.state.isAuth">
+                <MenuList  :menuListsItem="sportMainMenu" />
             </template>
         </Tabs>
     </Aside>
 
-    <Aside
-        @closePanel="stateAsideRight = !stateAsideRight"
-        @click="stateAsideRight = !stateAsideRight"
-        :class="{'aside--right show': stateAsideRight}"
-        :statePanel="stateAsideRight"
+    <Aside 
+        @click="$store.commit('showPanelRight')"
+        :class="{'aside--right show':  $store.state.stateAsideRight}" 
     >
         <ProfileArea class="profile--start">
             <ProfileAvatar :profileAvatarParams="profileAvatarParams" />
@@ -30,28 +26,15 @@
         </ProfileArea>
     </Aside>
 
-    <Header
-        @showLogPopup="logShowPanel = !logShowPanel"
-        :logShowPanel="logShowPanel"
-
-
-        @showRegPopup="regShowPanel = !regShowPanel"
-        :regShowPanel="regShowPanel"
-        @showPanelRight="stateAsideRight = !stateAsideRight"
-        @showPanelLeft="stateAsideLeft = !stateAsideLeft"
-        :stateAsideLeft="stateAsideLeft"
-        :stateAsideRight="stateAsideRight"
-        :isAuth="isAuth"
-    />
+    <Header />
     <main>
         <router-view></router-view>
     </main>
     <Footer />
 
-    <Popup
-        :popupShow="regShowPanel"
-        @hidePopup="regShowPanel = !regShowPanel"
+    <Popup 
         class="popup--reg"
+        :class="{'show': $store.state.regShowPanel }"
     >
         <PopupContent>
             <template v-slot:left>
@@ -68,10 +51,9 @@
         </PopupContent>
     </Popup>
 
-    <Popup
-        :popupShow="logShowPanel"
-        @hidePopup="logShowPanel = !logShowPanel"
+    <Popup 
         class="popup--login"
+        :class="{'show':  $store.state.logShowPanel }"
     >
         <PopupContent>
             <template v-slot:left>
@@ -137,13 +119,7 @@ export default {
     Header, Footer, Tabs, MenuList, Aside, ProfileArea, ProfileAvatar, UserInfo, ProfileMenu, Popup, PopupContent, RegForm, LoginForm, LoginMailFields, LoginPhoneFields, SocialBox, PopupFooter, PopupSlider
   },
     data(){
-        return {
-            isAuth: false,
-            stateAsideLeft: false,
-            stateAsideRight: false,
-            regShowPanel: false,
-            logShowPanel: false,
-
+        return { 
             regFormParams: {
                 title: 'Registration',
                 inputMail: {
@@ -499,12 +475,7 @@ export default {
                 }
             ],
         }
-    },
-    provide() {
-        return {
-            isAuth: this.isAuth,
-        }
-    },
+    }, 
     methods: {
         optionName(option) {
             this.regFormParams.selectPhoneCode.selected = option.name

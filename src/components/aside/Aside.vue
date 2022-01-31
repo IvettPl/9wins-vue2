@@ -1,7 +1,7 @@
 <template>
     <div class="aside">
-        <div @click.stop class="aside__panel" :class="{'show': statePanel}">
-            <button @click="closeAside" type="button" class="btn__close"></button>
+        <div @click.stop class="aside__panel" :class="{'show': $store.state.stateAsideLeft || $store.state.stateAsideRight}">
+            <button @click="$store.commit('closePanel')" type="button" class="btn__close"></button>
             <slot />
         </div>
     </div>
@@ -10,19 +10,13 @@
 <script>
 export default {
     name: 'Aside',
-    props: {
-        statePanel: Boolean
+    props: { 
     },
     data() {
-        return {
-            changeStatePanel: this.statePanel
+        return { 
         }
     },
-    methods: {
-        closeAside() {
-            this.changeStatePanel = !this.changeStatePanel
-            this.$emit('closePanel')
-        }
+    methods: { 
     }
 }
 </script>

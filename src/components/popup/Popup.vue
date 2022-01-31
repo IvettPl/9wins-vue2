@@ -1,29 +1,23 @@
 <template>
     <div
         class="popup"
-        :class="{'show': popupShow}"
-        @click="closePopup"
+        @click="$store.commit('closePanel')"
     >
         <div @click.stop class="dialog">
-            <button class="btn__close" @click="closePopup"></button>
+            <button class="btn__close" @click="$store.commit('closePanel')"></button>
             <slot></slot>
         </div>
     </div>
 </template>
 
 <script>
-export default {
-    props: ['popupShow'],
+export default { 
     data(){
-        return {
-            close: this.closePopup
+        return { 
         }
     },
     methods: {
-        closePopup(){
-            this.close = !this.close
-            this.$emit('hidePopup')
-        }
+         
     }
 }
 </script>
