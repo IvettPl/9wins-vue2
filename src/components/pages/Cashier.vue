@@ -3,18 +3,22 @@
         <div class="center"> 
             <Tabs :isShowTab="true" :tabsParams="tabCashierParams">
                 <template #tab-content-1>   
-                    <PayCards :payCardsList="payCardsList" />
+                    <div class="tabs__content-title">  Deposit </div>
+                    <PayCards v-if="$store.state.depositCard" :payCardsList="payCardsList" />
                     <DepositForm
+                        v-if="!$store.state.depositCard"
                         :depositFields="depositFormParams"
                     ></DepositForm>
                 </template> 
 
                 <template #tab-content-2>   
-2
+                    <div class="tabs__content-title">  Withdrawal </div>
                 </template> 
 
-                <template #tab-content-3>   
-3
+                <template #tab-content-3>  
+                    <div class="tabs__content-title">  History </div>
+                    <EmptyBox v-if="$store.state.emptyBox"/>
+                    <Historylist v-if="!$store.state.emptyBox" :historyParams="historyParams"/>
                 </template>                                 
             </Tabs>
         </div>
@@ -27,12 +31,14 @@
 import Tabs from '@/components/tabs/Tabs'
 import DepositForm from '@/components/cashier/deposit/DepositForm'
 import PayCards from '@/components/cashier/PayCards'
+import EmptyBox from '@/components/cashier/EmptyBox'
+import Historylist from '@/components/cashier/history/Historylist'
 
 export default {
     name: 'Cashier',
 
     components: {
-        Tabs, DepositForm, PayCards
+        Tabs, DepositForm, PayCards, Historylist, EmptyBox
     },
 
     data() {
@@ -108,7 +114,26 @@ export default {
                     imgUrl: require('@/assets/img/logos/phonepe.svg'),
                     ingAlt: 'phonepe'
                 },
-            ]
+            ],
+            historyParams:{ 
+                statedata: new Date(),
+                historyInfoParams: [
+                    {
+                        imgUrl: require('@/assets/img/logos/mastercard.svg'),
+                        imgAlt: 'Mastercard',
+                        price: '50.00',
+                        data: '08.10.2021',
+                        status: 'in process',
+                    },
+                    {
+                        imgUrl: require('@/assets/img/logos/mastercard.svg'),
+                        imgAlt: 'Mastercard',
+                        price: '50.00',
+                        data: '08.10.2021',
+                        status: 'in process',
+                    }
+                ]
+            }
         }
     }
 

@@ -6,7 +6,9 @@ export default createStore({
     stateAsideRight: false,
     regShowPanel: false,
     logShowPanel: false,
-    isAuth: false, 
+    isAuth: true, 
+    emptyBox: true,
+    depositCard: true
   },
   getters: {
      
@@ -29,6 +31,9 @@ export default createStore({
       state.stateAsideRight = false
       state.regShowPanel = false
       state.logShowPanel = false
+    },
+    showcardForm(state){
+      state.depositCard = !state.depositCard
     }
   },
   actions: {
