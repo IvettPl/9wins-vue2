@@ -6,7 +6,8 @@
             max-width: 394px;
         }
 
-        .deposit-form {
+        .deposit-form,
+        .withdrawal-form {
             .btn {
                 width: 160px;
                 height: 44px;
@@ -21,6 +22,20 @@
                     margin-top: 40px;
                     justify-content: center;
                 }
+            }
+        }
+
+        .withdrawal-form {
+            .form-fields__line--double {
+                justify-content: space-between;
+
+                .input-box {
+                    width: calc(50% - 8px);
+                }
+            }
+
+            .checkbox__label {
+                line-height: 18px;
             }
         }
 

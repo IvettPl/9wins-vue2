@@ -1,7 +1,7 @@
 <template>
     <div class="withdrawal-form">
         <div class="content-title">Payment details</div>
-        <form action="">
+        <form @submit.prevent  action="">
             <div class="form-fields__line form-fields__line--column">
                 <CustomInput :attrInput="withdrawalFields.withdrawalAmount"></CustomInput> 
             </div> 
@@ -20,7 +20,8 @@
             </div>
 
             <div class="btn__wrap">
-                <CustomButton
+                <CustomButton  
+                    @click="$store.state.showInfolist = !$store.state.showInfolist, $store.state.showWithdrawalForm = !$store.state.showWithdrawalForm"
                     :attrBtn="withdrawalFields.depositBtn"
                 >deposit</CustomButton>
             </div>

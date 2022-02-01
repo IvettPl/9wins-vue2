@@ -9,7 +9,7 @@
         >
         <label
             class="checkbox__label"
-            for="privacy-reg"
+            :for="checkboxParams.id"
         >
             {{ checkboxParams.label }}
         </label>

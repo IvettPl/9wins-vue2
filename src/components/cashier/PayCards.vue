@@ -1,7 +1,6 @@
 <template>
     <div class="paycard-list">
         <div
-            @click="$store.commit('showcardForm')" 
             class="paycard-list__item" 
             v-for="(item, index) in payCardsList" 
             :key="index">

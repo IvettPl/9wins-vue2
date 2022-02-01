@@ -10,7 +10,9 @@ export default createStore({
     emptyBox: true,
     depositCard: true,
     emptyBoxWithdrawal: true,
-    withdrawalCard: true
+    withdrawalCard: false,
+    showWithdrawalForm: false,
+    showInfolist: false
   },
   getters: {
 

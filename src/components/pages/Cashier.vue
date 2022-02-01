@@ -4,7 +4,11 @@
             <Tabs :isShowTab="true" :tabsParams="tabCashierParams">
                 <template #tab-content-1>
                     <div class="content-title">  Deposit </div>
-                    <PayCards v-if="$store.state.depositCard" :payCardsList="payCardsList" />
+                    <PayCards
+
+                        @click="$store.commit('showcardForm')"
+                        v-if="$store.state.depositCard"
+                        :payCardsList="payCardsList" />
                     <DepositForm
                         v-if="!$store.state.depositCard"
                         :depositFields="depositFormParams"
@@ -15,25 +19,32 @@
                     <div class="content-title">  Withdrawal </div>
                     <EmptyBox  v-if="$store.state.emptyBoxWithdrawal">
                         <CustomButton
-                            @click="$store.state.withdrawalCard = !$store.state.withdrawalCard"
+                            @click="$store.state.withdrawalCard = !$store.state.withdrawalCard, $store.state.emptyBoxWithdrawal = !$store.state.emptyBoxWithdrawal"
                             class="btn"
-                            id="history-deposit"
                             type="button"
                         >
                             {{ withdrawalParams.titleBtn}}
-                        </CustomButton> 
-                    </EmptyBox> 
-                    <PayCards v-if="$store.state.withdrawalCard" :payCardsList="payCardsList" />
-                    <WithdrawalForm 
+                        </CustomButton>
+                    </EmptyBox>
+                    <PayCards
+                        @click="$store.state.showWithdrawalForm = !$store.state.showWithdrawalForm, $store.state.withdrawalCard = !$store.state.withdrawalCard"
+                        v-if="$store.state.withdrawalCard"
+                        :payCardsList="payCardsList" />
+                    <WithdrawalForm
+                        v-if="$store.state.showWithdrawalForm"
                         :withdrawalFields="withdrawalParams"
                     ></WithdrawalForm>
-                    <Infolist :infolistParams="withdrawalParams.infolist" >
-                        <CustomButton 
-                            class="btn" 
-                            type="button"
-                        >
-                            {{ withdrawalParams.titleBtn}}
-                        </CustomButton> 
+                    <Infolist v-if="$store.state.showInfolist" :infolistParams="withdrawalParams.infolist" >
+                        <div class="btn__wrap">
+                            <CustomButton
+                                class="btn"
+                                type="button"
+                                @click="$store.state.showInfolist = !$store.state.showInfolist, $store.state.withdrawalCard = !$store.state.withdrawalCard"
+                            >
+                                {{ withdrawalParams.titleBtn}}
+                            </CustomButton>
+                        </div>
+                        <div class="infolist__label">Under consideration:</div>
                     </Infolist>
                 </template>
 
@@ -46,8 +57,8 @@
                             type="button"
                         >
                             {{ historyParams.titleBtn}}
-                        </CustomButton> 
-                    </EmptyBox>                   
+                        </CustomButton>
+                    </EmptyBox>
                     <Historylist v-if="!$store.state.emptyBox" :historyParams="historyParams"/>
                 </template>
             </Tabs>
@@ -178,7 +189,7 @@ export default {
                     name: 'withdrawalAmount',
                     placeholder: '0',
                     errorMsg: 'Invalid Withdrawal amount field format'
-                }, 
+                },
                 cardNumber: {
                     isValid: true,
                     icnClass: 'icon-clear',
@@ -188,7 +199,7 @@ export default {
                     name: 'cardNumber',
                     placeholder: 'xxxx xxxx xxxx xxxx',
                     errorMsg: 'Invalid Card number field format'
-                },   
+                },
                 inputCartName: {
                     isValid: true,
                     icnClass: 'icon-clear',
@@ -198,7 +209,7 @@ export default {
                     name: 'inputCartName',
                     placeholder: 'Input cart name',
                     errorMsg: 'Invalid Name on card field format'
-                },       
+                },
                 inputExpiryDate: {
                     isValid: true,
                     icnClass: 'icon-clear',
@@ -208,7 +219,7 @@ export default {
                     name: 'inputExpiryDate',
                     placeholder: 'xx/xx',
                     errorMsg: 'Invalid Expiry date format'
-                },  
+                },
                 inputSecurityCode: {
                     isValid: true,
                     icnClass: 'icon-clear',
@@ -218,14 +229,14 @@ export default {
                     name: 'inputSecurityCode',
                     placeholder: '***',
                     errorMsg: 'Invalid Security code format'
-                },     
-                privacyCheckbox: { 
-                    type: 'checkbox', 
+                },
+                privacyCheckbox: {
+                    type: 'checkbox',
                     id: 'rememberCardDetailsg',
                     name: 'rememberCardDetailsg',
                     checked: 0,
                     label: 'Remember card details'
-                },     
+                },
                 depositBtn: {
                     type: 'submit',
                 },
@@ -233,14 +244,14 @@ export default {
                     {
                         status: 'in process',
                         price: '0,00',
-                        data: '08.10.2021',                        
+                        data: '08.10.2021',
                     },
                     {
                         status: 'in process',
                         price: '50,00',
-                        data: '10.10.2021',                        
-                    },                      
-                ]                                                              
+                        data: '10.10.2021',
+                    },
+                ]
             }
         }
     }
