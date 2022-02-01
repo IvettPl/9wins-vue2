@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper  ">
     <Aside
-        @click="$store.commit('showPanelLeft')" 
+        @click="$store.commit('showPanelLeft')"
         :class="{'show ': $store.state.stateAsideLeft}"
     >
         <Tabs :isShowTab="$store.state.isAuth"  :tabsParams="mainMenuTabs">
@@ -15,9 +15,9 @@
         </Tabs>
     </Aside>
 
-    <Aside 
+    <Aside
         @click="$store.commit('showPanelRight')"
-        :class="{'aside--right show':  $store.state.stateAsideRight}" 
+        :class="{'aside--right show':  $store.state.stateAsideRight}"
     >
         <ProfileArea class="profile--start">
             <ProfileAvatar :profileAvatarParams="profileAvatarParams" />
@@ -32,7 +32,7 @@
     </main>
     <Footer />
 
-    <Popup 
+    <Popup
         class="popup--reg"
         :class="{'show': $store.state.regShowPanel }"
     >
@@ -51,7 +51,7 @@
         </PopupContent>
     </Popup>
 
-    <Popup 
+    <Popup
         class="popup--login"
         :class="{'show':  $store.state.logShowPanel }"
     >
@@ -119,7 +119,7 @@ export default {
     Header, Footer, Tabs, MenuList, Aside, ProfileArea, ProfileAvatar, UserInfo, ProfileMenu, Popup, PopupContent, RegForm, LoginForm, LoginMailFields, LoginPhoneFields, SocialBox, PopupFooter, PopupSlider
   },
     data(){
-        return { 
+        return {
             regFormParams: {
                 title: 'Registration',
                 inputMail: {
@@ -358,7 +358,7 @@ export default {
             userInfoParams: {
                 id: 2394876452002,
                 status: 'Regular',
-                link: "##",
+                link: "cashier",
                 userBalance: [
                     {
                         balance: '32,000',
@@ -475,7 +475,7 @@ export default {
                 }
             ],
         }
-    }, 
+    },
     methods: {
         optionName(option) {
             this.regFormParams.selectPhoneCode.selected = option.name

@@ -1,25 +1,55 @@
 <template>
     <div class="page-wrapper page-wrapper--cashier">
-        <div class="center"> 
+        <div class="center">
             <Tabs :isShowTab="true" :tabsParams="tabCashierParams">
-                <template #tab-content-1>   
-                    <div class="tabs__content-title">  Deposit </div>
+                <template #tab-content-1>
+                    <div class="content-title">  Deposit </div>
                     <PayCards v-if="$store.state.depositCard" :payCardsList="payCardsList" />
                     <DepositForm
                         v-if="!$store.state.depositCard"
                         :depositFields="depositFormParams"
                     ></DepositForm>
-                </template> 
+                </template>
 
-                <template #tab-content-2>   
-                    <div class="tabs__content-title">  Withdrawal </div>
-                </template> 
+                <template #tab-content-2>
+                    <div class="content-title">  Withdrawal </div>
+                    <EmptyBox  v-if="$store.state.emptyBoxWithdrawal">
+                        <CustomButton
+                            @click="$store.state.withdrawalCard = !$store.state.withdrawalCard"
+                            class="btn"
+                            id="history-deposit"
+                            type="button"
+                        >
+                            {{ withdrawalParams.titleBtn}}
+                        </CustomButton> 
+                    </EmptyBox> 
+                    <PayCards v-if="$store.state.withdrawalCard" :payCardsList="payCardsList" />
+                    <WithdrawalForm 
+                        :withdrawalFields="withdrawalParams"
+                    ></WithdrawalForm>
+                    <Infolist :infolistParams="withdrawalParams.infolist" >
+                        <CustomButton 
+                            class="btn" 
+                            type="button"
+                        >
+                            {{ withdrawalParams.titleBtn}}
+                        </CustomButton> 
+                    </Infolist>
+                </template>
 
-                <template #tab-content-3>  
-                    <div class="tabs__content-title">  History </div>
-                    <EmptyBox v-if="$store.state.emptyBox"/>
+                <template #tab-content-3>
+                    <div class="content-title">  History </div>
+                    <EmptyBox :paramsBtn="historyParams.titleBtn" v-if="$store.state.emptyBox">
+                        <CustomButton
+                            class="btn"
+                            id="history-deposit"
+                            type="button"
+                        >
+                            {{ historyParams.titleBtn}}
+                        </CustomButton> 
+                    </EmptyBox>                   
                     <Historylist v-if="!$store.state.emptyBox" :historyParams="historyParams"/>
-                </template>                                 
+                </template>
             </Tabs>
         </div>
     </div>
@@ -33,17 +63,19 @@ import DepositForm from '@/components/cashier/deposit/DepositForm'
 import PayCards from '@/components/cashier/PayCards'
 import EmptyBox from '@/components/cashier/EmptyBox'
 import Historylist from '@/components/cashier/history/Historylist'
+import WithdrawalForm from '@/components/cashier/withdrawal/WithdrawalForm'
+import Infolist from '@/components/cashier/withdrawal/Infolist'
 
 export default {
     name: 'Cashier',
 
     components: {
-        Tabs, DepositForm, PayCards, Historylist, EmptyBox
+        Tabs, DepositForm, PayCards, Historylist, EmptyBox, WithdrawalForm, Infolist
     },
 
     data() {
-        return { 
-            tabCashierParams: { 
+        return {
+            tabCashierParams: {
                 selectedTab: 'Deposit',
                 toggleActiveTab: 1,
                 itemsTabsHeader: [
@@ -51,7 +83,7 @@ export default {
                 ],
             },
             depositFormParams: {
-                depositAmount: { 
+                depositAmount: {
                     isValid: true,
                     icnClass: 'icon-clear',
                     type: 'text',
@@ -80,7 +112,7 @@ export default {
                     name: 'surname',
                     placeholder: 'Surname',
                     errorMsg: 'Invalid surname field format'
-                },     
+                },
                 walletID: {
                     isValid: true,
                     icnClass: 'icon-clear',
@@ -93,7 +125,7 @@ export default {
                 },
                 depositBtn: {
                     type: 'submit',
-                }            
+                }
             },
             payCardsList: [
                 {
@@ -104,19 +136,20 @@ export default {
                     imgUrl: require('@/assets/img/logos/visa-box.svg'),
                     ingAlt: 'visa'
                 },
-                
+
                 {
                     imgUrl: require('@/assets/img/logos/yesbank-box.svg'),
                     ingAlt: 'yesbank'
                 },
-                
+
                 {
                     imgUrl: require('@/assets/img/logos/phonepe.svg'),
                     ingAlt: 'phonepe'
                 },
             ],
-            historyParams:{ 
+            historyParams:{
                 statedata: new Date(),
+                titleBtn: 'Deposit',
                 historyInfoParams: [
                     {
                         imgUrl: require('@/assets/img/logos/mastercard.svg'),
@@ -133,6 +166,81 @@ export default {
                         status: 'in process',
                     }
                 ]
+            },
+            withdrawalParams: {
+                titleBtn: 'New request',
+                withdrawalAmount: {
+                    isValid: true,
+                    icnClass: 'icon-clear',
+                    type: 'text',
+                    id: 'withdrawalAmount',
+                    label: 'Withdrawal amount',
+                    name: 'withdrawalAmount',
+                    placeholder: '0',
+                    errorMsg: 'Invalid Withdrawal amount field format'
+                }, 
+                cardNumber: {
+                    isValid: true,
+                    icnClass: 'icon-clear',
+                    type: 'text',
+                    id: 'cardNumber',
+                    label: 'Card number',
+                    name: 'cardNumber',
+                    placeholder: 'xxxx xxxx xxxx xxxx',
+                    errorMsg: 'Invalid Card number field format'
+                },   
+                inputCartName: {
+                    isValid: true,
+                    icnClass: 'icon-clear',
+                    type: 'text',
+                    id: 'inputCartName',
+                    label: 'Name on card',
+                    name: 'inputCartName',
+                    placeholder: 'Input cart name',
+                    errorMsg: 'Invalid Name on card field format'
+                },       
+                inputExpiryDate: {
+                    isValid: true,
+                    icnClass: 'icon-clear',
+                    type: 'text',
+                    id: 'inputExpiryDate',
+                    label: 'Expiry date',
+                    name: 'inputExpiryDate',
+                    placeholder: 'xx/xx',
+                    errorMsg: 'Invalid Expiry date format'
+                },  
+                inputSecurityCode: {
+                    isValid: true,
+                    icnClass: 'icon-clear',
+                    type: 'text',
+                    id: 'inputSecurityCode',
+                    label: 'Security code',
+                    name: 'inputSecurityCode',
+                    placeholder: '***',
+                    errorMsg: 'Invalid Security code format'
+                },     
+                privacyCheckbox: { 
+                    type: 'checkbox', 
+                    id: 'rememberCardDetailsg',
+                    name: 'rememberCardDetailsg',
+                    checked: 0,
+                    label: 'Remember card details'
+                },     
+                depositBtn: {
+                    type: 'submit',
+                },
+                infolist: [
+                    {
+                        status: 'in process',
+                        price: '0,00',
+                        data: '08.10.2021',                        
+                    },
+                    {
+                        status: 'in process',
+                        price: '50,00',
+                        data: '10.10.2021',                        
+                    },                      
+                ]                                                              
             }
         }
     }

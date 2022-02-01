@@ -1,15 +1,14 @@
 <template>
-<div class="empty-box  ">
-    <div class="empty-box__field">You have no one</div>
-    <div class="btn__wrap">
-        <button class="btn" id="history-deposit" type="button">Deposit</button>
+    <div class="empty-box">
+        <div class="empty-box__field">You have no one</div>
+        <div class="btn__wrap">
+            <slot />
+        </div>
     </div>
-</div>
 </template>
 
-<script>
+<script> 
 export default {
-    name: 'EmptyBox'
+    name: 'EmptyBox', 
 }
 </script>
-

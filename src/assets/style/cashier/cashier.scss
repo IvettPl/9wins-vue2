@@ -24,6 +24,20 @@
             }
         }
 
+        .tabs {
+            &__content-item {
+                padding-top: 32px;
+            }
+
+            .content-title {
+                margin-bottom: 30px;
+                line-height: 28px;
+                font-size: 22px;
+                color: $orange-light;
+                letter-spacing: 0.35px;
+            }
+        }
+
         .tab-2 {
             .tabs {
                 &__header {

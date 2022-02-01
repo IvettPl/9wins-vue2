@@ -1,17 +1,19 @@
 import { createStore } from 'vuex'
 
 export default createStore({
-  state: { 
+  state: {
     stateAsideLeft: false,
     stateAsideRight: false,
     regShowPanel: false,
     logShowPanel: false,
-    isAuth: true, 
+    isAuth: true,
     emptyBox: true,
-    depositCard: true
+    depositCard: true,
+    emptyBoxWithdrawal: true,
+    withdrawalCard: true
   },
   getters: {
-     
+
   },
   mutations: {
     showPanelLeft(state){
@@ -19,7 +21,7 @@ export default createStore({
     },
     showPanelRight(state){
       state.stateAsideRight = !state.stateAsideRight
-    },  
+    },
     showRegPanel(state){
       state.regShowPanel = !state.regShowPanel
     },
@@ -34,6 +36,9 @@ export default createStore({
     },
     showcardForm(state){
       state.depositCard = !state.depositCard
+    },
+    showWithdrawalForm(state){
+      state.withdrawalCard = !state.withdrawalCard
     }
   },
   actions: {

@@ -8,8 +8,8 @@
                     <span>{{item.balance}}</span>
                 </div>
                 <div class="user-info__bonuses-label">{{item.balanceTitle}}</div>
-            </div> 
-            <a class="user-info__bonuses-link" :href="userInfoParams.link"></a>
+            </div>
+            <router-link :to="userInfoParams.link" class="user-info__bonuses-link"></router-link>
         </div>
     </div>
 </template>
