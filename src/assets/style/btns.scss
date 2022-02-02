@@ -137,4 +137,44 @@
             opacity: 0.6;
         }
     }
+
+    &__menu {
+        margin-right: 14px;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+        overflow: hidden;
+        border: 0;
+        background-size: cover;
+        cursor: pointer;
+        transition: transform 250ms;
+
+        &:hover {
+            transform: scale(1.1);
+
+            &:before {
+                color: #fff;
+            }
+        }
+    }
+
+    &__login {
+        margin-right: 8px;
+        padding: 0;
+        width: 76px;
+        height: 32px;
+        display: block;
+        line-height: 16px;
+        font-size: 14px;
+        color: $blue;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        transition: color 250ms;
+
+        &:hover {
+            color: $blue-light;
+        }
+    }
 }

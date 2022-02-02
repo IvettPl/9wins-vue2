@@ -82,4 +82,33 @@
             }
         }
     }
+
+    &__footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        bottom: 28px;
+        left: 0;
+    }
+
+    &__region {
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $gray-superlight;
+
+        img {
+            margin-right: 8px;
+        }
+    }
+
+    .login {
+        @media (max-width: 1024px) {
+            display: inline-flex;
+        }
+    }
 }

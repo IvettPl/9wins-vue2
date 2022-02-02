@@ -53,4 +53,12 @@
             }
         }
     }
+
+    &__title {
+        margin: 18px 0 30px 23px;
+        line-height: 28px;
+        font-size: 22px;
+        color: $orange-light;
+        letter-spacing: 0.35px;
+    }
 }

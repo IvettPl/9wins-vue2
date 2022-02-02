@@ -13,6 +13,14 @@
                 <MenuList  :menuListsItem="sportMainMenu" />
             </template>
         </Tabs>
+        <div v-if="!$store.state.isAuth" class="aside__footer">
+            <Login
+                v-if="!$store.state.isAuth"
+            />
+            <div class="aside__region">
+                <img src="@/assets/img/flags/india.svg" alt="India"><span>India</span>
+            </div>
+        </div>
     </Aside>
 
     <Aside
@@ -57,7 +65,10 @@
     >
         <PopupContent>
             <template v-slot:left>
-
+                <div class="popup-banner">
+                    <div class="popup-banner__title">{{ popupBanner.title }}</div>
+                    <TournamentsItem  :itemCard="popupBanner.bannerItem"></TournamentsItem>
+                </div>
             </template>
 
             <template v-slot:right>
@@ -90,6 +101,7 @@
 
 <script>
 import Header from '@/components/header/Header'
+import Login from '@/components/header/login/Login';
 import Footer from '@/components/footer/Footer'
 import Tabs from '@/components/tabs/Tabs'
 import MenuList from '@/components/menuList/MenuList'
@@ -104,19 +116,20 @@ import Popup from '@/components/popup/Popup'
 import PopupContent from '@/components/popup/popupContent/PopupContent'
 import RegForm from '@/components/popup/regForm/RegForm'
 import LoginForm from '@/components/popup/loginForm/LoginForm'
-// import LoginFormFields from '@/components/popup/loginForm/LoginFormFields'
 import LoginMailFields from '@/components/popup/loginForm/LoginMailFields'
 import LoginPhoneFields from '@/components/popup/loginForm/LoginPhoneFields'
 import SocialBox from '@/components/popup/socialBox/SocialBox'
 import PopupFooter from '@/components/popup/popupFooter/PopupFooter'
 import PopupSlider from '@/components/popup/popupSlider/PopupSlider'
 
+import TournamentsItem from '@/components/sliders/cardSliderTournaments/TournamentsItem'
+
 
 
 
 export default {
   components: {
-    Header, Footer, Tabs, MenuList, Aside, ProfileArea, ProfileAvatar, UserInfo, ProfileMenu, Popup, PopupContent, RegForm, LoginForm, LoginMailFields, LoginPhoneFields, SocialBox, PopupFooter, PopupSlider
+    Header, Login, Footer, Tabs, MenuList, Aside, ProfileArea, ProfileAvatar, UserInfo, ProfileMenu, Popup, PopupContent, RegForm, LoginForm, LoginMailFields, LoginPhoneFields, SocialBox, PopupFooter, PopupSlider, TournamentsItem
   },
     data(){
         return {
@@ -250,6 +263,43 @@ export default {
                     placeholder: 'password',
                     errorMsg: 'Invalid password format'
                 },
+            },
+
+            popupBanner: {
+                title: 'New tournament',
+                bannerItem: {
+                    imgUrl: require('@/assets/img/slider/popup-tournament.png'),
+                    imgAlt: 'Tournaments',
+                    stiker: 'Now',
+                    place: '324 place',
+                    stikerSubClass: 'stiker--opacity',
+                    detalisTitle: 'Pragmatic play championship',
+                    detalisDesc: '210 players are already in',
+
+                    detalisBottomList: [
+                        {
+                            title: '12:59:59',
+                            label: 'до конца'
+                        },
+                        {
+                            title: '2,48,74,583',
+                            label: 'Rise Fund',
+                            icnClass: 'icon-uniE934'
+                        }
+                    ],
+
+                    frontBtnTitle: 'More details',
+                    frontBtn: {
+                        type: 'button',
+                        className: 'btn--orange js-detail'
+                    },
+                    backContent: 'Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.',
+                    backBtnTitle: 'Ok',
+                    backBtn: {
+                        type: 'button',
+                        className: 'btn--orange js-ok'
+                    }
+                }
             },
 
             loginPopupPhoneFields: {

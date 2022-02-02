@@ -29,7 +29,7 @@ export default {
             },
             active: {
                 title: 'Active',
-                isEmpty: true,
+                isEmpty: false,
                 slides:[
                     {
                         imgUrl: require('@/assets/img/slider/character-1.png'),
@@ -284,7 +284,7 @@ export default {
             },
             available: {
                 title: 'Available',
-                isEmpty: true,
+                isEmpty: false,
                 slides:[
                     {
 

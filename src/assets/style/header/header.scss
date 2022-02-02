@@ -1,0 +1,37 @@
+.header {
+    width: 100%;
+    height: 56px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: $black;
+
+    &__center {
+        height: 100%;
+        max-width: 1448px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__left {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: 76px;
+        height: 21px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+    }
+}

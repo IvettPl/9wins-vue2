@@ -1,19 +1,4 @@
 .popup-content {
-    &__title {
-        margin: 18px 0 30px 23px;
-        line-height: 28px;
-        font-size: 22px;
-        color: $orange-light;
-        letter-spacing: 0.35px;
-
-        @media (max-width: 767px) {
-            margin: 18px 0 0 16px;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-    }
-
     &__form {
         padding: 0 40px;
         width: 100%;

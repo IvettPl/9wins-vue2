@@ -1,41 +1,36 @@
 <template>
-<div class="login">
-    <div class="login__box-default">
+    <div class="login">
         <button
-            @click="$store.commit('showLogPanel')"
-            class="login__btn js-btn--login"
+            @click="$store.state.stateAsideLeft = false, $store.commit('showLogPanel')"
+            class="btn__login"
             type='button'
         >
             Login
         </button>
 
         <CustomButton
-            @click="$store.commit('showRegPanel')"
+            @click="$store.state.stateAsideLeft = false, $store.commit('showRegPanel')"
             :attrBtn="AttrBtnReg"
         >
             Let's go
         </CustomButton>
     </div>
-</div>
 </template>
 
 <script>
 import CustomButton from './../../UI/CustomButton'
 
 export default {
+    name: 'Login',
     componemts: {
         CustomButton
-    }, 
+    },
     data(){
-        return { 
+        return {
             AttrBtnReg: {
                 type: 'button',
-                className: 'btn js-btn--reg',
             }
         }
-    },
-    methods: { 
-        
     }
 }
 </script>

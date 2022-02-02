@@ -12,10 +12,15 @@
     overflow: hidden;
     background-color: rgba(0,0,0, 0.8);
     z-index: 4;
+    transition: opacity 300ms;
 
     &.show {
         opacity: 1;
         visibility: visible;
+
+        .dialog {
+            transform: translateY(0);
+        }
     }
 
     .dialog {
@@ -24,16 +29,21 @@
         overflow-y: auto;
         border-radius: 24px;
         box-sizing: border-box;
+        transform: translateY(-150%);
+        transition: transform 350ms 300ms;
 
         @media (max-width: 768px) {
-            height: auto;
+            max-width: 425px;
+            width: 100%;
             max-height: 100%;
+            height: auto;
         }
     }
 
     .btn__close {
         top: 20px;
         right: 20px;
+        z-index: 2;
     }
 
     &--filter {
@@ -55,16 +65,21 @@
             @media (max-width: 767px) and (max-height: 891px) {
                 border-radius: 0;
             }
-
-            @media (max-width: 768px) {
-                max-width: 425px;
-                width: 100%;
-            }
         }
 
         .popup-content {
             @media (max-width: 768px) {
                 flex-direction: column;
+            }
+
+            &__title {
+
+                @media (max-width: 767px) {
+                    margin: 18px 0 0 16px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
             }
         }
 
@@ -86,12 +101,36 @@
     &--login {
         .dialog {
             width: 760px;
-            height: 685px;
+            // height: 685px;
             background-color: $dark;
+
+            @media (max-width: 767px) and (max-height: 685px) {
+                border-radius: 0;
+            }
         }
 
         .popup-content {
             height: 100%;
+
+            &__column {
+                &:first-child {
+                    @media(max-width: 768px) {
+                        display: none;
+                    }
+                }
+            }
+
+            &__top {
+                .btn__wrap {
+                    margin-bottom: 105px;
+                }
+
+                .form-fields__line--verify {
+                    .btn__wrap {
+                        margin-bottom: 0;
+                    }
+                }
+            }
         }
 
         .tabs {

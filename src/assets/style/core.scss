@@ -108,18 +108,10 @@ input:-webkit-autofill {
     padding-top: 56px;
     width: 100%;
     min-height: 100vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
     overflow: hidden;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 
     &--reg {
@@ -184,7 +176,7 @@ input:-webkit-autofill {
 
 .page-wrapper {
     &--bonuses {
-        padding-top: 80px;
+        padding-top: 16px;
 
         .slider-mod {
             margin-bottom: 55px;
@@ -217,35 +209,17 @@ input:-webkit-autofill {
 }
 
 
-.center,
-.center__header {
+.center {
     margin: 0 auto;
     padding: 0 20px;
+    max-width: 1160px;
     width: 100%;
     position: relative;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
+
     @media(max-width: 767px) {
         padding: 0 14px;
     }
-}
-
-
-.center {
-  max-width: 1160px;
-}
-
-.center__header {
-  max-width: 1448px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
 }
 
 .hidden {

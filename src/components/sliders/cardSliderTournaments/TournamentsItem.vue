@@ -23,22 +23,23 @@
 
         <div class="charitem__detalis">
             <div class="charitem__detalis-text">
-                <div class="charitem__detalis-title">Pragmatic play championship</div>
-                <div class="charitem__detalis-desc">210 players are already in</div>
+                <div class="charitem__detalis-title">{{ itemCard.detalisTitle }}</div>
+                <div class="charitem__detalis-desc">{{ itemCard.detalisDesc }}</div>
             </div>
 
             <div class="charitem__detalis-bottomlist">
-                <div class="charitem__detalis-bottomitem">
-                    <div class="charitem__detalis-title">
-                        <span>12:59:59</span>
+                <div
+                    class="charitem__detalis-bottomitem"
+                    v-for="(item, index) in itemCard.detalisBottomList"
+                    :key="index"
+                >
+                    <div
+                        class="charitem__detalis-title"
+                        :class="item.icnClass"
+                    >
+                        <span>{{ item.title }}</span>
                     </div>
-                    <div class="charitem__detalis-label">до конца</div>
-                </div>
-                <div class="charitem__detalis-bottomitem">
-                    <div class="charitem__detalis-title icon-uniE934">
-                        <span>60,000</span>
-                    </div>
-                    <div class="charitem__detalis-label">Rise Fund</div>
+                    <div class="charitem__detalis-label">{{ item.label }}</div>
                 </div>
             </div>
 
@@ -53,7 +54,7 @@
         </div>
     </div>
     <div class="charitem__back">
-        <p>Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.</p>
+        <p>{{ itemCard.backContent }}</p>
 
         <CustomButton
             @click="isRotate = !isRotate"

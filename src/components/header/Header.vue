@@ -1,26 +1,30 @@
 <template>
 <header class="header">
-    <div class="center__header">
-        <div class="header__tools">
+    <div class="center header__center">
+
+        <div class="header__left">
             <button type="button"
                 @click="$store.commit('showPanelLeft')"
-                class="header__menu-btn icon-menu">
+                class="btn__menu icon-menu">
             </button>
-            <HeaderSubmenu :subMenuList="headerSubMenu" />
-            <button type="button" class="btn__search icon-search"></button>
-            <div class="header__search">
 
-            </div>
+            <HeaderSubmenu :subMenuList="headerSubMenu" />
+
+            <button type="button" class="btn__search icon-search"></button>
         </div>
+
         <div class="logo">
             <router-link to="/">
-                <img src="@/assets/img/svg/logo.svg" alt="9winz"></router-link>
+                <img src="@/assets/img/svg/logo.svg" alt="9winz">
+            </router-link>
         </div>
-        <div class="right-column">
-            <Login 
+
+        <div class="header__right">
+            <Login
                 v-if="!$store.state.isAuth"
             />
-            <Auth 
+
+            <Auth
                 v-if="$store.state.isAuth"
                 :authInfo="authInfo"
             />
@@ -39,10 +43,10 @@ export default {
     components: {
         Auth, Login, HeaderSubmenu
     },
-    props: {   
-    }, 
+    props: {
+    },
     data() {
-        return { 
+        return {
             headerSubMenu: [
                 {
                     icn: 'icon-sports_filled',
@@ -82,7 +86,7 @@ export default {
             }
         }
     },
-    methods: {   
+    methods: {
     }
 }
 </script>

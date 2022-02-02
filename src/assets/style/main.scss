@@ -11,15 +11,20 @@
 @import './aside';
 @import './tabs';
 @import './stiker';
-@import './header';
-@import './auth';
 @import './mainMenu';
-@import './homeSlider';
-@import './catSlider';
-@import './game-inem';
-@import './cardSlider';
+
+@import './header/header';
+@import './header/sub-menu/sub-menu';
+@import './header/login/login';
+@import './header/auth/auth';
+
+@import './sliders/homeSlider';
+@import './sliders/catSlider';
+@import './sliders/cardSlider';
+@import './sliders/epicsSlider';
+
+@import './game-item';
 @import './bonus-empty';
-@import './epicsSlider';
 
 @import './tools-panel';
 
@@ -32,14 +37,13 @@
 @import './user-info';
 @import './profile-menu';
 
-@import './footer';
-
 @import './popups/popup';
 @import './popups/popup-content';
 @import './popups/reg-form';
 @import './popups/social-box';
 @import './popups/popup-footer';
 @import './popups/popup-slider';
+@import './popups/popup-banner';
 
 @import './form-fields/form-fields';
 @import './form-fields/input-text';
@@ -52,3 +56,7 @@
 @import './cashier/emty-box';
 @import './cashier/history-list';
 @import './cashier/infolist';
+
+@import './footer/footer';
+@import './footer/logo-list/logo-list';
+@import './footer/footer-menu/footer-menu';

@@ -1,0 +1,29 @@
+.popup-banner {
+    padding: 48px 4px 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    &__title {
+        margin-bottom: 36px;
+        line-height: 20px;
+        font-size: 15px;
+        color: $gray-lighter;
+        text-align: center;
+        letter-spacing: -0.24px;
+    }
+
+    .charitem {
+        &__detalis {
+            padding-top: 20px;
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    .stiker {
+        top: 32px;
+    }
+}

@@ -2,6 +2,7 @@
 <swiper
     :loop="true"
     :centeredSlides="true"
+    :speed="1000"
     :autoplay='{
         "delay": 3500,
         "disableOnInteraction": false
@@ -12,17 +13,17 @@
     :grabCursor="true"
     :effect="'creative'"
     :creativeEffect="{
-      prev: {
-        shadow: true,
-        origin: 'left center',
-        translate: ['-5%', 0, -200],
-        rotate: [0, 100, 0],
-      },
-      next: {
-        origin: 'right center',
-        translate: ['5%', 0, -200],
-        rotate: [0, -100, 0],
-      },
+        prev: {
+            shadow: true,
+            origin: 'left center',
+            translate: ['-5%', 0, -200],
+            rotate: [0, 100, 0],
+        },
+        next: {
+            origin: 'right center',
+            translate: ['5%', 0, -200],
+            rotate: [0, -100, 0],
+        },
     }"
     class="banner-slider">
     <swiper-slide  v-for="(item, index) in slides" :key="index">
@@ -32,16 +33,15 @@
                 <img :src="item.imgUrl" alt="">
             </picture>
         </a>
-    </swiper-slide> 
+    </swiper-slide>
 </swiper>
 </template>
 
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js';
-import {configBannerSlider} from './configBannerSlider.js';
 
-import 'swiper/swiper.scss'; 
-import 'swiper/modules/pagination/pagination.scss'; 
+import 'swiper/swiper.scss';
+import 'swiper/modules/pagination/pagination.scss';
 
 import SwiperCore,{Autoplay, Pagination, EffectCreative} from 'swiper';
 
@@ -51,14 +51,24 @@ export default {
     components: {
       Swiper,
       SwiperSlide,
-    },  
+    },
     data() {
         return {
-            slides: configBannerSlider
+            slides: [
+                {
+                    link: '##',
+                    imgUrl: require('@/assets/img/slider/home-slider-1.jpg'),
+                    imgx2: require('@/assets/img/slider/home-slider-1@x2.jpg'),
+                    imgWebp: require('@/assets/img/slider/home-slider-1.webp'),
+                },
+                {
+                    link: '##',
+                    imgUrl: require('@/assets/img/slider/home-slider-1.jpg'),
+                    imgx2: require('@/assets/img/slider/home-slider-1@x2.jpg'),
+                    imgWebp: require('@/assets/img/slider/home-slider-1.webp'),
+                }
+            ]
         }
-    } 
+    }
 };
 </script>
-
-
- 

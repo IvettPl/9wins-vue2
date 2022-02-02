@@ -1,0 +1,17 @@
+.login {
+    display: inline-flex;
+    align-items: center;
+
+    @media(max-width: 1024px) {
+        display: none;
+    }
+
+    .btn {
+        width: 122px;
+        flex-shrink: 0;
+
+        &__login {
+            flex-shrink: 0;
+        }
+    }
+}
