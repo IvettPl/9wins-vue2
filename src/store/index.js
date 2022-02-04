@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import Deposite from  '@/store/modules/deposite'
 
 export default createStore({
   state: {
@@ -8,7 +9,7 @@ export default createStore({
     logShowPanel: false,
     isAuth: true,
     emptyBox: true,
-    depositCard: true,
+    
     emptyBoxWithdrawal: true,
     withdrawalCard: false,
     showWithdrawalForm: false,
@@ -46,5 +47,6 @@ export default createStore({
   actions: {
   },
   modules: {
+    Deposite
   }
 })

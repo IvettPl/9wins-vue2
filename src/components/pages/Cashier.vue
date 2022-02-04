@@ -4,13 +4,12 @@
             <Tabs :isShowTab="true" :tabsParams="tabCashierParams">
                 <template #tab-content-1>
                     <div class="content-title">  Deposit </div>
-                    <PayCards
-
-                        @click="$store.commit('showcardForm')"
-                        v-if="$store.state.depositCard"
-                        :payCardsList="payCardsList" />
+                    <PayCards 
+                        @onToggleBox="toggleDepositeBoxes = !toggleDepositeBoxes"
+                        :toggleStateBox="toggleDepositeBoxes"
+                        v-if="toggleDepositeBoxes"/>
                     <DepositForm
-                        v-if="!$store.state.depositCard"
+                        v-else
                         :depositFields="depositFormParams"
                     ></DepositForm>
                 </template>
@@ -86,6 +85,7 @@ export default {
 
     data() {
         return {
+            toggleDepositeBoxes: true,
             tabCashierParams: {
                 selectedTab: 'Deposit',
                 toggleActiveTab: 1,
@@ -138,26 +138,7 @@ export default {
                     type: 'submit',
                 }
             },
-            payCardsList: [
-                {
-                    imgUrl: require('@/assets/img/logos/mastercard-box.svg'),
-                    ingAlt: 'mastercard'
-                },
-                {
-                    imgUrl: require('@/assets/img/logos/visa-box.svg'),
-                    ingAlt: 'visa'
-                },
 
-                {
-                    imgUrl: require('@/assets/img/logos/yesbank-box.svg'),
-                    ingAlt: 'yesbank'
-                },
-
-                {
-                    imgUrl: require('@/assets/img/logos/phonepe.svg'),
-                    ingAlt: 'phonepe'
-                },
-            ],
             historyParams:{
                 statedata: new Date(),
                 titleBtn: 'Deposit',
@@ -254,7 +235,8 @@ export default {
                 ]
             }
         }
-    }
+    },
+    
 
 }
 </script>
