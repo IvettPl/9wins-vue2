@@ -3,15 +3,15 @@
     <div class="center">
         <div class="slider-mod__wrap">
             <div class="slider-mod__title">
-                <h2>{{cardParams.title}}</h2>
+                <h2>{{tournamentsParams.title}}</h2>
             </div>
 
             <a
-                :href="cardParams.link"
+                :href="tournamentsParams.link"
                 class="slider-mod__link"
-            >{{ cardParams.linkTitle }}</a>
+            >{{ tournamentsParams.linkTitle }}</a>
         </div>
-        <SwiperSliderTournaments :sliderParams="cardParams.slides" />
+        <SwiperSliderTournaments :sliderParams="tournamentsParams.slides" />
 
     </div>
 </div>
@@ -26,7 +26,11 @@ export default {
     components: {
       SwiperSliderTournaments
     },
-    props: ['cardParams']
+    computed: {
+        tournamentsParams() {
+            return this.$store.getters.getTournaments;
+        }
+    }
 
 }
 </script>

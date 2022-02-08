@@ -19,7 +19,11 @@
 
 <script>
 export default {
-    name: '',
-    props: ['socialParams']
+    name: 'SocialBox',
+    computed: {
+        socialParams() {
+            return this.$store.getters.getSocialData;
+        }
+    }
 }
 </script>

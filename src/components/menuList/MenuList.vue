@@ -15,7 +15,8 @@
 
 <script>
 export default {
-    name: 'MenuList',
+    name: 'MenuList', 
     props: ['menuListsItem'],
+
 }
 </script>

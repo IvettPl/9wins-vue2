@@ -31,7 +31,8 @@ export default {
     components: {
       CatSliderItems
     }, 
-    props: ['catSliders']
+    name: ['catSliders'],
+    props:['catSliders']
 }
 
 </script>

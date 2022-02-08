@@ -1,0 +1,14 @@
+.columns {
+    width: 100%;
+    display: flex;
+
+    @media(max-width: 768px) {
+        flex-direction: column;
+    }
+
+    .column {
+        form {
+            width: 100%;
+        }
+    }
+}

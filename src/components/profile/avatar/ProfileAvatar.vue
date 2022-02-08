@@ -6,6 +6,13 @@
 
 <script>
 export default {
-    props: ['profileAvatarParams']
+    name: 'profileAvatarParams',
+    computed: {
+        profileAvatarParams(){
+            return this.$store.getters.getprofileAvatarParams;
+        }
+        
+    }
+
 }
 </script>

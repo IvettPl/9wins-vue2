@@ -16,6 +16,12 @@
 
 <script>
 export default {
-    props: ['userInfoParams']
+    name: 'userInfoParams',
+    computed: {
+        userInfoParams(){
+            return this.$store.getters.getuserInfoParams;
+        }
+        
+    }
 }
 </script>

@@ -38,6 +38,32 @@
             max-height: 100%;
             height: auto;
         }
+
+        .column {
+            width: 44%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+
+            @media (max-width: 768px) {
+                width: 100%;
+                background-color: $black;
+            }
+
+            &:last-child {
+                width: 56%;
+                overflow: hidden;
+                background-color: $black;
+                border-radius: 24px 0 0 24px;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                    border-radius: 0;
+                }
+            }
+        }
     }
 
     .btn__close {
@@ -109,17 +135,18 @@
             }
         }
 
-        .popup-content {
+        .columns {
             height: 100%;
 
-            &__column {
+            .column {
                 &:first-child {
                     @media(max-width: 768px) {
                         display: none;
                     }
                 }
             }
-
+        }
+        .popup-content {
             &__top {
                 .btn__wrap {
                     margin-bottom: 105px;

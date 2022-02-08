@@ -1,18 +1,18 @@
 <template>
-<div class="slider-mod" :class="cardParams.modSubClass">
+<div class="slider-mod" :class="swiperSlideBonus.modSubClass">
     <div class="center">
         <div class="slider-mod__wrap">
             <div class="slider-mod__title">
-                <h2>{{cardParams.title}}</h2>
+                <h2>{{swiperSlideBonus.title}}</h2>
             </div>
 
             <a
-                v-if="cardParams.link"
-                :href="cardParams.link"
+                v-if="swiperSlideBonus.link"
+                :href="swiperSlideBonus.link"
                 class="slider-mod__link"
-            >{{ cardParams.linkTitle }}</a>
+            >{{ swiperSlideBonus.linkTitle }}</a>
         </div>
-        <SwiperSlideBonus :sliderParams="cardParams.slides" />
+        <SwiperSlideBonus :sliderParams="swiperSlideBonus.slides" />
 
     </div>
 </div>
@@ -27,7 +27,12 @@ export default {
     components: {
       SwiperSlideBonus
     },
-    props: ['cardParams']
+    computed: {
+        swiperSlideBonus() {
+            return this.$store.getters.bonusesLists;
+        }
+        
+    }
 
 }
 </script>

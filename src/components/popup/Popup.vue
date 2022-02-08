@@ -1,6 +1,7 @@
 <template>
     <div
         class="popup"
+        :class="(isOpen ? 'show' : '') + ' ' + addClass" 
         @click="$store.commit('closePanel')"
     >
         <div @click.stop class="dialog">
@@ -12,12 +13,30 @@
 
 <script>
 export default { 
+    name: 'Popup',
+    props: {
+        popupName: {
+            type: String,
+            required: true
+        },
+        addClass: {
+            type: String,
+            default: ''
+        }
+    },    
     data(){
         return { 
+            isOpen: false
         }
     },
     methods: {
          
+    },
+    created() {
+        this.$bus.$on('open-popup-' + this.popupName, () => {
+            this.isOpen = true;
+            console.log('open');
+        });
     }
 }
 </script>

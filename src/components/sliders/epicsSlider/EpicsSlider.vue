@@ -37,6 +37,11 @@ export default {
       Swiper,
       SwiperSlide,
     },
-    props: ['epicItemParams']
+    name: 'epicItemParams',
+    computed: {
+        epicItemParams() {
+            return this.$store.getters.getepicsLists;
+        }
+    }
 }
 </script>

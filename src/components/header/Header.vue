@@ -4,7 +4,8 @@
 
         <div class="header__left">
             <button type="button"
-                @click="$store.commit('showPanelLeft')"
+
+                @click="$bus.$emit('open-aside-left-aside')"
                 class="btn__menu icon-menu">
             </button>
 

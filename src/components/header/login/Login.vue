@@ -1,7 +1,7 @@
 <template>
     <div class="login">
         <button
-            @click="$store.state.stateAsideLeft = false, $store.commit('showLogPanel')"
+            @click="$bus.$emit('open-modal-login')"
             class="btn__login"
             type='button'
         >
@@ -9,7 +9,7 @@
         </button>
 
         <CustomButton
-            @click="$store.state.stateAsideLeft = false, $store.commit('showRegPanel')"
+            @click="$bus.$emit('open-modal-registration')"
             :attrBtn="AttrBtnReg"
         >
             Let's go

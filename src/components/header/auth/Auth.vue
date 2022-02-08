@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="auth__person">
-            <div @click="$store.commit('showPanelRight')" class="auth__avatar">
+            <div @click="$bus.$emit('open-aside-profile-aside')" class="auth__avatar">
                 <img :src="authInfo.avatar" :alt="authInfo.alt">
             </div>
             <a :href="authInfo.link" class="btn">{{ authInfo.linkTitle }}</a>
@@ -27,15 +27,15 @@
 export default {
     props: ['authInfo', 'profile'],
     data(){
-        return {
-            stateProfile: this.profile
-        }
+        // return {
+        //     stateProfile: this.profile
+        // }
     },
     methods: {
-        toggleProfile() {
-            this.stateProfile = !this.stateProfile
-            this.$emit('changeStateProfile')
-        }
+        // toggleProfile() {
+        //     this.stateProfile = !this.stateProfile
+        //     this.$emit('changeStateProfile')
+        // }
     }
 }
 </script>

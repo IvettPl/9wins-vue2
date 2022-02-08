@@ -1,12 +1,9 @@
 <template>
 <div class="wrapper  ">
-    <Aside
-        @click="$store.commit('showPanelLeft')"
-        :class="{'show ': $store.state.stateAsideLeft}"
-    >
+    <Aside aside-name="left-aside">
         <Tabs :isShowTab="$store.state.isAuth"  :tabsParams="mainMenuTabs">
             <template #tab-content-1>
-                <MenuList  :menuListsItem="casinoMainMenu" />
+                <MenuList :menuListsItem="casinoMenuList"/>
             </template>
 
             <template #tab-content-2 v-if="$store.state.isAuth">
@@ -24,54 +21,52 @@
     </Aside>
 
     <Aside
-        @click="$store.commit('showPanelRight')"
-        :class="{'aside--right show':  $store.state.stateAsideRight}"
+        addClass="aside--right"
+        aside-name="profile-aside"
     >
         <ProfileArea class="profile--start">
-            <ProfileAvatar :profileAvatarParams="profileAvatarParams" />
+            <ProfileAvatar  />
             <UserInfo :userInfoParams="userInfoParams" />
-            <ProfileMenu :profileMenuParams="profileMenu" />
+            <ProfileMenu  />
         </ProfileArea>
-    </Aside>
-
+    </Aside> 
     <Header />
     <main>
         <router-view></router-view>
-    </main>
-    <Footer />
+    </main> 
+    <Footer /> 
 
-    <Popup
-        class="popup--reg"
-        :class="{'show': $store.state.regShowPanel }"
+    <Modal
+       modalName="registration" 
+       addClass="popup--reg"
     >
-        <PopupContent>
-            <template v-slot:left>
+        <Columns>
+            <template #left>
                 <PopupSlider :popupSlider="regFormParams.slideParams"></PopupSlider>
             </template>
-
-            <template v-slot:right>
+            <template #right>
                 <RegForm :formParams="regFormParams" @changeSelected="optionName">
                     <PopupFooter :popupFuterParams="regPopupFooter">
-                        <SocialBox :socialParams="popupSocial"/>
+                        <SocialBox  />
                     </PopupFooter>
                 </RegForm>
             </template>
-        </PopupContent>
-    </Popup>
+        </Columns>
+    </Modal>
 
-    <Popup
-        class="popup--login"
-        :class="{'show':  $store.state.logShowPanel }"
+
+    <Modal
+        modalName="login"
+        addClass="popup--login"
     >
-        <PopupContent>
-            <template v-slot:left>
+        <Columns>
+            <template #left>
                 <div class="popup-banner">
                     <div class="popup-banner__title">{{ popupBanner.title }}</div>
                     <TournamentsItem  :itemCard="popupBanner.bannerItem"></TournamentsItem>
                 </div>
             </template>
-
-            <template v-slot:right>
+            <template #right>
                 <LoginForm :formParams="loginFormParams">
                     <template v-slot:default>
                         <Tabs :isShowTab="true" :tabsParams="loginPopupTabParams">
@@ -89,13 +84,41 @@
 
                     <template v-slot:login-bottom>
                         <PopupFooter :popupFuterParams="loginPopupFooter">
-                            <SocialBox :socialParams="popupSocial"/>
+                            <SocialBox  />
                         </PopupFooter>
                     </template>
                 </LoginForm>
             </template>
-        </PopupContent>
-    </Popup>
+        </Columns>
+    </Modal>
+
+    <!-- <button class="btn" @click="$bus.$emit('open-modal-test')">
+        Открыть Модалку
+    </button> -->
+    <!-- <EModal name="modal-test"
+            class-name="uk-modal-dialog"
+           >
+        <template #header>
+            <div class="modal-head">
+                <div class="modal-title">modal-titls</div>
+            </div>
+        </template>
+
+        <template #body>
+            <div class="modal-body">
+                ssdasasdd
+               <button>
+                   test
+               </button>
+                asdasd
+                Modal Body
+                <div>
+                    twasasdasda
+                </div>
+                loremru
+            </div>
+        </template>
+    </EModal> -->
 </div>
 </template>
 
@@ -111,7 +134,8 @@ import ProfileArea from '@/components/profile/ProfileArea'
 import ProfileAvatar from '@/components/profile/avatar/ProfileAvatar'
 import UserInfo from '@/components/profile/userInfo/UserInfo'
 import ProfileMenu from '@/components/profile/profileMenu/ProfileMenu'
-import Popup from '@/components/popup/Popup'
+
+ 
 
 import PopupContent from '@/components/popup/popupContent/PopupContent'
 import RegForm from '@/components/popup/regForm/RegForm'
@@ -123,13 +147,28 @@ import PopupFooter from '@/components/popup/popupFooter/PopupFooter'
 import PopupSlider from '@/components/popup/popupSlider/PopupSlider'
 
 import TournamentsItem from '@/components/sliders/cardSliderTournaments/TournamentsItem'
+import EModal from "./components/EModal/EModal";
 
+import Modal from "./components/modal/Modal";
+import Columns from "./components/columns/Columns";
 
 
 
 export default {
   components: {
-    Header, Login, Footer, Tabs, MenuList, Aside, ProfileArea, ProfileAvatar, UserInfo, ProfileMenu, Popup, PopupContent, RegForm, LoginForm, LoginMailFields, LoginPhoneFields, SocialBox, PopupFooter, PopupSlider, TournamentsItem
+    Header,
+      Login,
+      Footer, Tabs,
+      MenuList, Aside,
+      ProfileArea,
+      ProfileAvatar,
+      UserInfo, ProfileMenu,
+      PopupContent, RegForm, LoginForm,
+      LoginMailFields, LoginPhoneFields,
+      SocialBox, PopupFooter, PopupSlider, TournamentsItem,
+      EModal,
+
+      Modal, Columns
   },
     data(){
         return {
@@ -351,81 +390,6 @@ export default {
                 linkTitle: 'Sign Up'
             },
 
-            popupSocial: {
-                title: 'or login via social network',
-                socialList: [
-                    {
-                        link: '##',
-                        imgUrl: require('@/assets/img/social/icn-fb.svg'),
-                        imgAlt: 'Facebook'
-                    },
-                    {
-                        link: '##',
-                        imgUrl: require('@/assets/img/social/icn-google.svg'),
-                        imgAlt: 'Google'
-                    },
-                    {
-                        link: '##',
-                        imgUrl: require('@/assets/img/social/icn-aa.svg'),
-                        imgAlt: 'Aadhaar'
-                    }
-                ]
-            },
-
-            profileMenu: [
-              {
-                  link: '##',
-                  icnClass: 'icon-Cashier',
-                  title: 'Cashier'
-              },
-              {
-                  link: '##',
-                  icnClass: 'icon-bonus',
-                  title: 'My Bonus'
-              },
-              {
-                  link: '##',
-                  icnClass: 'icon-tournaments',
-                  title: 'My Tournaments'
-              },
-              {
-                  link: '##',
-                  icnClass: 'icon-code',
-                  title: 'Promocodes'
-              },
-              {
-                  link: '##',
-                  icnClass: 'icon-personal-info',
-                  title: 'Personal Information'
-              },
-              {
-                  link: '##',
-                  icnClass: 'icon-settings',
-                  title: 'Settings'
-              },
-            ],
-
-            userInfoParams: {
-                id: 2394876452002,
-                status: 'Regular',
-                link: "cashier",
-                userBalance: [
-                    {
-                        balance: '32,000',
-                        balanceTitle: 'Balance'
-                    },
-                    {
-                        balance: '190,000',
-                        balanceTitle: 'Bonus'
-                    }
-                ]
-            },
-
-            profileAvatarParams: {
-                imgUrl: require("@/assets/img/avatars/avatar.png"),
-                imgAlt: 'Avatar'
-            },
-
             mainMenuTabs: {
                 selectedTab: 'Casino',
                 toggleActiveTab: 1,
@@ -434,96 +398,9 @@ export default {
                 ],
             },
 
-            casinoMainMenu: [
-                {
-                    icnClass: 'icon-bonus',
-                    link: '/bonuses',
-                    title: 'Bonuses'
-                },
-                {
-                    icnClass: 'icon-tournaments',
-                    link: '##',
-                    title: 'Tournaments'
-                },
-                {
-                    icnClass: 'icon-new',
-                    link: '##',
-                    title: 'News'
-                },
-                {
-                    icnClass: 'icon-personal-info',
-                    link: '##',
-                    title: 'Loyalty Programm'
-                },
-                {
-                    icnClass: 'icon-slots',
-                    link: '##',
-                    title: 'Slot Casino'
-                },
-                {
-                    icnClass: 'icon-live_casino',
-                    link: '##',
-                    title: 'Live Casino'
-                },
-                {
-                    icnClass: 'icon-table',
-                    link: '##',
-                    title: 'Skill Games'
-                }
-            ],
 
-            sportMainMenu: [
-                {
-                    icnClass: 'icon-sports_filled',
-                    link: '##',
-                    title: 'Крикет'
-                },
-                {
-                    icnClass: 'icon-virtual_games',
-                    link: '##',
-                    title: 'Киберспорт'
-                },
-                {
-                    icnClass: 'icon-live_casino',
-                    link: '##',
-                    title: 'Футбол'
-                },
-                {
-                    icnClass: '',
-                    link: '##',
-                    title: 'Теннис'
-                },
-                {
-                    icnClass: '',
-                    link: '##',
-                    title: 'Баскетбол'
-                },
-                {
-                    icnClass: '',
-                    link: '##',
-                    title: 'Настольный теннис'
-                },
-                {
-                    icnClass: '',
-                    link: '##',
-                    title: 'Волейбол'
-                },
-                {
-                    icnClass: '',
-                    link: '##',
-                    title: 'Хоккей'
-                },
-                {
-                    icnClass: '',
-                    link: '##',
-                    title: 'UFC'
-                },
-                {
-                    icnClass: '',
-                    link: '##',
-                    title: 'Бокс'
-                }
-            ],
+
+
         }
     },
     methods: {
@@ -534,6 +411,19 @@ export default {
         changeLoginSelectName(option) {
             this.loginPopupPhoneFields.selectPhoneCode.selected = option.name
         }
+    },
+    mounted() {
+      this.$bus.$on('test', (data) => {
+         console.log('hello, ', data);
+      });
+    },
+    computed: {
+        casinoMenuList() {
+            return this.$store.getters.getcasinoMainMenu;
+        },
+        sportMainMenu() {
+            return this.$store.getters.getsportMainMenu;
+        },        
     }
 }
 </script>
