@@ -24,7 +24,7 @@ export default {
                 },
                 {
                     icnClass: 'icon-slots',
-                    link: '##',
+                    link: '/slots',
                     title: 'Slot Casino'
                 },
                 {

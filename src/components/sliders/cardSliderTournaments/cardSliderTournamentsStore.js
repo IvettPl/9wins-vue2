@@ -29,13 +29,13 @@ export default {
                     frontBtnTitle: 'More details',
                     frontBtn: {
                         type: 'button',
-                        className: 'btn--orange js-detail'
+                        className: 'btn--green-base js-detail'
                     },
                     backContent: 'Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.',
                     backBtnTitle: 'Ok',
                     backBtn: {
                         type: 'button',
-                        className: 'btn--orange js-ok'
+                        className: 'btn--green-base js-ok'
                     },
                 },
                 {
@@ -63,13 +63,13 @@ export default {
                     itemSubClass: "charitem--rotate",
                     frontBtn: {
                         type: 'button',
-                        className: 'btn--orange js-detail'
+                        className: 'btn--green-base js-detail'
                     },
                     backContent: 'Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.',
                     backBtnTitle: 'Ok',
                     backBtn: {
                         type: 'button',
-                        className: 'btn--orange js-ok'
+                        className: 'btn--green-base js-ok'
                     },
                 },
                 {
@@ -93,13 +93,13 @@ export default {
 
                     frontBtn: {
                         type: 'button',
-                        className: 'btn--orange js-detail'
+                        className: 'btn--green-base js-detail'
                     },
                     backContent: 'Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.',
                     backBtnTitle: 'Ok',
                     backBtn: {
                         type: 'button',
-                        className: 'btn--orange js-ok'
+                        className: 'btn--green-base js-ok'
                     },
                 },
                 {
@@ -124,13 +124,13 @@ export default {
 
                     frontBtn: {
                         type: 'button',
-                        className: 'btn--orange js-detail'
+                        className: 'btn--green-base js-detail'
                     },
                     backContent: 'Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.',
                     backBtnTitle: 'Ok',
                     backBtn: {
                         type: 'button',
-                        className: 'btn--orange js-ok'
+                        className: 'btn--green-base js-ok'
                     },
                 }
             ]

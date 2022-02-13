@@ -15,9 +15,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: $gray-light;
+            color: $green-lighter-base;
             letter-spacing: -0.41px;
-            background-color: $gray;
+            background-color: $green-lighter;
             border-radius: 12px;
             box-shadow: 0 4px 16px 0 rgba($dark, 0.5);
             cursor: pointer;
@@ -26,7 +26,7 @@
             &:before {
                 line-height: 22px;
                 font-size: 20px;
-                color: $gray-light;
+                color: $green-lighter-base;
             }
 
             &:hover {

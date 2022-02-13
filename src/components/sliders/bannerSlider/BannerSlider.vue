@@ -26,12 +26,9 @@
         },
     }"
     class="banner-slider">
-    <swiper-slide  v-for="(item, index) in slidesBanner" :key="index">
+    <swiper-slide  v-for="item in bannerSlider" :key="item.id">
         <a :href="item.link">
-            <picture>
-                <source :srcset="item.imgWebp" type="image/webp">
-                <img :src="item.imgUrl" alt="">
-            </picture>
+            <img :src="item.imgUrl" :alt="item.imgAlt">
         </a>
     </swiper-slide>
 </swiper>
@@ -53,16 +50,10 @@ export default {
       SwiperSlide,
     },
     name: 'BannerSlider',
-    data() {
-        return {
-
+    props: {
+        bannerSlider: {
+            type: Array
         }
-    },
-    computed: {
-        slidesBanner() {
-            return this.$store.getters.getslidesBanner;
-        }
-        
     }
 };
 </script>

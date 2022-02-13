@@ -8,7 +8,7 @@
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba($black-base,0.8);
     transition: opacity 250ms, visibility 250ms;
     cursor: pointer;
 
@@ -38,7 +38,7 @@
         top: 0;
         right: 100%;
         z-index: 4;
-        background-color: $black;
+        background-color: $green-darker-base;
         box-sizing: border-box;
         transform: translateX(0);
         transition: transform 250ms;
@@ -62,7 +62,7 @@
             position: absolute;
             left: 16px;
             bottom: 22px;
-            background-color: $dark;
+            background-color: $black-base;
             border-radius: 22px;
         }
     }
@@ -99,7 +99,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: $gray-superlight;
+        color: $green-lighter;
 
         img {
             margin-right: 8px;

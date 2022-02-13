@@ -14,7 +14,7 @@
             }
 
             &:hover {
-                .main-menu__list-link {
+                .menu__list-link {
                     &:before {
                         color: $white;
                     }
@@ -31,7 +31,9 @@
 
             &:before {
                 margin-right: 8px;
-                transition: color 250ms;
+                opacity: 0.5;
+                color: $green-lighter;
+                transition: color 250ms; 
             }
 
             span {

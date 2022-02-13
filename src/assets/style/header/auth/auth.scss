@@ -17,10 +17,10 @@
 
             &:first-child {
                 .auth__bonuses-sum {
-                    color: $yellow;
+                    color: $red;
 
                     &:before {
-                        color: $yellow;
+                        color: $red;
                     }
                 }
             }
@@ -29,12 +29,12 @@
         &-sum {
             display: flex;
             align-items: center;
-            color: $red;
+            color: $yellow;
             font-weight: 700;
             letter-spacing: -0.408px;
 
             &:before {
-                color: $red;
+                color: $yellow;
             }
 
             span {
@@ -62,7 +62,8 @@
         -ms-flex-negative: 0;
         flex-shrink: 0;
         position: relative;
-        border: 2px solid #f33;
+        border: 2px solid $green-base;
+        box-shadow: 0px 4px 32px rgba($dark, 0.75);
         border-radius: 50%;
         box-sizing: border-box;
         overflow: hidden;

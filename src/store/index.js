@@ -10,14 +10,17 @@ import epicsSliderStore from  '@/components/sliders/epicsSlider/epicsSliderStore
 import cardSliderBonusStore from  '@/components/sliders/cardSliderBonus/cardSliderBonusStore'
 import catSliderStore from  '@/components/sliders/cat-slider/catSliderStore'
 import cardSliderTournamentsStore from  '@/components/sliders/cardSliderTournaments/cardSliderTournamentsStore'
+import headerSubmenuStore from  '@/components/header/submenu/headerSubmenuStore'
+import filterProductStore from  '@/components/filterProducts/filterProductStore'
+import footerStore from  '@/components/footer/footerStore'
 
- 
+
 
 export default createStore({
-  state: {  
-    isAuth: false,
-    
-    emptyBox: true, 
+  state: {
+    isAuth: true,
+
+    emptyBox: false,
     emptyBoxWithdrawal: true,
     withdrawalCard: false,
     showWithdrawalForm: false,
@@ -28,8 +31,8 @@ export default createStore({
       return state.isAuth;
   },
   },
-  mutations: { 
- 
+  mutations: {
+
     showcardForm(state){
       state.depositCard = !state.depositCard
     },
@@ -50,6 +53,9 @@ export default createStore({
     epicsSliderStore,
     cardSliderBonusStore,
     catSliderStore,
-    cardSliderTournamentsStore
+    cardSliderTournamentsStore,
+    headerSubmenuStore,
+    filterProductStore,
+    footerStore
   }
 })

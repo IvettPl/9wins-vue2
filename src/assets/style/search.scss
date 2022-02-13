@@ -8,7 +8,7 @@
     top: 0;
     right: 0;
     overflow: hidden;
-    background-color: #000;
+    background-color: $black-base;
     box-sizing: border-box;
     transition: width 250ms;
 
@@ -35,7 +35,7 @@
         font-size: 15px;
         color: #fff;
         letter-spacing: -0.24px;
-        background-color: #000;
+        background-color: $black-base;
         border: 0;
         border-radius: 16px;
         box-sizing: border-box;

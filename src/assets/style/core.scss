@@ -16,7 +16,7 @@ body {
     font-size: 17px;
     font-weight: 400;
     color: $gray-superlight;
-    background: $black;
+    background: $green-darker-base;
 }
 
 
@@ -30,22 +30,22 @@ footer {
 
 /*placeholder styles*/
 ::-webkit-input-placeholder{
-    color: $gray-lighter;
+    color: $green-lighter;
 }
 
 
 ::-moz-placeholder {
-    color: $gray-lighter;
+    color: $green-lighter;
 }
 
 
 :-moz-placeholder {
-    color: $gray-lighter;
+    color: $green-lighter;
 }
 
 
 :-ms-input-placeholder{
-    color: $gray-lighter;
+    color: $green-lighter;
 }
 
 :focus::-webkit-input-placeholder {
@@ -195,15 +195,6 @@ input:-webkit-autofill {
 
         .slide-cart__list {
             margin-top: 0;
-        }
-    }
-
-    &--slots {
-        .center {
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
     }
 }

@@ -26,18 +26,21 @@
     >
         <ProfileArea class="profile--start">
             <ProfileAvatar  />
-            <UserInfo :userInfoParams="userInfoParams" />
+            <UserInfo />
             <ProfileMenu  />
         </ProfileArea>
-    </Aside> 
+    </Aside>
+
     <Header />
+
     <main>
         <router-view></router-view>
-    </main> 
-    <Footer /> 
+    </main>
+
+    <Footer />
 
     <Modal
-       modalName="registration" 
+       modalName="registration"
        addClass="popup--reg"
     >
         <Columns>
@@ -135,7 +138,7 @@ import ProfileAvatar from '@/components/profile/avatar/ProfileAvatar'
 import UserInfo from '@/components/profile/userInfo/UserInfo'
 import ProfileMenu from '@/components/profile/profileMenu/ProfileMenu'
 
- 
+
 
 import PopupContent from '@/components/popup/popupContent/PopupContent'
 import RegForm from '@/components/popup/regForm/RegForm'
@@ -230,7 +233,7 @@ export default {
                 },
                 getCodeBtn: {
                     type: 'button',
-                    className: 'btn--orange',
+                    className: 'btn--green-base',
                     disabled: 1
                 },
                 registrationBtn: {
@@ -330,13 +333,13 @@ export default {
                     frontBtnTitle: 'More details',
                     frontBtn: {
                         type: 'button',
-                        className: 'btn--orange js-detail'
+                        className: 'btn--green-base js-detail'
                     },
                     backContent: 'Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.',
                     backBtnTitle: 'Ok',
                     backBtn: {
                         type: 'button',
-                        className: 'btn--orange js-ok'
+                        className: 'btn--green-base js-ok'
                     }
                 }
             },
@@ -353,7 +356,7 @@ export default {
                 },
                 getCodeBtn: {
                     type: 'button',
-                    className: 'btn--orange',
+                    className: 'btn--green-base',
                     disabled: 1
                 },
                 selectPhoneCode: {
@@ -415,7 +418,7 @@ export default {
     mounted() {
       this.$bus.$on('test', (data) => {
          console.log('hello, ', data);
-      });
+    });
     },
     computed: {
         casinoMenuList() {
@@ -423,11 +426,11 @@ export default {
         },
         sportMainMenu() {
             return this.$store.getters.getsportMainMenu;
-        },        
+        },
     }
 }
 </script>
 
 <style lang="scss">
-  @import './assets/style/color-vars';
+    @import './assets/style/color-vars';
 </style>

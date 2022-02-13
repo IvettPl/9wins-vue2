@@ -8,7 +8,7 @@
         display: block;
         line-height: 20px;
         font-size: 15px;
-        color: $gray-lighter;
+        color: $green-lighter;
     }
 
     &__area {
@@ -28,7 +28,7 @@
         height: 100%;
         position: relative;
         z-index: 1;
-        background-color: $dark;
+        background-color: $black-base;
         border-radius: 16px;
         box-sizing: border-box;
         cursor: pointer;

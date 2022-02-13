@@ -3,7 +3,7 @@
         padding: 16px 0 60px;
 
         .center {
-            max-width: 394px;
+            max-width: 776px;
         }
 
         .deposit-form,
@@ -26,6 +26,9 @@
         }
 
         .withdrawal-form {
+            margin: 0 auto;
+            max-width: 352px;
+
             .form-fields__line--double {
                 justify-content: space-between;
 
@@ -42,14 +45,32 @@
         .tabs {
             &__content-item {
                 padding-top: 32px;
+                // margin: 0 auto;
+                // max-width:  352px;
+
+                // &:first-child {
+                //     max-width:  100%;
+                //     .content-title {
+                //         text-align: center;
+                //     }
+                // }
+            }
+            &__header {
+                margin: 0 auto;
+                max-width:  352px;
             }
 
             .content-title {
-                margin-bottom: 30px;
+                margin: 0 auto 30px;
+                max-width:  352px;
                 line-height: 28px;
                 font-size: 22px;
-                color: $orange-light;
+                color: $green-superlight;
                 letter-spacing: 0.35px;
+            }
+            .deposit-form {
+                margin: 0 auto;
+                max-width: 352px;
             }
         }
 

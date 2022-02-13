@@ -19,12 +19,36 @@
 
     &:hover,
     &:focus {
-        background-color: $red-lighter;
+        background-color: $red-lighter-base;
     }
 
     &:disabled {
         background-color: $red-superlight;
         pointer-events: none;
+    }
+    &--green {
+        background-color: $green-lighter;
+
+        &:hover,
+        &:focus {
+            background-color: $green-lighter2;
+        }
+
+        &:disabled {
+            background-color: $green-lighter2;
+        }
+    }    
+    &--green-base {
+        background-color: $green-base;
+
+        &:hover,
+        &:focus {
+            background-color: $green-lighter-base;
+        }
+
+        &:disabled {
+            background-color: $green-superlight2;
+        }
     }
 
     &--orange {
@@ -160,6 +184,7 @@
     }
 
     &__login {
+        font-family: 'Roboto', sans-serif;
         margin-right: 8px;
         padding: 0;
         width: 76px;
@@ -167,7 +192,7 @@
         display: block;
         line-height: 16px;
         font-size: 14px;
-        color: $blue;
+        color: $green-base;
         border: 0;
         background: none;
         cursor: pointer;
@@ -175,6 +200,15 @@
 
         &:hover {
             color: $blue-light;
+        }
+    }
+
+    &--link {
+        background-color: initial;
+        color: $green-base;
+        &:hover {
+            background-color: $green-lighter;
+            color: $green-superlight;
         }
     }
 }

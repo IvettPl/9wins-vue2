@@ -10,7 +10,7 @@ export default {
                       link: '##',
                       imgAlt: 'Bonuses',
                       stiker: 'Wager',
-                      stikerSubClass: 'stiker--orange',
+                      stikerSubClass: 'stiker--green-base',
 
                       detalisTopList: [
                           {
@@ -43,13 +43,13 @@ export default {
 
                       frontBtnDetails: {
                           type: 'button',
-                          className: 'btn--orange js-detail'
+                          className: 'btn--green-base js-detail'
                       },
                       frontBtnDetailsTitle: 'Details',
 
                       backBtn: {
                           type: 'button',
-                          className: 'btn--orange js-detail'
+                          className: 'btn--green-base js-detail'
                       },
                       backBtnTitle: 'Ok',
                       backContent: 'Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.',
@@ -58,7 +58,7 @@ export default {
 
                       popupBtnFirst: {
                           type: 'button',
-                          className: 'btn--grey'
+                          className: 'btn--green'
                       },
                       popupBtnFirstTitle: 'Yes',
 
@@ -105,13 +105,13 @@ export default {
 
                       frontBtnDetails: {
                           type: 'button',
-                          className: 'btn--orange js-detail'
+                          className: 'btn--green-base js-detail'
                       },
                       frontBtnDetailsTitle: 'Details',
 
                       backBtn: {
                           type: 'button',
-                          className: 'btn--orange js-detail'
+                          className: 'btn--green-base js-detail'
                       },
                       backBtnTitle: 'Ok',
                       backContent: 'Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.',
@@ -120,7 +120,7 @@ export default {
 
                       popupBtnFirst: {
                           type: 'button',
-                          className: 'btn--grey'
+                          className: 'btn--green'
                       },
                       popupBtnFirstTitle: 'Yes',
 
@@ -167,13 +167,13 @@ export default {
 
                       frontBtnDetails: {
                           type: 'button',
-                          className: 'btn--orange js-detail'
+                          className: 'btn--green-base js-detail'
                       },
                       frontBtnDetailsTitle: 'Details',
 
                       backBtn: {
                           type: 'button',
-                          className: 'btn--orange js-detail'
+                          className: 'btn--green-base js-detail'
                       },
                       backBtnTitle: 'Ok',
                       backContent: 'Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.',
@@ -182,7 +182,7 @@ export default {
 
                       popupBtnFirst: {
                           type: 'button',
-                          className: 'btn--grey'
+                          className: 'btn--green'
                       },
                       popupBtnFirstTitle: 'Yes',
 
@@ -229,13 +229,13 @@ export default {
 
                       frontBtnDetails: {
                           type: 'button',
-                          className: 'btn--orange js-detail'
+                          className: 'btn--green-base js-detail'
                       },
                       frontBtnDetailsTitle: 'Details',
 
                       backBtn: {
                           type: 'button',
-                          className: 'btn--orange js-detail'
+                          className: 'btn--green-base js-detail'
                       },
                       backBtnTitle: 'Ok',
                       backContent: 'Повседневная практика показывает, что реализация намеченных плановых заданий позволяет выполнять важные задания по разработке существенных финансовых и административных условий.',
@@ -244,7 +244,7 @@ export default {
 
                       popupBtnFirst: {
                           type: 'button',
-                          className: 'btn--grey'
+                          className: 'btn--green'
                       },
                       popupBtnFirstTitle: 'Yes',
 

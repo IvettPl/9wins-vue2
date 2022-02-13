@@ -3,8 +3,8 @@
         <div class="auth__bonuses">
             <div
                 class="auth__bonuses-item"
-                v-for="(item, index) in authInfo.bonuses"
-                :key="index"
+                v-for="item in authInfo.bonuses"
+                :key="item.id"
             >
                 <div class="auth__bonuses-sum icon-uniE934">
                     <span>{{ item.sum }}</span>
@@ -25,18 +25,7 @@
 
 <script>
 export default {
-    props: ['authInfo', 'profile'],
-    data(){
-        // return {
-        //     stateProfile: this.profile
-        // }
-    },
-    methods: {
-        // toggleProfile() {
-        //     this.stateProfile = !this.stateProfile
-        //     this.$emit('changeStateProfile')
-        // }
-    }
+    props: ['authInfo']
 }
 </script>
 

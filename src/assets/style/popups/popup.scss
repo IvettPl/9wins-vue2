@@ -10,7 +10,7 @@
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
-    background-color: rgba(0,0,0, 0.8);
+    background-color: rgba($black-base,0.8);
     z-index: 4;
     transition: opacity 300ms;
 
@@ -55,7 +55,7 @@
             &:last-child {
                 width: 56%;
                 overflow: hidden;
-                background-color: $black;
+                background-color: $green-darker-base;
                 border-radius: 24px 0 0 24px;
 
                 @media (max-width: 768px) {
@@ -86,7 +86,7 @@
     &--reg {
         .dialog {
             width: 750px;
-            background-color: $dark;
+            background-color: $black-base;
 
             @media (max-width: 767px) and (max-height: 891px) {
                 border-radius: 0;
@@ -117,6 +117,11 @@
             }
 
             &__title {
+                font-size: 15px;
+                line-height: 16px;
+                text-align: center;
+                color: $green-lighter;
+
                 @media (max-width: 768px) {
                     display: none;
                 }
@@ -128,7 +133,7 @@
         .dialog {
             width: 760px;
             // height: 685px;
-            background-color: $dark;
+            background-color: $black-base;
 
             @media (max-width: 767px) and (max-height: 685px) {
                 border-radius: 0;

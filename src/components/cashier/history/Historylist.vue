@@ -1,10 +1,10 @@
 <template>
     <div class="historylist">
-        <div 
+        <div
             @click="historyParams.selectedItem = item; "
-            class="historylist__item " 
-            :class="{'show': historyParams.selectedItem === item}" 
-            v-for="(item, index) in historyParams.historyInfoParams" 
+            class="historylist__item "
+            :class="{'show': historyParams.selectedItem === item}"
+            v-for="(item, index) in historyParams.historyInfoParams"
             :key="index">
             <div class="historylist__item-header">
                 <div class="historylist__item-paylogo">
@@ -29,7 +29,7 @@
             </div>
             <div class="historylist__detalis">
                 <div class="historylist__detalis-wrap">
-                    <div  class="historylist__detalis-close"></div>
+                    <div  class="historylist__detalis-close icon-up"></div>
                     <div class="historylist__detalis-title">Details</div>
                     <div class="historylist__detalis-logo">
                         <img :src="item.imgUrl" :alt="item.imgAlt">
@@ -87,7 +87,7 @@ export default {
     name: 'Historylist',
     props: ['historyParams'],
     data(){
-        return { 
+        return {
             historyShowDetails: false
         }
     },
@@ -96,7 +96,7 @@ export default {
             return (new Date(this.historyParams.statedata)).toLocaleDateString()
         },
     },
-    
-     
+
+
 }
 </script>

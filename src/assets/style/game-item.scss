@@ -24,7 +24,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba($black, 0.75);
+        background-color: rgba($green-darker-base, 0.75);
         transform: translateY(100%);
         transition: transform 300ms;
     }
@@ -37,7 +37,7 @@
         line-height: 34px;
         box-sizing: border-box;
 
-        &--grey {
+        &--link {
             margin-top: 12px;
             width: 60px;
         }

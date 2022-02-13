@@ -9,7 +9,7 @@ export default {
                 linkUrl: '##',
                 slides: [
                     {
-    
+
                         imgUrl: require('@/assets/img/slider/sports-slider-1.jpg'),
                         link: '##',
                         imgAlt: 'slide SPORT',
@@ -23,29 +23,29 @@ export default {
                         imgAlt: 'slide SPORT'
                     },
                     {
-    
+
                         imgUrl: require('@/assets/img/slider/sports-slider-3.jpg'),
                         link: '##',
                         imgAlt: 'slide SPORT'
-    
+
                     },
                     {
                         imgUrl: require('@/assets/img/slider/sports-slider-4.jpg'),
                         link: '##',
                         imgAlt: 'slide SPORT'
                     },
-    
+
                     {
                         imgUrl: require('@/assets/img/slider/sports-slider-5.jpg'),
                         link: '##',
                         imgAlt: 'slide SPORT'
                     },
                     {
-    
+
                         imgUrl: require('@/assets/img/slider/sports-slider-6.jpg'),
                         link: '##',
                         imgAlt: 'slide SPORT'
-    
+
                     },
                     {
                         imgUrl: require('@/assets/img/slider/sports-slider-7.jpg'),
@@ -62,11 +62,11 @@ export default {
                 linkUrl: '##',
                 slides: [
                     {
-  
+
                         imgUrl: require('@/assets/img/slider/sports-slider-1.jpg'),
                         link: '##',
                         imgAlt: 'slide games'
-  
+
                     },
                     {
                         imgUrl: require('@/assets/img/slider/sports-slider-2.jpg'),
@@ -74,29 +74,29 @@ export default {
                         imgAlt: 'slide games'
                     },
                     {
-  
+
                         imgUrl: require('@/assets/img/slider/sports-slider-3.jpg'),
                         link: '##',
                         imgAlt: 'slide games'
-  
+
                     },
                     {
                         imgUrl: require('@/assets/img/slider/sports-slider-4.jpg'),
                         link: '##',
                         imgAlt: 'slide games'
                     },
-  
+
                     {
                         imgUrl: require('@/assets/img/slider/sports-slider-5.jpg'),
                         link: '##',
                         imgAlt: 'slide games'
                     },
                     {
-  
+
                         imgUrl: require('@/assets/img/slider/sports-slider-6.jpg'),
                         link: '##',
                         imgAlt: 'slide games'
-  
+
                     },
                     {
                         imgUrl: require('@/assets/img/slider/sports-slider-7.jpg'),
@@ -104,7 +104,7 @@ export default {
                         imgAlt: 'slide games'
                     }
                 ],
-            },    
+            },
 
             casino:{
                 id: '3',
@@ -114,11 +114,11 @@ export default {
                 linkUrl: '##',
                 slides: [
                     {
-  
+
                         imgUrl: require('@/assets/img/slider/sports-slider-1.jpg'),
                         link: '##',
                         imgAlt: 'slide casino'
-  
+
                     },
                     {
                         imgUrl: require('@/assets/img/slider/sports-slider-2.jpg'),
@@ -126,29 +126,29 @@ export default {
                         imgAlt: 'slide casino'
                     },
                     {
-  
+
                         imgUrl: require('@/assets/img/slider/sports-slider-3.jpg'),
                         link: '##',
                         imgAlt: 'slide casino'
-  
+
                     },
                     {
                         imgUrl: require('@/assets/img/slider/sports-slider-4.jpg'),
                         link: '##',
                         imgAlt: 'slide casino'
                     },
-  
+
                     {
                         imgUrl: require('@/assets/img/slider/sports-slider-5.jpg'),
                         link: '##',
                         imgAlt: 'slide casino'
                     },
                     {
-  
+
                         imgUrl: require('@/assets/img/slider/sports-slider-6.jpg'),
                         link: '##',
                         imgAlt: 'slide casino'
-  
+
                     },
                     {
                         imgUrl: require('@/assets/img/slider/sports-slider-7.jpg'),
@@ -156,7 +156,7 @@ export default {
                         imgAlt: 'slide casino'
                     }
                 ],
-            }, 
+            },
             slots:{
                 id: '4',
                 title: 'Slots',
@@ -165,48 +165,53 @@ export default {
                 linkUrl: '/slots',
                 slides: [
                     {
+                        id: 1,
                         imgUrl: require('@/assets/img/slider/sports-slider-1.jpg'),
                         link: '##',
                         imgAlt: 'slide Slots'
-  
+
                     },
                     {
+                        id: 2,
                         imgUrl: require('@/assets/img/slider/sports-slider-2.jpg'),
                         link: '##',
                         imgAlt: 'slide Slots'
                     },
                     {
-  
+                        id: 3,
                         imgUrl: require('@/assets/img/slider/sports-slider-3.jpg'),
                         link: '##',
                         imgAlt: 'slide Slots'
-  
                     },
                     {
+                        id: 4,
                         imgUrl: require('@/assets/img/slider/sports-slider-4.jpg'),
                         link: '##',
                         imgAlt: 'slide Slots'
                     },
-  
                     {
+                        id: 5,
                         imgUrl: require('@/assets/img/slider/sports-slider-5.jpg'),
                         link: '##',
-                        imgAlt: 'slide Slots'
+                        imgAlt: 'slide Slots',
+                        check: true
                     },
                     {
-  
+                        id: 6,
                         imgUrl: require('@/assets/img/slider/sports-slider-6.jpg'),
                         link: '##',
                         imgAlt: 'slide Slots'
-  
+
                     },
                     {
+                        id: 7,
                         imgUrl: require('@/assets/img/slider/sports-slider-7.jpg'),
                         link: '##',
-                        imgAlt: 'slide Slots'
+                        imgAlt: 'slide Slots',
+                        check: true
                     }
                 ],
-            },                               
+            },
         }
     },
     getters: {
@@ -215,12 +220,12 @@ export default {
         },
         getGamesSliders(state) {
             return state.games;
-        },   
+        },
         getCasinoSliders(state) {
             return state.casino;
-        },    
+        },
         getSlotsSliders(state) {
             return state.slots;
-        },          
+        },
     }
 }

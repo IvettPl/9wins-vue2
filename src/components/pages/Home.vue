@@ -1,6 +1,6 @@
 <template>
     <div class="page-wrapper page-wrapper--home">
-        <BannerSlider />
+        <BannerSlider :bannerSlider="slidesBanner" />
         <CatSlider  :catSliders="sportSliders" />
         <SliderTournamentsMod v-if="isAuth"  />
         <CatSlider  :catSliders="gamesSliders" />
@@ -24,29 +24,36 @@ import SliderTournamentsMod from '@/components/sliders/cardSliderTournaments/Sli
 export default {
   name: 'Home',
   components: {
-    BannerSlider, CatSlider, SliderBonusMod, SliderTournamentsMod, EpicsSlider
+    BannerSlider,
+    CatSlider,
+    SliderBonusMod,
+    SliderTournamentsMod,
+    EpicsSlider
   },
   data(){
-      return { 
- 
+      return {
+
       }
   },
-  computed: { 
+  computed: {
         sportSliders() {
             return this.$store.getters.getSportSliders;
         },
         gamesSliders() {
             return this.$store.getters.getGamesSliders;
-        },   
+        },
         casinoSliders() {
             return this.$store.getters.getCasinoSliders;
-        },   
+        },
         slotsSliders() {
             return this.$store.getters.getSlotsSliders;
-        }, 
+        },
         isAuth() {
             return this.$store.getters.getIsAuth;
-        },                            
+        },
+        slidesBanner() {
+            return this.$store.getters.getHomeSlidesBanner;
+        }
   }
 }
 </script>

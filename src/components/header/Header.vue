@@ -11,7 +11,7 @@
 
             <HeaderSubmenu :subMenuList="headerSubMenu" />
 
-            <button type="button" class="btn__search icon-search"></button>
+            <!-- <button type="button" class="btn__search icon-search"></button> -->
         </div>
 
         <div class="logo">
@@ -48,46 +48,22 @@ export default {
     },
     data() {
         return {
-            headerSubMenu: [
-                {
-                    icn: 'icon-sports_filled',
-                    link: '##',
-                    title: 'Sports'
-                },
-                {
-                    icn: 'icon-virtual_games',
-                    link: '##',
-                    title: 'Virtual games'
-                },
-                {
-                    subClass: 'submenu-list__item--deposite',
-                    link: '##',
-                    title: 'Deposite'
-                },
-                {
-                    icn: 'icon-live_casino',
-                    link: '##',
-                    title: 'Live casino'
-                },
-                {
-                    icn: 'icon-slots',
-                    link: 'slots',
-                    title: 'Slots'
-                }
-            ],
             authInfo: {
                 avatar: require('@/assets/img/avatars/avatar.png'),
                 alt: 'Avatar',
                 link: '##',
                 linkTitle: 'Deposit',
                 bonuses: [
-                    {sum: '32,000', title: 'Balance'},
-                    {sum: '190,000', title: 'Bonus'},
+                    {id: 1, sum: '32,000', title: 'Balance'},
+                    {id: 2, sum: '190,000', title: 'Bonus'},
                 ]
             }
         }
     },
-    methods: {
+    computed: {
+        headerSubMenu() {
+            return this.$store.getters.getSubMenu
+        }
     }
 }
 </script>

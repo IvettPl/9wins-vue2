@@ -23,7 +23,7 @@ export default {
                 text: 'You have no bonuses',
                 btn: {
                     type: 'button',
-                    className: 'btn--orange'
+                    className: 'btn--green-base'
                 },
                 btnTitle: 'Tournaments'
             },

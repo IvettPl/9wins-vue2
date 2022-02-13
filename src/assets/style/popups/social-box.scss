@@ -3,7 +3,26 @@
     margin-bottom: 30px;
     width: 100%;
     text-align: center;
-    border-top: 1px solid $gray-lighter;
+    position: relative;
+    // border-top: 1px solid $gray-lighter;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 1px;
+        width: 100%;
+        max-width: 74px;
+        background-color: $green-lighter;
+    }
+
+    &:before {
+        left: 40px;
+    }
+    &:after {
+        right: 40px;
+    }
 
     &__label {
         margin-top: -12px;
@@ -12,9 +31,9 @@
         vertical-align: top;
         line-height: 20px;
         font-size: 15px;
-        color: $gray-superlight;
+        color: $green-lighter2;
         white-space: nowrap;
-        background-color: $black;
+        background-color: $green-darker-base;
     }
 
     &__list {
