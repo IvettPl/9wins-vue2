@@ -1,0 +1,78 @@
+.sorting {
+    width: 100%;
+
+    &__header {
+        margin: 0 0 24px;
+        width: 100%;
+    }
+
+    &__search {
+        margin: 0 auto;
+        max-width: 550px;
+        width: 100%;
+        display: flex;
+
+        .btn {
+            &__close {
+                margin: 4px 0 0 8px;
+                width: 40px;
+                height: 40px;
+                display: block;
+                flex-shrink: 0;
+                position: relative;
+                top: auto;
+                right: auto;
+
+                &:before,
+                &:after {
+                    width: 18px;
+                    left: 11px;
+                }
+
+            }
+
+            &__filter {
+                margin: 4px 0 0 8px;
+                transition: opacity 300ms;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+
+    &__field {
+        &-wrap {
+            width: 100%;
+
+            label {
+                margin-top: 8px;
+                display: block;
+                line-height:18px;
+                font-size: 13px;
+                color: $green-lighter2;
+                letter-spacing: -0.08px;
+            }
+        }
+    }
+
+    &__filter {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .btn__search {
+            width: 42px;
+            height: 42px;
+            position: static;
+            transform: translateY(0);
+            transition: opacity 300ms;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}

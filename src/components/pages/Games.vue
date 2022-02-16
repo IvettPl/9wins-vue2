@@ -3,28 +3,40 @@
         <BannerSlider :bannerSlider="slidesBanner" />
 
         <div class="center">
-
-            <FilterProducts :headerFilter="filterHeader"></FilterProducts>
-
-            <div class="sorting__content">
-                <CatSliderItem :CatSliderItem="item" v-for="item in productList.slides" :key="item.id" />
-            </div>
+            <Sorting>
+                <CatSliderItem
+                    :CatSliderItem="item"
+                    v-for="item in productList.slides"
+                    :key="item.id"
+                />
+            </Sorting>
         </div>
+
+        <Modal
+            modalName="apply-filter"
+            addClass="popup--filter"
+        >
+            <ApplyFilter />
+        </Modal>
     </div>
 </template>
 
 <script>
-    import BannerSlider from '@/components/sliders/bannerSlider/BannerSlider'
-    import FilterProducts from '@/components/filterProducts/FilterProducts'
-    import CatSliderItem from '@/components/sliders/cat-slider/CatSliderItem'
+    import BannerSlider from '@/components/sliders/bannerSlider/BannerSlider';
+    import CatSliderItem from '@/components/sliders/cat-slider/CatSliderItem';
+    import Sorting from '@/components/sorting/Sorting';
+    import Modal from "@/components/modal/Modal";
+    import ApplyFilter from "@/components/sorting/applyFilter/ApplyFilter";
 
     export default {
         name: 'Games',
 
         components: {
+            CatSliderItem,
             BannerSlider,
-            FilterProducts,
-            CatSliderItem
+            Sorting,
+            Modal,
+            ApplyFilter
         },
 
         computed: {

@@ -4,7 +4,7 @@ export default {
             headerSubMenu: [
                 {
                     icn: 'icon-sports_filled',
-                    link: '##',
+                    link: 'sports',
                     title: 'Sports'
                 },
                 {

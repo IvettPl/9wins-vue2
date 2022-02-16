@@ -1,6 +1,7 @@
 <template>
     <div class="input-box" :class="{'is-error': !attrInput.isValid}">
         <label
+            v-if="attrInput.label"
             class="input-box__label"
             :for="attrInput.id"
         >
@@ -21,7 +22,7 @@
                 :placeholder="attrInput.placeholder"
             >
         </div>
-        <span class="input-box__error">{{attrInput.errorMsg}}</span>
+        <span v-if="attrInput.errorMsg" class="input-box__error">{{attrInput.errorMsg}}</span>
     </div>
 </template>
 

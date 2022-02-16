@@ -37,7 +37,7 @@
         &:disabled {
             background-color: $green-lighter2;
         }
-    }    
+    }
     &--green-base {
         background-color: $green-base;
 
@@ -104,13 +104,12 @@
     }
 
     &__filter {
-        width: 0;
+        width: 40px;
         height: 40px;
         flex-shrink: 0;
         font-size: 24px;
         overflow: hidden;
         cursor: pointer;
-        transition: width 250ms;
     }
 
     &__close {

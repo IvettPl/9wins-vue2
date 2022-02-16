@@ -1,11 +1,47 @@
 .filer-products {
-    margin: 4px 0 24px;
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    line-height: 16px;
-    font-size: 14px;
-    color: $green-lighter2;
+    &__wrap {
+        margin: 4px 0 24px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        opacity: 0;
+        visibility: hidden;
+
+        &.isShow {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .btn__search {
+            margin: 0;
+            width: 42px;
+            height: 42px;
+            position: static;
+            transform: translateY(0);
+
+            &:before {
+                transition: opacity 300ms;
+            }
+
+            &:hover {
+                &:before {
+                    opacity: 0.7
+                }
+            }
+        }
+    }
+
+    &__slide {
+        margin: 0 20px 0 0;
+
+        &-item {
+            width: auto;
+            line-height: 16px;
+            font-size: 14px;
+            color: $green-lighter2;
+        }
+    }
 
     &__item {
         padding: 13px 8px;

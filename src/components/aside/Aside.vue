@@ -46,7 +46,12 @@ export default {
         this.$bus.$on('close-aside-' + this.asideName, () => {
             this.isOpen = false;
         });
+    },
+
+    watch: {
+        $route: function(to, from) {
+            this.isOpen = false
+        }
     }
 }
 </script>
-

@@ -57,7 +57,6 @@
         </Columns>
     </Modal>
 
-
     <Modal
         modalName="login"
         addClass="popup--login"
@@ -155,24 +154,26 @@ import EModal from "./components/EModal/EModal";
 import Modal from "./components/modal/Modal";
 import Columns from "./components/columns/Columns";
 
+import {AuthMixin} from "./components/mixin/authMixin";
+
 
 
 export default {
-  components: {
-    Header,
-      Login,
-      Footer, Tabs,
-      MenuList, Aside,
-      ProfileArea,
-      ProfileAvatar,
-      UserInfo, ProfileMenu,
-      PopupContent, RegForm, LoginForm,
-      LoginMailFields, LoginPhoneFields,
-      SocialBox, PopupFooter, PopupSlider, TournamentsItem,
-      EModal,
+    components: {
+        Header,
+            Login,
+            Footer, Tabs,
+            MenuList, Aside,
+            ProfileArea,
+            ProfileAvatar,
+            UserInfo, ProfileMenu,
+            PopupContent, RegForm, LoginForm,
+            LoginMailFields, LoginPhoneFields,
+            SocialBox, PopupFooter, PopupSlider, TournamentsItem,
+            EModal,
 
-      Modal, Columns
-  },
+            Modal, Columns
+    },
     data(){
         return {
             regFormParams: {
@@ -400,12 +401,11 @@ export default {
                     'Casino', 'Sport'
                 ],
             },
-
-
-
-
         }
     },
+
+    mixins: [AuthMixin],
+
     methods: {
         optionName(option) {
             this.regFormParams.selectPhoneCode.selected = option.name
@@ -415,15 +415,18 @@ export default {
             this.loginPopupPhoneFields.selectPhoneCode.selected = option.name
         }
     },
-    mounted() {
-      this.$bus.$on('test', (data) => {
-         console.log('hello, ', data);
-    });
-    },
+
+    // mounted() {
+    //     this.$bus.$on('test', (data) => {
+    //         console.log('hello, ', data);
+    //     });
+    // },
+
     computed: {
         casinoMenuList() {
             return this.$store.getters.getcasinoMainMenu;
         },
+
         sportMainMenu() {
             return this.$store.getters.getsportMainMenu;
         },

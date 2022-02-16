@@ -1,19 +1,4 @@
 .sorting {
-    &__list {
-        padding-right: 40px;
-        display: inline-flex;
-        align-items: center;
-        position: relative;
-
-        &-item {
-            padding: 11px 27px;
-            line-height: 18px;
-            font-size: 13px;
-            color: #cfd1d5;
-            cursor: pointer;
-        }
-    }
-
     &__content {
         width: 100%;
         display: flex;

@@ -30,10 +30,6 @@
 @import './tools-panel';
 @import './filter-product';
 
-@import './search';
-@import './sorting';
-@import './apply-filter';
-
 @import './profile';
 @import './profile-avatar';
 @import './user-info';
@@ -58,6 +54,11 @@
 @import './cashier/emty-box';
 @import './cashier/history-list';
 @import './cashier/infolist';
+
+
+@import './sorting/sorting';
+@import './sorting/sorting-content';
+@import './sorting/apply-filter';
 
 @import './footer/footer';
 @import './footer/logo-list/logo-list';
