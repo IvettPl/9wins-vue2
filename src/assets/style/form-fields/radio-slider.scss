@@ -1,0 +1,60 @@
+.form-fields {
+    &__group {
+        width: 100%;
+        height: 44px;
+        display: flex;
+        position: relative;
+        background-color: $black-base;
+        border-radius: 22px;
+
+        &:before {
+            content: '';
+            margin: 1px 0 1px 1px;
+            width: calc(50% - 2px);
+            height: calc(100% - 2px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $green-dark-base;
+            border-radius: 22px;
+            transition: transform 300ms;
+        }
+
+        &.second {
+            &:before {
+                transform: translateX(100%)
+            }
+        }
+
+        .form-fields {
+            &__line {
+                margin: 0;
+                width: 50%;
+
+                input {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    visibility: hidden;
+                    appearance: none;
+                }
+
+                label {
+                    width: 100%;
+                    display: block;
+                    line-height: 44px;
+                    font-size: 13px;
+                    color: $green-lighter2;
+                    text-align: center;
+                    cursor: pointer;
+                    transition: color 250ms;
+                }
+
+                input:checked + label {
+                    color: $green-base;
+                }
+            }
+        }
+    }
+}

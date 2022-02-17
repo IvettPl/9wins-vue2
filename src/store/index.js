@@ -11,8 +11,13 @@ import cardSliderBonusStore from  '@/components/sliders/cardSliderBonus/cardSlid
 import catSliderStore from  '@/components/sliders/cat-slider/catSliderStore'
 import cardSliderTournamentsStore from  '@/components/sliders/cardSliderTournaments/cardSliderTournamentsStore'
 import headerSubmenuStore from  '@/components/header/submenu/headerSubmenuStore'
+
 import filterProductStore from  '@/components/sorting/filterProductStore'
 import applyFilterStore from  '@/components/sorting/applyFilter/applyFilterStore'
+
+import settingsListStore from  '@/components/profile/settingsList/settingsListStore'
+import formFieldsStore from  '@/components/profile/formFieldsStore'
+
 import footerStore from  '@/components/footer/footerStore'
 
 
@@ -49,19 +54,19 @@ export default createStore({
 
     modules: {
         Deposite,
+
         socialDataStore,
-        profileMenuStore,
-        profileAvatarStore,
-        userInfoStore,
+
         menuListStore,
-        bannerSliderStore,
-        epicsSliderStore,
-        cardSliderBonusStore,
-        catSliderStore,
-        cardSliderTournamentsStore,
-        headerSubmenuStore,
-        filterProductStore,
-        applyFilterStore,
+
+        //sliders
+        bannerSliderStore, epicsSliderStore, cardSliderBonusStore, catSliderStore, cardSliderTournamentsStore,
+
+        headerSubmenuStore, filterProductStore, applyFilterStore,
+
+        //profile
+        settingsListStore, profileMenuStore, profileAvatarStore, userInfoStore, formFieldsStore,
+
         footerStore
     }
 })

@@ -161,6 +161,20 @@
         }
     }
 
+    &__back {
+        width: 24px;
+        height: 24px;
+        transition: opacity 250ms;
+
+        &:before {
+            font-size: 24px;
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
     &__menu {
         margin-right: 14px;
         padding: 0;

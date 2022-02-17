@@ -9,17 +9,17 @@ export default {
                 },
                 {
                     icnClass: 'icon-tournaments',
-                    link: '##',
+                    link: '/tournaments',
                     title: 'Tournaments'
                 },
                 {
                     icnClass: 'icon-new',
-                    link: '##',
+                    link: '/news',
                     title: 'News'
                 },
                 {
                     icnClass: 'icon-personal-info',
-                    link: '##',
+                    link: '/programm',
                     title: 'Loyalty Programm'
                 },
                 {
@@ -29,15 +29,15 @@ export default {
                 },
                 {
                     icnClass: 'icon-live_casino',
-                    link: '##',
+                    link: '/casino',
                     title: 'Live Casino'
                 },
                 {
                     icnClass: 'icon-table',
-                    link: '##',
+                    link: '/skill',
                     title: 'Skill Games'
                 }
-            ],  
+            ],
             sportMainMenu: [
                 {
                     icnClass: 'icon-sports_filled',
@@ -89,7 +89,7 @@ export default {
                     link: '##',
                     title: 'Бокс'
                 }
-            ],          
+            ],
         }
     },
     getters: {

@@ -1,8 +1,8 @@
 <template>
-    <div class="profile">
-        <div class="profile__viewpost">
+    <div class="profile-area">
+        <div class="profile-area__content">
             <slot></slot>
         </div>
-        <div class="profile__logout">Log Out</div>
+        <slot name="profile-area-bottom"></slot>
     </div>
 </template>

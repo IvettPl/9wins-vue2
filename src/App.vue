@@ -24,10 +24,87 @@
         addClass="aside--right"
         aside-name="profile-aside"
     >
-        <ProfileArea class="profile--start">
+        <ProfileArea class="profile-area--start ">
             <ProfileAvatar  />
             <UserInfo />
             <ProfileMenu  />
+
+            <template #profile-area-bottom>
+                <div class="profile-area__logout">Log Out</div>
+            </template>
+        </ProfileArea>
+
+        <ProfileArea class="profile-area--settings">
+            <button class="btn__back icon-back"></button>
+            <div class="profile-area__title">Settings</div>
+            <SettingsList :settingsList="settingsList" />
+        </ProfileArea>
+
+        <ProfileArea class="profile-area--confirmpass">
+            <button class="btn__back icon-back"></button>
+            <div class="profile-area__title">Change password</div>
+            <div
+                class="form-fields__line"
+                v-for="item in inputPass"
+                :key="item.id"
+            >
+                <CustomInput :attrInput="item" />
+            </div>
+            <div class="btn__wrap">
+                <CustomButton
+                    :attrBtn="confirmBtnAttrs"
+                >Confirm</CustomButton>
+            </div>
+        </ProfileArea>
+
+        <ProfileArea class="profile-area--personal active">
+            <button class="btn__back icon-back"></button>
+            <div class="profile-area__title">Personal Information</div>
+            <ProfileAvatar  />
+            <SettingsList :settingsList="PersonalInfoList" />
+        </ProfileArea>
+
+        <ProfileArea class="profile-area--chagename">
+            <button class="btn__back icon-back"></button>
+            <div class="profile-area__title">Change name</div>
+            <div class="form-fields__line">
+                <CustomInput :attrInput="nameFieldAttrs" />
+            </div>
+            <div class="btn__wrap">
+                <CustomButton
+                    :attrBtn="confirmBtnAttrs"
+                >Confirm</CustomButton>
+            </div>
+        </ProfileArea>
+
+        <ProfileArea class="profile-area--promocode">
+            <button class="btn__back icon-back"></button>
+            <div class="profile-area__title">Promocodes</div>
+            <div class="form-fields__line">
+                <CustomInput :attrInput="promoFieldAttrs" />
+            </div>
+            <div class="btn__wrap">
+                <CustomButton
+                    :attrBtn="confirmBtnAttrs"
+                >Confirm</CustomButton>
+            </div>
+        </ProfileArea>
+
+        <ProfileArea class="profile-area--adddocs">
+            <button class="btn__back icon-back"></button>
+            <div class="profile-area__title">Add Documents</div>
+            <SettingsList :settingsList="addDocsList" />
+        </ProfileArea>
+
+        <ProfileArea class="profile-area--gender">
+            <button class="btn__back icon-back"></button>
+            <div class="profile-area__title">Select Gender</div>
+            <RadioSlider />
+        </ProfileArea>
+
+        <ProfileArea class="profile-area--country">
+            <button class="btn__back icon-back"></button>
+            <div class="profile-area__title">Choose your country</div>
         </ProfileArea>
     </Aside>
 
@@ -93,34 +170,6 @@
             </template>
         </Columns>
     </Modal>
-
-    <!-- <button class="btn" @click="$bus.$emit('open-modal-test')">
-        Открыть Модалку
-    </button> -->
-    <!-- <EModal name="modal-test"
-            class-name="uk-modal-dialog"
-           >
-        <template #header>
-            <div class="modal-head">
-                <div class="modal-title">modal-titls</div>
-            </div>
-        </template>
-
-        <template #body>
-            <div class="modal-body">
-                ssdasasdd
-               <button>
-                   test
-               </button>
-                asdasd
-                Modal Body
-                <div>
-                    twasasdasda
-                </div>
-                loremru
-            </div>
-        </template>
-    </EModal> -->
 </div>
 </template>
 
@@ -132,10 +181,12 @@ import Tabs from '@/components/tabs/Tabs'
 import MenuList from '@/components/menuList/MenuList'
 import Aside from '@/components/aside/Aside'
 
+//profile
 import ProfileArea from '@/components/profile/ProfileArea'
 import ProfileAvatar from '@/components/profile/avatar/ProfileAvatar'
 import UserInfo from '@/components/profile/userInfo/UserInfo'
 import ProfileMenu from '@/components/profile/profileMenu/ProfileMenu'
+import SettingsList from '@/components/profile/settingsList/SettingsList'
 
 
 
@@ -149,10 +200,10 @@ import PopupFooter from '@/components/popup/popupFooter/PopupFooter'
 import PopupSlider from '@/components/popup/popupSlider/PopupSlider'
 
 import TournamentsItem from '@/components/sliders/cardSliderTournaments/TournamentsItem'
-import EModal from "./components/EModal/EModal";
 
 import Modal from "./components/modal/Modal";
 import Columns from "./components/columns/Columns";
+
 
 import {AuthMixin} from "./components/mixin/authMixin";
 
@@ -161,19 +212,21 @@ import {AuthMixin} from "./components/mixin/authMixin";
 export default {
     components: {
         Header,
-            Login,
-            Footer, Tabs,
-            MenuList, Aside,
-            ProfileArea,
-            ProfileAvatar,
-            UserInfo, ProfileMenu,
-            PopupContent, RegForm, LoginForm,
-            LoginMailFields, LoginPhoneFields,
-            SocialBox, PopupFooter, PopupSlider, TournamentsItem,
-            EModal,
+        Login,
+        Footer, Tabs,
+        MenuList, Aside,
 
-            Modal, Columns
+        //profile
+        ProfileArea, ProfileAvatar, UserInfo, ProfileMenu, SettingsList,
+
+        //popups
+        Modal, Columns, PopupContent, RegForm, LoginForm, SocialBox, PopupFooter, PopupSlider, TournamentsItem,
+
+        //form fields
+        LoginMailFields, LoginPhoneFields,
+
     },
+
     data(){
         return {
             regFormParams: {
@@ -416,12 +469,6 @@ export default {
         }
     },
 
-    // mounted() {
-    //     this.$bus.$on('test', (data) => {
-    //         console.log('hello, ', data);
-    //     });
-    // },
-
     computed: {
         casinoMenuList() {
             return this.$store.getters.getcasinoMainMenu;
@@ -430,6 +477,34 @@ export default {
         sportMainMenu() {
             return this.$store.getters.getsportMainMenu;
         },
+
+        settingsList() {
+            return this.$store.getters.getsettingsList;
+        },
+
+        PersonalInfoList() {
+            return this.$store.getters.getPersonalInfoList;
+        },
+
+        addDocsList() {
+            return this.$store.getters.getAddDocsList;
+        },
+
+        inputPass() {
+            return this.$store.getters.getConfirmPassFields;
+        },
+
+        nameFieldAttrs() {
+            return this.$store.getters.getChageNameField;
+        },
+
+        promoFieldAttrs() {
+            return this.$store.getters.getPromoFieldAttrs;
+        },
+
+        confirmBtnAttrs() {
+            return this.$store.getters.getConfirmBtnAttrs;
+        }
     }
 }
 </script>

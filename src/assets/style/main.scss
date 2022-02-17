@@ -6,7 +6,7 @@
 @import './core';
 
 
-@import './btns';
+@import './ui/btns';
 @import './favorite-label';
 @import './aside';
 @import './tabs';
@@ -30,10 +30,11 @@
 @import './tools-panel';
 @import './filter-product';
 
-@import './profile';
-@import './profile-avatar';
-@import './user-info';
-@import './profile-menu';
+@import './profile/profile';
+@import './profile/profile-avatar';
+@import './profile/user-info';
+@import './profile/profile-menu';
+@import './profile/settings-list';
 
 @import './popups/popup';
 @import './popups/popup-content';
@@ -47,6 +48,7 @@
 @import './form-fields/input-text';
 @import './form-fields/custom-select';
 @import './form-fields/custom-checkbox';
+@import './form-fields/radio-slider';
 
 @import './cashier/cashier';
 @import './cashier/paycard-list';
